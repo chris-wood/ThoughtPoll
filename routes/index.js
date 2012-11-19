@@ -12,9 +12,9 @@ var Todo     = mongoose.model( 'Todo' );
 
 // query db for all todo items
 exports.index = function ( req, res ){
-  Todo.find(function ( err, todos, count ){
+  Todo.find(function (err, todos, count ){
     res.render( 'index', {
-        title : 'Express Todo Example',
+        title : 'ThoughtPoll',
         todos : todos
     });
   });

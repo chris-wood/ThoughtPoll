@@ -8,15 +8,15 @@ var Todo = new Schema({
     updated_at : Date
 });
 
-// Schema for users
+// Schema for users 
 var UserSchema = new Schema({
 	id : {type: Number, required: true},
-	email: { type: String, validate: [validatePresenceOf, 'an email is required'], index: { unique: true } },
+	email: { type: String, index: { unique: true } }, //validate: [validatePresenceOf, 'an email is required']
 	hashed_password: {type: String, required: true},
 	salt: {type: String, required: true}
 });
 
-// Schema for the poll questions, answers, and voting history
+// Schema for the poll questions 
 var QuestionSchema = new Schema({
 	id : {type: Number, required: true, autoIndex: true},
     body : {type: String, required: true},
@@ -24,6 +24,7 @@ var QuestionSchema = new Schema({
     updated_at : {type: Date, required: true}
 });
 
+// Schema for the poll answers 
 var AnswerSchema = new Schema({
 	id : {type: Number, required: true, autoIndex: true},
     body : {type: String, required: true},
@@ -32,6 +33,7 @@ var AnswerSchema = new Schema({
     updated_at : {type: Date, required: true}
 });
 
+// Schema for the poll voting history 
 var VoteHistorySchema = new Schema({
 	id : {type: Number, required: true},
     question_id : {type: Number, required: true},
@@ -40,7 +42,6 @@ var VoteHistorySchema = new Schema({
     created_at : {type: Date, required: true},
     updated_at : {type: Date, required: true}
 });
- 
-mongoose.model( 'Todo', Todo );
- 
-mongoose.connect( 'mongodb://localhost/express-todo' );
+
+mongoose.model('Todo', Todo); 
+mongoose.connect('mongodb://localhost/express-todo');
