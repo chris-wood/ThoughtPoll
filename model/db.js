@@ -9,7 +9,7 @@ var Todo = new Schema({
 });
 
 // Schema for users 
-var UserSchema = new Schema({
+var User = new Schema({
 	id : {type: Number, required: true},
 	email: { type: String, index: { unique: true } }, //validate: [validatePresenceOf, 'an email is required']
 	hashed_password: {type: String, required: true},
@@ -17,24 +17,23 @@ var UserSchema = new Schema({
 });
 
 // Schema for the poll questions 
-var QuestionSchema = new Schema({
-	id : {type: Number, required: true, autoIndex: true},
-    body : {type: String, required: true},
+var Question = new Schema({
+    body : {type: String, index: { unique: true }, required: true},
     created_at : {type: Date, required: true},
     updated_at : {type: Date, required: true}
 });
 
 // Schema for the poll answers 
-var AnswerSchema = new Schema({
-	id : {type: Number, required: true, autoIndex: true},
-    body : {type: String, required: true},
+var Answer = new Schema({
+	//id : {type: Number, required: true, autoIndex: true},
+    body : {type: String, index: { unique: true }, required: true},
     votes : {type: Number, required: true},
     created_at : {type: Date, required: true},
     updated_at : {type: Date, required: true}
 });
 
 // Schema for the poll voting history 
-var VoteHistorySchema = new Schema({
+var VoteHistory = new Schema({
 	id : {type: Number, required: true},
     question_id : {type: Number, required: true},
     answer_id : {type: Number, required: true},
@@ -43,5 +42,39 @@ var VoteHistorySchema = new Schema({
     updated_at : {type: Date, required: true}
 });
 
+// Compile the schemas into the model
 mongoose.model('Todo', Todo); 
-mongoose.connect('mongodb://localhost/express-todo');
+mongoose.model('User', User);
+mongoose.model('Question', Question);
+mongoose.model('Answer', Answer);
+mongoose.model('VoteHistory', VoteHistory);
+mongoose.connect('mongodb://localhost/thoughtpoll');
+
+/*
+
+Defining an instance method for a Schema type...
+
+var animalSchema = new Schema({ name: String, type: String });
+
+animalSchema.methods.findSimilarTypes = function (cb) {
+  return this.model('Animal').find({ type: this.type }, cb);
+}
+
+*/
+
+// Some instance methods for the documents
+Question.methods.isQOTD = function() {
+	var today = new Date();
+	var dd = today.getDate();
+	var mm = today.getMonth() + 1; // January is 0
+	var yyyy = today.getFullYear();
+	var matchString = yyyy + "-" + mm + "-" + dd;
+    return (this.created_at.toISOString().indexOf(matchString) == 0);
+}
+
+// Re-compile the schemas into the model and then connect to the database
+mongoose.model('Todo', Todo); 
+mongoose.model('User', User);
+mongoose.model('Question', Question);
+mongoose.model('Answer', Answer);
+mongoose.model('VoteHistory', VoteHistory);

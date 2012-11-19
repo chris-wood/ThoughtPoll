@@ -1,0 +1,16 @@
+<h1><%= title %></h1>
+<p>
+	Poll question will go here...
+</p>
+
+<form action="/createPoll" method="post" accept-charset="utf-8">
+  <input type="text" name="content" />
+</form>
+
+<% if (poll != null) { %>
+  <p>
+    <span>
+      <%= poll.body %>
+    </span>
+  </p>
+<% } %>
