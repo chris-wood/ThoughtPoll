@@ -1,4 +1,15 @@
 Tutorial: http://dreamerslab.com/blog/en/write-a-todo-list-with-express-and-mongodb/
 
+For Mongoose:
 mongo  - mongo console
+	show dbs (use db to open one)
+	show collections
+	db.COLLNAME.find()
 mongod - start the DB service before running the app...
+
+TODO:
+0. Tie answers to questions (provide form for entering a poll with multiple questions)
+1. User support with admin interface to modify polls
+2. Determine the type of information needed in the user profile (age, sex, etc)
+3. Tie user votes to vote history and prevent additional votes 
+
