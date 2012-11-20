@@ -26,8 +26,9 @@ var Question = new Schema({
 // Schema for the poll answers 
 var Answer = new Schema({
 	//id : {type: Number, required: true, autoIndex: true},
-    body : {type: String, index: { unique: true }, required: true},
-    votes : {type: Number, required: true},
+    question : Schema.Types.ObjectId, // a reference to the question model instance we are tied to...
+    body : {type: [String], index: { unique: true }, required: true}, // body is array of strings (the answers)
+    //votes : {type: Number, required: true},
     created_at : {type: Date, required: true},
     updated_at : {type: Date, required: true}
 });

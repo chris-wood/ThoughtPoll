@@ -38,9 +38,9 @@ var routes = require('./routes')
 // Define the routes that we support in this app
 app.get('/', routes.index);
 app.get('/poll', routes.showPoll);
+app.get('/destroy/:id', routes.destroy);
 app.post('/createPoll', routes.createPoll);
 app.post('/create', routes.create);
-app.get( '/destroy/:id', routes.destroy );
 
 // Start the server!
 http.createServer(app).listen(3000, function(){

@@ -5,12 +5,28 @@
 
 <form action="/createPoll" method="post" accept-charset="utf-8">
   <input type="text" name="content" />
+  <input type="text" name="answer[]" value="1"/>
+  <input type="text" name="answer[]" value="2"/>
+  <input type="text" name="answer[]" value="3"/>
+  <input type="text" name="answer[]" value="4"/>
+  <input type="submit" style="height: 0px; width: 0px; border: none; padding: 0px;" hidefocus="true" />
 </form>
 
 <% if (poll != null) { %>
   <p>
+  	Question: 
     <span>
       <%= poll.body %>
     </span>
   </p>
+
+    Answers:
+    <% for (var i = 0; i < answers.length; i++) { %>
+    	<p>
+    		Answer <%= i %>: 
+    		<span>
+    			<%= answers[i] %>
+    		</span>
+    	</p>
+    <% } %>
 <% } %>
