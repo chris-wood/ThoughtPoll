@@ -8,8 +8,11 @@ mongo  - mongo console
 mongod - start the DB service before running the app...
 
 TODO:
-0. Tie answers to questions (provide form for entering a poll with multiple questions)
+- 0. Tie answers to questions (provide form for entering a poll with multiple questions)
 1. User support with admin interface to modify polls
 2. Determine the type of information needed in the user profile (age, sex, etc)
-3. Tie user votes to vote history and prevent additional votes 
+3. Tie user votes to vote history and prevent additional votes (do this by IP?)
+
+Connection library: https://github.com/ciaranj/connect-auth
+- use that for google, facebook, twitter, whatever connections
 
