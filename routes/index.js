@@ -69,11 +69,13 @@ exports.showPoll = function (req, res) {
           answerBody = answer.body;
         }
 
-        console.log("DEBUG: rendering poll view");
-        res.render('poll', {
+        console.log("DEBUG: rendering poll view!!!");
+        res.render('template.ejs', {
           title : 'ThoughtPoll',
           poll : lastPoll,
-          answers : answerBody
+          answers : answerBody,
+          description: "TODO",
+          author: "TODO"
           // TODO: add more params as drawn from the databases
         });
       });
@@ -83,12 +85,42 @@ exports.showPoll = function (req, res) {
       res.render('poll', {
         title : 'ThoughtPoll',
         poll : lastPoll,
-        answers : null // must be null since lastPoll is null...
+        answers : null,
+        description: "TODO",
+        author: "TODO" // must be null since lastPoll is null...
         // TODO: add more params as drawn from the databases
       });
     }
   });
 };
+
+// updating a mongoose collection
+/*
+
+ContactSchema.findOne({phone: request.phone}, function(err, contact) {
+    if(!err) {
+        if(!contact) {
+            contact = new ContactSchema();
+            contact.phone = request.phone;
+        }
+        contact.status = request.status;
+        contact.save(function(err) {
+            if(!err) {
+                console.log("contact " + contact.phone + " created at " + contact.createdAt + " updated at " + contact.updatedAt);
+            }
+            else {
+                console.log("Error: could not save contact " + contact.phone);
+            }
+        });
+    }
+});
+
+*/
+
+exports.submitVote = function(req, res) {
+  // handle the 
+  console.log("submitVote param body = " + req.body.vote);
+}
 
 /*
 id : {type: Number, required: true, autoIndex: true},

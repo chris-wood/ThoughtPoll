@@ -25,7 +25,12 @@
     	<p>
     		Answer <%= i %>: 
     		<span>
-    			<%= answers[i] %>
+          <!-- vote button for each answer -->
+          <form name="input" action="/submitVote" method="post">
+            <%= answers[i] %>
+            <input type="hidden" name="vote" value="<%= i %>"/> <!-- pass the vote index back to the user -->
+            <input type="submit" name="button" value="Vote"> <!-- tag the submit with the index of the answer -->
+          </form>
     		</span>
     	</p>
     <% } %>
