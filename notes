@@ -16,3 +16,10 @@ TODO:
 Connection library: https://github.com/ciaranj/connect-auth
 - use that for google, facebook, twitter, whatever connections
 
+TODO:
+- integrate the new login interface: http://www.quietless.com/kitchen/building-a-login-system-in-node-js-and-mongodb/
+- figure out how to pull most recent poll and find its tag...
+- embed question tag in html page to pass back to server during vote
+- figure out how to modify an entry in mongoose
+*****- figure out how to store vote information...
+

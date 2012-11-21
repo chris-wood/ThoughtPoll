@@ -70,7 +70,7 @@ exports.showPoll = function (req, res) {
         }
 
         console.log("DEBUG: rendering poll view!!!");
-        res.render('template.ejs', {
+        res.render('poll', {
           title : 'ThoughtPoll',
           poll : lastPoll,
           answers : answerBody,
@@ -120,6 +120,9 @@ ContactSchema.findOne({phone: request.phone}, function(err, contact) {
 exports.submitVote = function(req, res) {
   // handle the 
   console.log("submitVote param body = " + req.body.vote);
+
+
+  // need to pull up the answer model that matches the question tag and then up the vote for the answer...
 }
 
 /*
@@ -129,10 +132,37 @@ id : {type: Number, required: true, autoIndex: true},
     updated_at : {type: Date, required: true}
 */
 
-exports.createPoll = function ( req, res ){
+exports.createPoll = function (req, res){
   var date = new Date();
+
+  // switch on the type that was sent here!
+  console.log("Question type = " + req.body.category);
+/*
+ value="0">General</option>
+    <option value="1">Technology</option>
+    <option value="2">Politics</option>
+    */
+  var qTag = "";
+  switch (req.body.category) 
+  {
+    case "Technology":
+      qTag = "t";
+      break;
+    case "Politics":
+      qTag = "p";
+      break;
+    case "General":
+      qTag = "g";
+      break;
+    default:
+      console.log("ERROR: Unmatched category provided.");
+  }
+
+  // TODO: we need to somehow find the number to append to qTag (the question unique ID \in \mathbb{N})
+
   var newQuestion = new Question({
-    body    : req.body.content,
+    tag        : qTag,
+    body       : req.body.content,
     created_at : date,
     updated_at : date
   });

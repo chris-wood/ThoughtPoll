@@ -18,6 +18,7 @@ var User = new Schema({
 
 // Schema for the poll questions 
 var Question = new Schema({
+    tag : {type: String, index: {unique: true}, required: true}, // tech-N, politics-N, finance-N, gen-N
     body : {type: String, index: { unique: true }, required: true},
     created_at : {type: Date, required: true},
     updated_at : {type: Date, required: true}

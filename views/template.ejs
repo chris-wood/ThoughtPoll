@@ -57,14 +57,36 @@
 <p>
   Poll question will go here...
 </p>
+  
+    <!-- this should go in the head... -->
+    <script type="text/javascript">
+      function addOpt(e) {
+        var o=document.createElement("option");
+        //o.value= -e.options.length;
+        o.text = "Test " + e.options.length;
+        o.selected=true;
+        e.add(o,null);
+      }
+    </script>
 
 <form action="/createPoll" method="post" accept-charset="utf-8">
   <input type="text" name="content" />
+  <br/>
+  <select id="categorySelect" name="category" multiple="multiple" size="10">
+    <option value="0">General</option>
+    <option value="1">Technology</option>
+    <option value="2">Politics</option>
+  </select>
+  <br/>
   <input type="text" name="answer[]" value="1"/>
+  <br/>
   <input type="text" name="answer[]" value="2"/>
+  <br/>
   <input type="text" name="answer[]" value="3"/>
+  <br/>
   <input type="text" name="answer[]" value="4"/>
-  <input type="submit" style="height: 0px; width: 0px; border: none; padding: 0px;" hidefocus="true" />
+  <br/>
+  <input type="submit" value="Create Poll" style="height: 0px; width: 0px; border: none; padding: 0px;" onclick="addOpt(this.form.myselect)" />
 </form>
 
 <% if (poll != null) { %>
@@ -90,6 +112,7 @@
       </p>
     <% } %>
 <% } %>
+
 
 
   <!-- Main hero unit for a primary marketing message or call to action -->
