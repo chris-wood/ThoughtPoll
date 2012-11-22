@@ -23,3 +23,5 @@ TODO:
 - figure out how to modify an entry in mongoose
 *****- figure out how to store vote information...
 
+TODO: store the question ID in a cookie: https://github.com/benadida/node-client-sessions
+
