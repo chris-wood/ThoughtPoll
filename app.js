@@ -16,6 +16,8 @@ app.configure(function(){
   app.set('port', 3000); // process.env.PORT || 3000
   app.set('views', __dirname + '/views');
   app.set('view engine', 'ejs');
+  //app.use(express.cookieSession(secret = true)); // TODO: look at cookie parameters
+  //app.use(express.cookieParser("thissecretrocks"));
   app.use(express.static(__dirname + '/public'));
   app.use(express.favicon());
   app.use(express.logger('dev'));

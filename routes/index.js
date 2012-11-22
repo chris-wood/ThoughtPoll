@@ -70,6 +70,10 @@ exports.showPoll = function (req, res) {
         }
 
         console.log("DEBUG: rendering poll view!!!");
+
+        console.log("DEBUG: setting the request session cookie for the cookie!");
+        req.session.question = "TESTING-123";
+
         res.render('poll', {
           title : 'ThoughtPoll',
           poll : lastPoll,
@@ -135,8 +139,30 @@ id : {type: Number, required: true, autoIndex: true},
 exports.createPoll = function (req, res){
   var date = new Date();
 
+  console.log("THE SESSION QUESTION = " + req.session.question);
+
   // switch on the type that was sent here!
   console.log("Question type = " + req.body.category);
+
+  Question.find(function(err, polls, count) {
+    var lastPoll = null;
+    var lastDate = null;
+
+    // Only pass along the most recent poll...
+    console.log("DEBUG: searching for today's poll");
+    polls.forEach(function (poll) {
+      if (lastPoll == null || lastDate == null) {
+        lastDate = poll.created_at; // created_at or updated_at?
+        lastPoll = poll; 
+      } else if (poll.created_at > lastDate) {
+        lastDate = poll.created_at;
+        lastPoll = poll;
+      }
+    });
+
+    // TODO: insert code that's below here, build the tag, and then save it and the answer contents...
+  });
+
 /*
  value="0">General</option>
     <option value="1">Technology</option>
