@@ -25,3 +25,9 @@ TODO:
 
 TODO: store the question ID in a cookie: https://github.com/benadida/node-client-sessions
 
+Task list:
+1. create tag for each question that is created.
+2. store tag in a cookie when asked to show the poll
+3. implement behavior to search for the appropriate answer based on question tag
+4. implement user logins (see above link)
+5. implement schema for answer vote (AnswerVoteInformationSchema) - maintains total number of votes and then a category for ages, locations, sex, etc
