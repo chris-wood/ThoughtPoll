@@ -1,0 +1,134 @@
+2012-12-01 21:35:02,675 - [INFO] - from play in main 
+Listening for HTTP on port 8080...
+
+2012-12-01 21:35:27,930 - [INFO] - from play in play-akka.actor.default-dispatcher-3 
+database [default] connected at jdbc:h2:mem:play
+
+2012-12-01 21:35:30,011 - [ERROR] - from application in New I/O  worker #1 
+
+
+! @6cgam43c2 - Internal server error, for request [GET /] ->
+
+play.api.db.evolutions.InvalidDatabaseRevision: Database 'default' needs evolution! [An SQL script need to be run on your database.]
+	at play.api.db.evolutions.EvolutionsPlugin$$anonfun$onStart$1$$anonfun$apply$1.apply$mcV$sp(Evolutions.scala:427) ~[play_2.9.1.jar:2.0.4]
+	at play.api.db.evolutions.EvolutionsPlugin.withLock(Evolutions.scala:448) ~[play_2.9.1.jar:2.0.4]
+	at play.api.db.evolutions.EvolutionsPlugin$$anonfun$onStart$1.apply(Evolutions.scala:414) ~[play_2.9.1.jar:2.0.4]
+	at play.api.db.evolutions.EvolutionsPlugin$$anonfun$onStart$1.apply(Evolutions.scala:412) ~[play_2.9.1.jar:2.0.4]
+	at scala.collection.LinearSeqOptimized$class.foreach(LinearSeqOptimized.scala:59) ~[scala-library.jar:0.11.3]
+	at scala.collection.immutable.List.foreach(List.scala:45) ~[scala-library.jar:0.11.3]
+	at play.api.db.evolutions.EvolutionsPlugin.onStart(Evolutions.scala:412) ~[play_2.9.1.jar:2.0.4]
+	at play.api.Play$$anonfun$start$1.apply(Play.scala:60) ~[play_2.9.1.jar:2.0.4]
+	at play.api.Play$$anonfun$start$1.apply(Play.scala:60) ~[play_2.9.1.jar:2.0.4]
+	at scala.collection.LinearSeqOptimized$class.foreach(LinearSeqOptimized.scala:59) ~[scala-library.jar:0.11.3]
+	at scala.collection.immutable.List.foreach(List.scala:45) ~[scala-library.jar:0.11.3]
+	at play.api.Play$.start(Play.scala:60) ~[play_2.9.1.jar:2.0.4]
+	at play.core.ReloadableApplication$$anonfun$get$1$$anonfun$apply$3$$anonfun$1.apply(ApplicationProvider.scala:125) ~[play_2.9.1.jar:2.0.4]
+	at play.core.ReloadableApplication$$anonfun$get$1$$anonfun$apply$3$$anonfun$1.apply(ApplicationProvider.scala:112) ~[play_2.9.1.jar:2.0.4]
+	at scala.Option.map(Option.scala:133) ~[scala-library.jar:0.11.3]
+	at play.core.ReloadableApplication$$anonfun$get$1$$anonfun$apply$3.apply(ApplicationProvider.scala:112) ~[play_2.9.1.jar:2.0.4]
+	at play.core.ReloadableApplication$$anonfun$get$1$$anonfun$apply$3.apply(ApplicationProvider.scala:110) ~[play_2.9.1.jar:2.0.4]
+	at scala.Either$RightProjection.flatMap(Either.scala:277) ~[scala-library.jar:0.11.3]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:110) ~[play_2.9.1.jar:2.0.4]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:110) ~[play_2.9.1.jar:2.0.4]
+	at akka.dispatch.Future$$anon$3.liftedTree1$1(Future.scala:195) ~[akka-actor.jar:2.0.2]
+	at akka.dispatch.Future$$anon$3.run(Future.scala:194) ~[akka-actor.jar:2.0.2]
+	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:94) ~[akka-actor.jar:2.0.2]
+	at akka.jsr166y.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1381) ~[akka-actor.jar:2.0.2]
+	at akka.jsr166y.ForkJoinTask.doExec(ForkJoinTask.java:259) ~[akka-actor.jar:2.0.2]
+	at akka.jsr166y.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:975) ~[akka-actor.jar:2.0.2]
+	at akka.jsr166y.ForkJoinPool.runWorker(ForkJoinPool.java:1479) ~[akka-actor.jar:2.0.2]
+	at akka.jsr166y.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:104) ~[akka-actor.jar:2.0.2]
+
+2012-12-01 21:35:32,574 - [WARN] - from play in New I/O  worker #1 
+Applying evolution script for database 'default':
+
+# --- Rev:1,Ups - f3d944c
+create table linked_account (
+id                        bigint not null,
+user_id                   bigint,
+provider_user_id          varchar(255),
+provider_key              varchar(255),
+constraint pk_linked_account primary key (id))
+;
+
+create table security_role (
+id                        bigint not null,
+role_name                 varchar(255),
+constraint pk_security_role primary key (id))
+;
+
+create table token_action (
+id                        bigint not null,
+token                     varchar(255),
+target_user_id            bigint,
+type                      varchar(2),
+created                   timestamp,
+expires                   timestamp,
+constraint ck_token_action_type check (type in ('EV','PR')),
+constraint uq_token_action_token unique (token),
+constraint pk_token_action primary key (id))
+;
+
+create table users (
+id                        bigint not null,
+email                     varchar(255),
+name                      varchar(255),
+last_login                timestamp,
+active                    boolean,
+email_validated           boolean,
+constraint pk_users primary key (id))
+;
+
+create table user_permission (
+id                        bigint not null,
+value                     varchar(255),
+constraint pk_user_permission primary key (id))
+;
+
+
+create table users_security_role (
+users_id                       bigint not null,
+security_role_id               bigint not null,
+constraint pk_users_security_role primary key (users_id, security_role_id))
+;
+
+create table users_user_permission (
+users_id                       bigint not null,
+user_permission_id             bigint not null,
+constraint pk_users_user_permission primary key (users_id, user_permission_id))
+;
+create sequence linked_account_seq;
+
+create sequence security_role_seq;
+
+create sequence token_action_seq;
+
+create sequence users_seq;
+
+create sequence user_permission_seq;
+
+alter table linked_account add constraint fk_linked_account_user_1 foreign key (user_id) references users (id) on delete restrict on update restrict;
+create index ix_linked_account_user_1 on linked_account (user_id);
+alter table token_action add constraint fk_token_action_targetUser_2 foreign key (target_user_id) references users (id) on delete restrict on update restrict;
+create index ix_token_action_targetUser_2 on token_action (target_user_id);
+
+
+
+alter table users_security_role add constraint fk_users_security_role_users_01 foreign key (users_id) references users (id) on delete restrict on update restrict;
+
+alter table users_security_role add constraint fk_users_security_role_securi_02 foreign key (security_role_id) references security_role (id) on delete restrict on update restrict;
+
+alter table users_user_permission add constraint fk_users_user_permission_user_01 foreign key (users_id) references users (id) on delete restrict on update restrict;
+
+alter table users_user_permission add constraint fk_users_user_permission_user_02 foreign key (user_permission_id) references user_permission (id) on delete restrict on update restrict;
+
+
+2012-12-01 21:35:33,857 - [INFO] - from play in play-akka.actor.default-dispatcher-3 
+database [default] connected at jdbc:h2:mem:play
+
+2012-12-01 21:35:34,691 - [INFO] - from play in play-akka.actor.default-dispatcher-3 
+Application started (Dev)
+
+2012-12-01 21:35:38,692 - [DEBUG] - from application in play-akka.actor.actions-dispatcher-9 
+Path where we are coming from (/restricted) is different than the login URL (/login)
+
