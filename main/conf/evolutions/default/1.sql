@@ -3,6 +3,35 @@
 
 # --- !Ups
 
+# TODO: create the schema for the polling information
+/*
+
+create table questions (
+  id                        bigint not null,
+  user_id                   bigint,
+  category_id               bitint,
+  question_text             varchar(255),
+  constraint pk_linked_account primary key (id))
+;
+
+create table choices (
+  id                        bigint not null,
+  user_id                   bigint,
+  provider_user_id          varchar(255),
+  provider_key              varchar(255),
+  constraint pk_linked_account primary key (id))
+;
+
+create table answers (
+  id                        bigint not null,
+  user_id                   bigint,
+  provider_user_id          varchar(255),
+  provider_key              varchar(255),
+  constraint pk_linked_account primary key (id))
+;
+
+*/
+
 create table linked_account (
   id                        bigint not null,
   user_id                   bigint,
