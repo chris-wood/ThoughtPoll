@@ -1,13 +1,13 @@
-2012-12-01 21:35:02,675 - [INFO] - from play in main 
-Listening for HTTP on port 8080...
+2012-12-02 20:24:35,528 - [INFO] - from play in main 
+Listening for HTTP on port 9000...
 
-2012-12-01 21:35:27,930 - [INFO] - from play in play-akka.actor.default-dispatcher-3 
+2012-12-02 20:24:55,906 - [INFO] - from play in play-akka.actor.default-dispatcher-3 
 database [default] connected at jdbc:h2:mem:play
 
-2012-12-01 21:35:30,011 - [ERROR] - from application in New I/O  worker #1 
+2012-12-02 20:24:58,125 - [ERROR] - from application in New I/O  worker #1 
 
 
-! @6cgam43c2 - Internal server error, for request [GET /] ->
+! @6cghjpacf - Internal server error, for request [GET /] ->
 
 play.api.db.evolutions.InvalidDatabaseRevision: Database 'default' needs evolution! [An SQL script need to be run on your database.]
 	at play.api.db.evolutions.EvolutionsPlugin$$anonfun$onStart$1$$anonfun$apply$1.apply$mcV$sp(Evolutions.scala:427) ~[play_2.9.1.jar:2.0.4]
@@ -39,7 +39,7 @@ play.api.db.evolutions.InvalidDatabaseRevision: Database 'default' needs evoluti
 	at akka.jsr166y.ForkJoinPool.runWorker(ForkJoinPool.java:1479) ~[akka-actor.jar:2.0.2]
 	at akka.jsr166y.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:104) ~[akka-actor.jar:2.0.2]
 
-2012-12-01 21:35:32,574 - [WARN] - from play in New I/O  worker #1 
+2012-12-02 20:25:03,687 - [WARN] - from play in New I/O  worker #1 
 Applying evolution script for database 'default':
 
 # --- Rev:1,Ups - f3d944c
@@ -123,12 +123,60 @@ alter table users_user_permission add constraint fk_users_user_permission_user_0
 alter table users_user_permission add constraint fk_users_user_permission_user_02 foreign key (user_permission_id) references user_permission (id) on delete restrict on update restrict;
 
 
-2012-12-01 21:35:33,857 - [INFO] - from play in play-akka.actor.default-dispatcher-3 
+2012-12-02 20:25:05,261 - [INFO] - from play in play-akka.actor.default-dispatcher-3 
 database [default] connected at jdbc:h2:mem:play
 
-2012-12-01 21:35:34,691 - [INFO] - from play in play-akka.actor.default-dispatcher-3 
+2012-12-02 20:25:06,143 - [INFO] - from play in play-akka.actor.default-dispatcher-3 
 Application started (Dev)
 
-2012-12-01 21:35:38,692 - [DEBUG] - from application in play-akka.actor.actions-dispatcher-9 
+2012-12-02 20:25:36,888 - [INFO] - from play in play-akka.actor.default-dispatcher-3 
+database [default] connected at jdbc:h2:mem:play
+
+2012-12-02 20:25:37,773 - [WARN] - from application in play-akka.actor.default-dispatcher-3 
+A user service was already registered - replacing the old one, however this might hint to a configuration problem if this is a production environment.
+
+2012-12-02 20:25:37,774 - [INFO] - from play in play-akka.actor.default-dispatcher-3 
+Application started (Dev)
+
+2012-12-02 20:27:46,031 - [INFO] - from play in play-akka.actor.default-dispatcher-8 
+database [default] connected at jdbc:h2:mem:play
+
+2012-12-02 20:27:46,742 - [WARN] - from application in play-akka.actor.default-dispatcher-8 
+A user service was already registered - replacing the old one, however this might hint to a configuration problem if this is a production environment.
+
+2012-12-02 20:27:46,743 - [INFO] - from play in play-akka.actor.default-dispatcher-8 
+Application started (Dev)
+
+2012-12-02 20:32:18,800 - [INFO] - from play in play-akka.actor.default-dispatcher-10 
+database [default] connected at jdbc:h2:mem:play
+
+2012-12-02 20:32:19,516 - [WARN] - from application in play-akka.actor.default-dispatcher-10 
+A user service was already registered - replacing the old one, however this might hint to a configuration problem if this is a production environment.
+
+2012-12-02 20:32:19,517 - [INFO] - from play in play-akka.actor.default-dispatcher-10 
+Application started (Dev)
+
+2012-12-02 20:32:41,776 - [INFO] - from play in play-akka.actor.default-dispatcher-10 
+database [default] connected at jdbc:h2:mem:play
+
+2012-12-02 20:32:42,612 - [WARN] - from application in play-akka.actor.default-dispatcher-10 
+A user service was already registered - replacing the old one, however this might hint to a configuration problem if this is a production environment.
+
+2012-12-02 20:32:42,613 - [INFO] - from play in play-akka.actor.default-dispatcher-10 
+Application started (Dev)
+
+2012-12-02 20:34:07,533 - [INFO] - from play in play-akka.actor.default-dispatcher-13 
+database [default] connected at jdbc:h2:mem:play
+
+2012-12-02 20:34:08,257 - [WARN] - from application in play-akka.actor.default-dispatcher-13 
+A user service was already registered - replacing the old one, however this might hint to a configuration problem if this is a production environment.
+
+2012-12-02 20:34:08,257 - [INFO] - from play in play-akka.actor.default-dispatcher-13 
+Application started (Dev)
+
+2012-12-02 20:40:00,499 - [DEBUG] - from application in play-akka.actor.actions-dispatcher-18 
 Path where we are coming from (/restricted) is different than the login URL (/login)
+
+2012-12-02 20:40:10,709 - [INFO] - from play in play-akka.actor.actions-dispatcher-18 
+Starting application default Akka system.
 

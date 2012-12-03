@@ -25,6 +25,10 @@ error.maxLength=Maximum length is {0}
 error.email=Valid email required
 error.pattern=Must satisfy {0}
 
+### --- ThoughtPoll START ---
+
+#TODO: define all messages here...
+
 ### --- play-authenticate START
 
 # play-authenticate: Initial translations
