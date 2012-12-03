@@ -1,0 +1,45 @@
+<!--
+
+This view enables admins to create poll information
+
+-->
+
+<!-- Messages are provided in the conf/messages.en file -->
+@main(Messages("playauthenticate.index.title")) {
+      <!-- Example row of columns -->
+      <div class="row">
+        <div class="span12">
+          <!--<h2>@Messages("playauthenticate.index.heading")</h2>-->
+          <h2>@Messages("thoughtpoll.create_poll.heading")</h2>
+          
+          <!-- The form! -->
+          <div id="create_poll_container">
+            <form action="/createPoll" method="post" accept-charset="utf-8"> <!-- consider changing url to /poll/create -->
+              <input type="text" name="content" />
+              <br/>
+              <select id="categorySelect" name="category" size="1"> <!-- enforce selecting one category -->
+                <option value="0">General</option>
+                <option value="1">Technology</option>
+                <option value="2">Politics</option>
+              </select>
+              <br/>
+              <input type="text" name="answer[]" value="1"/>
+              <br/>
+              <input type="text" name="answer[]" value="2"/>
+              <br/>
+              <input type="text" name="answer[]" value="3"/>
+              <br/>
+              <input type="text" name="answer[]" value="4"/>
+              <br/>
+              <input type="submit" value="Create Poll" onclick="addOpt(this.form.myselect)" />
+            </form>
+
+            <!-- TODO: Create the code in poll.js to dynamically add/remove items from this form -->
+
+          </div>
+
+          Here's a fancy button just hanging around. Cool.
+          <p><a class="btn" href="#">@Messages("playauthenticate.index.details") &raquo;</a></p>
+        </div>
+      </div>
+    }
