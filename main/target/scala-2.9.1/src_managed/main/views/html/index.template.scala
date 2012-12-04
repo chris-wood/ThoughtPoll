@@ -38,16 +38,17 @@ Seq[Any](format.raw/*2.1*/("""<!-- Messages are provided in the conf/messages.en
         <div id="left">
           <div id="poll-container">
             <h3>Poll</h3>
-            <form id='poll' action="post" accept-charset="utf-8">
-              <p>Pick your favorite Javascript framework:</p><p>
-              <input type="radio" name="poll" value="opt1" id="opt1" /><label for='opt1'>&nbsp;jQuery</label><br />
-              <input type="radio" name="poll" value="opt2" id="opt2" /><label for='opt2'>&nbsp;Ext JS</label><br />
-              <input type="radio" name="poll" value="opt3" id="opt3" /><label for='opt3'>&nbsp;Dojo</label><br />
-              <input type="radio" name="poll" value="opt4" id="opt4" /><label for='opt4'>&nbsp;Prototype</label><br />
-              <input type="radio" name="poll" value="opt5" id="opt5" /><label for='opt5'>&nbsp;YUI</label><br />
-              <input type="radio" name="poll" value="opt6" id="opt6" /><label for='opt6'>&nbsp;mootools</label><br /><br />
-              <input type="submit" value="Vote &rarr;" /></p>
-            </form>
+            <!--
+            <div class="btn-group" data-toggle-name="is_private" data-toggle="buttons-radio" >
+              <button type="button" value="0" class="btn" data-toggle="button">Public</button>
+              <button type="button" value="1" class="btn" data-toggle="button">Private</button>
+            </div>
+            -->
+            <div class="btn-group btn-group-vertical" data-toggle-name="poll" data-toggle="buttons-radio">
+              <button type="button" value="0" class="btn" data-toggle="button">Option1</button>
+              <button type="button" value="1" class="btn" data-toggle="button">Option2</button>
+            </div>
+            <input type="hidden" name="poll" value="0" /> <!-- TODO: handle ajax input here -->
           </div>
           <div id="results">
             <h3>Results</h3>
@@ -64,19 +65,19 @@ Seq[Any](format.raw/*2.1*/("""<!-- Messages are provided in the conf/messages.en
       <!--
       <div class="row">
         <div class="span4">
-          <h2>"""),_display_(Seq[Any](/*39.16*/Messages("playauthenticate.index.heading"))),format.raw/*39.58*/("""</h2>
+          <h2>"""),_display_(Seq[Any](/*40.16*/Messages("playauthenticate.index.heading"))),format.raw/*40.58*/("""</h2>
            <p>Cupcake ipsum dolor sit amet. Pastry pie powder biscuit bear claw. Jelly-o chocolate bar sweet roll sugar plum chocolate. Biscuit brownie chupa chups macaroon ice cream halvah sugar plum oat cake ice cream.</p>
-          <p><a class="btn" href="#">"""),_display_(Seq[Any](/*41.39*/Messages("playauthenticate.index.details"))),format.raw/*41.81*/(""" &raquo;</a></p>
+          <p><a class="btn" href="#">"""),_display_(Seq[Any](/*42.39*/Messages("playauthenticate.index.details"))),format.raw/*42.81*/(""" &raquo;</a></p>
         </div>
         <div class="span4">
           <h2>Heading</h2>
            <p>Applicake macaroon caramels gummi bears pastry. Cake liquorice carrot cake chocolate lollipop dessert. Halvah fruitcake marshmallow pie gummi bears pie marzipan.</p>
-          <p><a class="btn" href="#">"""),_display_(Seq[Any](/*46.39*/Messages("playauthenticate.index.details"))),format.raw/*46.81*/(""" &raquo;</a></p>
+          <p><a class="btn" href="#">"""),_display_(Seq[Any](/*47.39*/Messages("playauthenticate.index.details"))),format.raw/*47.81*/(""" &raquo;</a></p>
        </div>
         <div class="span4">
           <h2>Heading</h2>
           <p>Wafer halvah jujubes lollipop liquorice jelly-o pastry. Pie halvah toffee. Candy canes donut sugar plum. Chocolate cake powder tart liquorice cotton candy pudding sweet.</p>
-          <p><a class="btn" href="#">"""),_display_(Seq[Any](/*51.39*/Messages("playauthenticate.index.details"))),format.raw/*51.81*/(""" &raquo;</a></p>
+          <p><a class="btn" href="#">"""),_display_(Seq[Any](/*52.39*/Messages("playauthenticate.index.details"))),format.raw/*52.81*/(""" &raquo;</a></p>
         </div>
       </div>
       -->
@@ -92,11 +93,11 @@ Seq[Any](format.raw/*2.1*/("""<!-- Messages are provided in the conf/messages.en
 }
                 /*
                     -- GENERATED --
-                    DATE: Mon Dec 03 23:07:55 EST 2012
+                    DATE: Mon Dec 03 23:40:19 EST 2012
                     SOURCE: /Users/caw/Projects/ThoughtPoll/main/app/views/index.scala.html
-                    HASH: 8dfcd7e36cba24936603b3f3cdeca3643b47a500
-                    MATRIX: 819->1|914->62|968->108|1007->110|1166->234|1227->274|1280->292|1343->334|1385->341|1449->383|2862->1760|2926->1802|3231->2071|3295->2113|3636->2418|3700->2460|4047->2771|4111->2813
-                    LINES: 30->2|31->3|31->3|31->3|34->6|34->6|35->7|35->7|35->7|35->7|67->39|67->39|69->41|69->41|74->46|74->46|79->51|79->51
+                    HASH: 2387c2a0af8bf8139228291af01c6606f0bfc7e6
+                    MATRIX: 819->1|914->62|968->108|1007->110|1166->234|1227->274|1280->292|1343->334|1385->341|1449->383|2699->1597|2763->1639|3068->1908|3132->1950|3473->2255|3537->2297|3884->2608|3948->2650
+                    LINES: 30->2|31->3|31->3|31->3|34->6|34->6|35->7|35->7|35->7|35->7|68->40|68->40|70->42|70->42|75->47|75->47|80->52|80->52
                     -- GENERATED --
                 */
             

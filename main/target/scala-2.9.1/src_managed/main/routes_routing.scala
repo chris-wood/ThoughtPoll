@@ -1,6 +1,6 @@
 // @SOURCE:/Users/caw/Projects/ThoughtPoll/main/conf/routes
-// @HASH:c2d01d17e1d18c7b66c370ccedc2de0a90cd4b44
-// @DATE:Sat Dec 01 21:09:30 EST 2012
+// @HASH:ca73026bf2c00f2637f1e222f59169a9b0efdb7c
+// @DATE:Mon Dec 03 23:40:19 EST 2012
 
 import play.core._
 import play.core.Router._
@@ -121,7 +121,11 @@ val controllers_Signup_doForgotPassword25 = Route("POST", PathPattern(List(Stati
 // @LINE:47
 val controllers_Assets_at26 = Route("GET", PathPattern(List(StaticPart("/assets/"),DynamicPart("file", """.+"""))))
                     
-def documentation = List(("""GET""","""/""","""controllers.Application.index"""),("""GET""","""/restricted""","""controllers.Application.restricted"""),("""GET""","""/assets/javascript/routes.js""","""controllers.Application.jsRoutes"""),("""GET""","""/profile""","""controllers.Application.profile"""),("""GET""","""/login""","""controllers.Application.login"""),("""POST""","""/login""","""controllers.Application.doLogin"""),("""GET""","""/logout""","""com.feth.play.module.pa.controllers.Authenticate.logout"""),("""GET""","""/authenticate/$provider<[^/]+>""","""com.feth.play.module.pa.controllers.Authenticate.authenticate(provider:String)"""),("""GET""","""/signup""","""controllers.Application.signup"""),("""POST""","""/signup""","""controllers.Application.doSignup"""),("""GET""","""/accounts/unverified""","""controllers.Signup.unverified"""),("""GET""","""/authenticate/$provider<[^/]+>/denied""","""controllers.Signup.oAuthDenied(provider:String)"""),("""GET""","""/accounts/verify/$token<[^/]+>""","""controllers.Signup.verify(token:String)"""),("""GET""","""/accounts/exists""","""controllers.Signup.exists"""),("""GET""","""/accounts/password/reset/$token<[^/]+>""","""controllers.Signup.resetPassword(token:String)"""),("""POST""","""/accounts/password/reset""","""controllers.Signup.doResetPassword"""),("""GET""","""/accounts/password/change""","""controllers.Account.changePassword"""),("""POST""","""/accounts/password/change""","""controllers.Account.doChangePassword"""),("""GET""","""/accounts/verify""","""controllers.Account.verifyEmail"""),("""GET""","""/accounts/add""","""controllers.Account.link"""),("""GET""","""/accounts/link""","""controllers.Account.askLink"""),("""POST""","""/accounts/link""","""controllers.Account.doLink"""),("""GET""","""/accounts/merge""","""controllers.Account.askMerge"""),("""POST""","""/accounts/merge""","""controllers.Account.doMerge"""),("""GET""","""/login/password/forgot""","""controllers.Signup.forgotPassword(email:String ?= "")"""),("""POST""","""/login/password/forgot""","""controllers.Signup.doForgotPassword"""),("""GET""","""/assets/$file<.+>""","""controllers.Assets.at(path:String = "/public", file:String)"""))
+
+// @LINE:50
+val controllers_Application_create_poll27 = Route("GET", PathPattern(List(StaticPart("/create_poll"))))
+                    
+def documentation = List(("""GET""","""/""","""controllers.Application.index"""),("""GET""","""/restricted""","""controllers.Application.restricted"""),("""GET""","""/assets/javascript/routes.js""","""controllers.Application.jsRoutes"""),("""GET""","""/profile""","""controllers.Application.profile"""),("""GET""","""/login""","""controllers.Application.login"""),("""POST""","""/login""","""controllers.Application.doLogin"""),("""GET""","""/logout""","""com.feth.play.module.pa.controllers.Authenticate.logout"""),("""GET""","""/authenticate/$provider<[^/]+>""","""com.feth.play.module.pa.controllers.Authenticate.authenticate(provider:String)"""),("""GET""","""/signup""","""controllers.Application.signup"""),("""POST""","""/signup""","""controllers.Application.doSignup"""),("""GET""","""/accounts/unverified""","""controllers.Signup.unverified"""),("""GET""","""/authenticate/$provider<[^/]+>/denied""","""controllers.Signup.oAuthDenied(provider:String)"""),("""GET""","""/accounts/verify/$token<[^/]+>""","""controllers.Signup.verify(token:String)"""),("""GET""","""/accounts/exists""","""controllers.Signup.exists"""),("""GET""","""/accounts/password/reset/$token<[^/]+>""","""controllers.Signup.resetPassword(token:String)"""),("""POST""","""/accounts/password/reset""","""controllers.Signup.doResetPassword"""),("""GET""","""/accounts/password/change""","""controllers.Account.changePassword"""),("""POST""","""/accounts/password/change""","""controllers.Account.doChangePassword"""),("""GET""","""/accounts/verify""","""controllers.Account.verifyEmail"""),("""GET""","""/accounts/add""","""controllers.Account.link"""),("""GET""","""/accounts/link""","""controllers.Account.askLink"""),("""POST""","""/accounts/link""","""controllers.Account.doLink"""),("""GET""","""/accounts/merge""","""controllers.Account.askMerge"""),("""POST""","""/accounts/merge""","""controllers.Account.doMerge"""),("""GET""","""/login/password/forgot""","""controllers.Signup.forgotPassword(email:String ?= "")"""),("""POST""","""/login/password/forgot""","""controllers.Signup.doForgotPassword"""),("""GET""","""/assets/$file<.+>""","""controllers.Assets.at(path:String = "/public", file:String)"""),("""GET""","""/create_poll""","""controllers.Application.create_poll"""))
              
     
 def routes:PartialFunction[RequestHeader,Handler] = {        
@@ -338,6 +342,14 @@ case controllers_Signup_doForgotPassword25(params) => {
 case controllers_Assets_at26(params) => {
    call(Param[String]("path", Right("/public")), params.fromPath[String]("file", None)) { (path, file) =>
         invokeHandler(_root_.controllers.Assets.at(path, file), HandlerDef(this, "controllers.Assets", "at", Seq(classOf[String], classOf[String])))
+   }
+}
+                    
+
+// @LINE:50
+case controllers_Application_create_poll27(params) => {
+   call { 
+        invokeHandler(_root_.controllers.Application.create_poll, HandlerDef(this, "controllers.Application", "create_poll", Nil))
    }
 }
                     

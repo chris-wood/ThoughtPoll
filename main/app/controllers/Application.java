@@ -30,6 +30,12 @@ public class Application extends Controller {
 		return ok(index.render());
 	}
 
+	// TODO: when security part is figured out
+	// @Restrict(Application.USER_ROLE)
+	public static Result create_poll() {
+		return ok(create_poll.render());
+	}
+
 	public static User getLocalUser(final Session session) {
 		final User localUser = User.findByAuthUserIdentity(PlayAuthenticate
 				.getUser(session));
