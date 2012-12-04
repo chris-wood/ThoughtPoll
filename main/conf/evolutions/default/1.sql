@@ -1,65 +1,12 @@
-# --- Created by Ebean DDL
-# To stop Ebean DDL generation, remove this comment and start using Evolutions
-
 # --- !Ups
-
-/*
-
-TODO: look at the zentasks app to see how it's done here
 
 create table questions (
   id                        bigint not null,
-  name                      varchar(255),
-  folder                    varchar(255),
-  constraint pk_project primary key (id)
+  user_id                   varchar(255),
+  question_text             varchar(255),
+  date_started              timestamp,
+  constraint pk_questions primary key (id))
 ;
-
-create table choices (
-  id                        bigint not null,
-  name                      varchar(255),
-  folder                    varchar(255),
-  constraint pk_project primary key (id)
-;
-
-create table answers (
-  id                        bigint not null,
-  name                      varchar(255),
-  folder                    varchar(255),
-  constraint pk_project primary key (id)
-;
-
---------------
-
-create table account (
-  email                     varchar(255) not null,
-  name                      varchar(255),
-  password                  varchar(255),
-  constraint pk_account primary key (email)
-);
-
-create table project (
-  id                        bigint not null,
-  name                      varchar(255),
-  folder                    varchar(255),
-  constraint pk_project primary key (id)
-);
-
-create table task (
-  id                        bigint not null,
-  title                     varchar(255),
-  done                      boolean,
-  due_date                  timestamp,
-  assigned_to_email         varchar(255),
-  folder                    varchar(255),
-  project_id                bigint,
-  constraint pk_task primary key (id),
-  foreign key (assigned_to_email) references account (email) on delete set null on update restrict,
-  foreign key (project_id) references project (id) on delete cascade on update restrict
-);
-
-
-
-*/
 
 create table linked_account (
   id                        bigint not null,
@@ -115,6 +62,7 @@ create table users_user_permission (
   user_permission_id             bigint not null,
   constraint pk_users_user_permission primary key (users_id, user_permission_id))
 ;
+
 create sequence linked_account_seq;
 
 create sequence security_role_seq;
@@ -143,6 +91,8 @@ alter table users_user_permission add constraint fk_users_user_permission_user_0
 # --- !Downs
 
 SET REFERENTIAL_INTEGRITY FALSE;
+
+drop table if exists questions;
 
 drop table if exists linked_account;
 

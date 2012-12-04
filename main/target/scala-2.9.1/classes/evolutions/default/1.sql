@@ -1,7 +1,12 @@
-# --- Created by Ebean DDL
-# To stop Ebean DDL generation, remove this comment and start using Evolutions
-
 # --- !Ups
+
+create table questions (
+  id                        bigint not null,
+  user_id                   varchar(255),
+  question_text             varchar(255),
+  date_started              timestamp,
+  constraint pk_questions primary key (id))
+;
 
 create table linked_account (
   id                        bigint not null,
@@ -57,6 +62,7 @@ create table users_user_permission (
   user_permission_id             bigint not null,
   constraint pk_users_user_permission primary key (users_id, user_permission_id))
 ;
+
 create sequence linked_account_seq;
 
 create sequence security_role_seq;
@@ -85,6 +91,8 @@ alter table users_user_permission add constraint fk_users_user_permission_user_0
 # --- !Downs
 
 SET REFERENTIAL_INTEGRITY FALSE;
+
+drop table if exists questions;
 
 drop table if exists linked_account;
 
