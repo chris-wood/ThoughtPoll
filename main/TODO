@@ -1,5 +1,6 @@
 TODO
 0. Finish creating the poll database tables
+- Figure out how to do ORM - copy the User example
 1. POLL http://net.tutsplus.com/tutorials/javascript-ajax/creating-a-dynamic-poll-with-jquery-and-php/
 2. D3.js integration
 3. Play authentication with Google/Facebook (make it work)

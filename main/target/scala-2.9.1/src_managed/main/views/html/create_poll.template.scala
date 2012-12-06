@@ -46,7 +46,7 @@ This view enables admins to create poll information
 
             <!-- TODO: use ajax and hide this container to replace it with the follow-up screen -->
 
-            <form action="/createPoll" method="post" accept-charset="utf-8"> <!-- consider changing url to /poll/create -->
+            <form id="pollSubmissionForm" accept-charset="utf-8"> <!-- consider changing url to /poll/create -->
               <input type="text" name="content" />
               <br/>
               <select id="categorySelect" name="category" size="1"> <!-- enforce selecting one category -->
@@ -55,15 +55,15 @@ This view enables admins to create poll information
                 <option value="2">Politics</option>
               </select>
               <br/>
-              <input type="text" name="answer[]" value="1"/>
+              <input type="text" name="choice[]" value="1"/>
               <br/>
-              <input type="text" name="answer[]" value="2"/>
+              <input type="text" name="choice[]" value="2"/>
               <br/>
-              <input type="text" name="answer[]" value="3"/>
+              <input type="text" name="choice[]" value="3"/>
               <br/>
-              <input type="text" name="answer[]" value="4"/>
+              <input type="text" name="choice[]" value="4"/>
               <br/>
-              <input type="submit" value="Create Poll" onclick="addOpt(this.form.myselect)" />
+              <input type="submit" value="Create Poll"/>
             </form>
 
             <!-- TODO: Create the code in poll.js to dynamically add/remove items from this form -->
@@ -86,10 +86,10 @@ This view enables admins to create poll information
 }
                 /*
                     -- GENERATED --
-                    DATE: Mon Dec 03 23:07:54 EST 2012
+                    DATE: Thu Dec 06 00:31:37 EST 2012
                     SOURCE: /Users/caw/Projects/ThoughtPoll/main/app/views/create_poll.scala.html
-                    HASH: e09d9a487af118bcd28648b92cdb9a8b63287ee8
-                    MATRIX: 825->0|984->125|1038->171|1077->173|1224->284|1288->326|1348->350|1413->393|2801->1745|2865->1787
+                    HASH: a2615e0a694d4b3437f0c13cfcd532f75778ead9
+                    MATRIX: 825->0|984->125|1038->171|1077->173|1224->284|1288->326|1348->350|1413->393|2752->1696|2816->1738
                     LINES: 30->1|37->8|37->8|37->8|41->12|41->12|42->13|42->13|74->45|74->45
                     -- GENERATED --
                 */

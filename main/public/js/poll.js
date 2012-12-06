@@ -23,6 +23,43 @@ $(document).ready(function(){
   */
 });
 
+// handler for the poll creation form
+$("#pollSubmissionForm").on('submit', function(e) {
+  //alert("aha");
+  e.preventDefault(); // Prevent the default event for form submission from occuring 
+
+  // TODO: perform validation right here...
+
+  // log...
+  console.log($(this).serialize());
+
+  /*
+success: function(data){alert(data);},
+        failure: function(errMsg) {
+            alert(errMsg);
+        }
+
+  */
+
+  // TODO: build the HTML form data as a JSON object and then send that
+
+  // Here is the fun part (AJAX call). I'm going to do the robust way that handles error catching (there are shorter 
+  // helper methods in jQuery for this sort of thing, e.g. $.post, but this spells it all out clearly).
+  $.ajax({
+      url : '/create_poll/new',               
+      data : $(this).serialize(),  // TODO: this needs to be a JSON object!
+      type : 'post',  
+      contentType: "application/json; charset=utf-8",
+      dataType: 'json' 
+  }).done(function(data) {
+      // This is the callback function when the call completes, in other words this will be run when the server sends back your JSON object (which is represented as the 'data' parameter)
+      //** Process your JSON here (since it's an object, you use dot notation to get properties. It's as simple as saying 'data.<property-name>'
+        console.log(data);
+  }).fail(function() {
+      // The call failed, spawn some popup alert or something on the page telling the user (this isn't required, just accounts for all possible scenarios)
+  });
+});
+
 // callback for submit button when the user selects a poll option
 function formProcess(event){
   event.preventDefault();

@@ -48,3 +48,4 @@ GET     /assets/*file               controllers.Assets.at(path="/public", file)
 
 # POLL RELATED PAGES
 GET     /create_poll				controllers.Application.create_poll
+POST	/create_poll/new			controllers.Application.create_poll_new

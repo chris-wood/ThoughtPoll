@@ -46,14 +46,13 @@ Seq[Any](format.raw/*1.50*/("""
     
     <!-- Le scripts -->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-    <script src=""""),_display_(Seq[Any](/*19.19*/routes/*19.25*/.Assets.at("js/poll.js"))),format.raw/*19.49*/("""" type="text/javascript" charset="utf-8"></script>
-    <script src=""""),_display_(Seq[Any](/*20.19*/routes/*20.25*/.Assets.at("js/bootstrap.min.js"))),format.raw/*20.58*/(""""></script>
-    <script src=""""),_display_(Seq[Any](/*21.19*/routes/*21.25*/.Application.jsRoutes)),format.raw/*21.46*/("""" defer="defer"></script>
+    <script src=""""),_display_(Seq[Any](/*19.19*/routes/*19.25*/.Assets.at("js/bootstrap.min.js"))),format.raw/*19.58*/(""""></script>
+    <script src=""""),_display_(Seq[Any](/*20.19*/routes/*20.25*/.Application.jsRoutes)),format.raw/*20.46*/("""" defer="defer"></script>
 	
     <!-- Le styles -->
-    <link href=""""),_display_(Seq[Any](/*24.18*/routes/*24.24*/.Assets.at("stylesheets/main.min.css"))),format.raw/*24.62*/("""" rel="stylesheet">
-    <link href=""""),_display_(Seq[Any](/*25.18*/routes/*25.24*/.Assets.at("css/main.css"))),format.raw/*25.50*/("""" rel="stylesheet">
-    <link href=""""),_display_(Seq[Any](/*26.18*/routes/*26.24*/.Assets.at("css/bootstrap.min.css"))),format.raw/*26.59*/("""" rel="stylesheet">
+    <link href=""""),_display_(Seq[Any](/*23.18*/routes/*23.24*/.Assets.at("stylesheets/main.min.css"))),format.raw/*23.62*/("""" rel="stylesheet">
+    <link href=""""),_display_(Seq[Any](/*24.18*/routes/*24.24*/.Assets.at("css/main.css"))),format.raw/*24.50*/("""" rel="stylesheet">
+    <link href=""""),_display_(Seq[Any](/*25.18*/routes/*25.24*/.Assets.at("css/bootstrap.min.css"))),format.raw/*25.59*/("""" rel="stylesheet">
     
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
@@ -71,37 +70,37 @@ Seq[Any](format.raw/*1.50*/("""
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href=""""),_display_(Seq[Any](/*44.35*/routes/*44.41*/.Application.index())),format.raw/*44.61*/("""">ThoughtPoll</a>
+          <a class="brand" href=""""),_display_(Seq[Any](/*43.35*/routes/*43.41*/.Application.index())),format.raw/*43.61*/("""">ThoughtPoll</a>
           
           <div class="btn-group pull-right">
-          """),_display_(Seq[Any](/*47.12*/if(Deadbolt.viewRoleHolderPresent())/*47.48*/ {_display_(Seq[Any](format.raw/*47.50*/("""
-          	"""),_display_(Seq[Any](/*48.13*/defining(Application.getLocalUser(session()))/*48.58*/ { user =>_display_(Seq[Any](format.raw/*48.68*/("""
+          """),_display_(Seq[Any](/*46.12*/if(Deadbolt.viewRoleHolderPresent())/*46.48*/ {_display_(Seq[Any](format.raw/*46.50*/("""
+          	"""),_display_(Seq[Any](/*47.13*/defining(Application.getLocalUser(session()))/*47.58*/ { user =>_display_(Seq[Any](format.raw/*47.68*/("""
             <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-              <i class="icon-user"></i> """),_display_(Seq[Any](/*50.42*/user/*50.46*/.name)),format.raw/*50.51*/("""
+              <i class="icon-user"></i> """),_display_(Seq[Any](/*49.42*/user/*49.46*/.name)),format.raw/*49.51*/("""
               <span class="caret"></span>
             </a>
             <ul class="dropdown-menu">
-              <li><a href=""""),_display_(Seq[Any](/*54.29*/routes/*54.35*/.Application.profile())),format.raw/*54.57*/("""">"""),_display_(Seq[Any](/*54.60*/Messages("playauthenticate.navigation.profile"))),format.raw/*54.107*/("""</a></li>
-              <li><a href=""""),_display_(Seq[Any](/*55.29*/routes/*55.35*/.Account.link())),format.raw/*55.50*/("""">"""),_display_(Seq[Any](/*55.53*/Messages("playauthenticate.navigation.link_more"))),format.raw/*55.102*/("""</a></li>
+              <li><a href=""""),_display_(Seq[Any](/*53.29*/routes/*53.35*/.Application.profile())),format.raw/*53.57*/("""">"""),_display_(Seq[Any](/*53.60*/Messages("playauthenticate.navigation.profile"))),format.raw/*53.107*/("""</a></li>
+              <li><a href=""""),_display_(Seq[Any](/*54.29*/routes/*54.35*/.Account.link())),format.raw/*54.50*/("""">"""),_display_(Seq[Any](/*54.53*/Messages("playauthenticate.navigation.link_more"))),format.raw/*54.102*/("""</a></li>
               <li class="divider"></li>
-              <li><a href=""""),_display_(Seq[Any](/*57.29*/com/*57.32*/.feth.play.module.pa.controllers.routes.Authenticate.logout())),format.raw/*57.93*/(""""><i class="icon-off"></i> """),_display_(Seq[Any](/*57.121*/Messages("playauthenticate.navigation.logout"))),format.raw/*57.167*/("""</a></li>
+              <li><a href=""""),_display_(Seq[Any](/*56.29*/com/*56.32*/.feth.play.module.pa.controllers.routes.Authenticate.logout())),format.raw/*56.93*/(""""><i class="icon-off"></i> """),_display_(Seq[Any](/*56.121*/Messages("playauthenticate.navigation.logout"))),format.raw/*56.167*/("""</a></li>
             </ul>
-            """)))})),format.raw/*59.14*/("""
-          """)))}/*60.13*/else/*60.18*/{_display_(Seq[Any](format.raw/*60.19*/("""
-            <a href=""""),_display_(Seq[Any](/*61.23*/routes/*61.29*/.Application.login())),format.raw/*61.49*/("""" class="btn btn-primary btn-mini """),_display_(Seq[Any](/*61.84*/("disabled".when(nav == "login")))),format.raw/*61.117*/("""">"""),_display_(Seq[Any](/*61.120*/Messages("playauthenticate.navigation.login"))),format.raw/*61.165*/("""</a>
-          """)))})),format.raw/*62.12*/("""
+            """)))})),format.raw/*58.14*/("""
+          """)))}/*59.13*/else/*59.18*/{_display_(Seq[Any](format.raw/*59.19*/("""
+            <a href=""""),_display_(Seq[Any](/*60.23*/routes/*60.29*/.Application.login())),format.raw/*60.49*/("""" class="btn btn-primary btn-mini """),_display_(Seq[Any](/*60.84*/("disabled".when(nav == "login")))),format.raw/*60.117*/("""">"""),_display_(Seq[Any](/*60.120*/Messages("playauthenticate.navigation.login"))),format.raw/*60.165*/("""</a>
+          """)))})),format.raw/*61.12*/("""
           </div>
 
           
           <div class="nav-collapse">
             <ul class="nav">
-              <li class=""""),_display_(Seq[Any](/*68.27*/("active".when(nav == "")))),format.raw/*68.53*/(""""><a href=""""),_display_(Seq[Any](/*68.65*/routes/*68.71*/.Application.index())),format.raw/*68.91*/("""">"""),_display_(Seq[Any](/*68.94*/Messages("playauthenticate.navigation.home"))),format.raw/*68.138*/("""</a></li>
-              <li class=""""),_display_(Seq[Any](/*69.27*/("active".when(nav == "restricted")))),format.raw/*69.63*/(""""><a href=""""),_display_(Seq[Any](/*69.75*/routes/*69.81*/.Application.restricted())),format.raw/*69.106*/("""">"""),_display_(Seq[Any](/*69.109*/Messages("playauthenticate.navigation.restricted"))),format.raw/*69.159*/("""</a></li>
+              <li class=""""),_display_(Seq[Any](/*67.27*/("active".when(nav == "")))),format.raw/*67.53*/(""""><a href=""""),_display_(Seq[Any](/*67.65*/routes/*67.71*/.Application.index())),format.raw/*67.91*/("""">"""),_display_(Seq[Any](/*67.94*/Messages("playauthenticate.navigation.home"))),format.raw/*67.138*/("""</a></li>
+              <li class=""""),_display_(Seq[Any](/*68.27*/("active".when(nav == "restricted")))),format.raw/*68.63*/(""""><a href=""""),_display_(Seq[Any](/*68.75*/routes/*68.81*/.Application.restricted())),format.raw/*68.106*/("""">"""),_display_(Seq[Any](/*68.109*/Messages("playauthenticate.navigation.restricted"))),format.raw/*68.159*/("""</a></li>
                 
                 <!-- If the user is not logged in, show the sign-up page -->
-                """),_display_(Seq[Any](/*72.18*/if(!Deadbolt.viewRoleHolderPresent())/*72.55*/ {_display_(Seq[Any](format.raw/*72.57*/("""
-			    	      <li class=""""),_display_(Seq[Any](/*73.27*/("active".when(nav == "signup")))),format.raw/*73.59*/(""""><a href=""""),_display_(Seq[Any](/*73.71*/routes/*73.77*/.Application.signup())),format.raw/*73.98*/("""">"""),_display_(Seq[Any](/*73.101*/Messages("playauthenticate.navigation.signup"))),format.raw/*73.147*/("""</a></li>
-			          """)))})),format.raw/*74.15*/("""
+                """),_display_(Seq[Any](/*71.18*/if(!Deadbolt.viewRoleHolderPresent())/*71.55*/ {_display_(Seq[Any](format.raw/*71.57*/("""
+			    	      <li class=""""),_display_(Seq[Any](/*72.27*/("active".when(nav == "signup")))),format.raw/*72.59*/(""""><a href=""""),_display_(Seq[Any](/*72.71*/routes/*72.77*/.Application.signup())),format.raw/*72.98*/("""">"""),_display_(Seq[Any](/*72.101*/Messages("playauthenticate.navigation.signup"))),format.raw/*72.147*/("""</a></li>
+			          """)))})),format.raw/*73.15*/("""
             </ul>
           </div><!--/.nav-collapse -->
         </div>
@@ -109,19 +108,19 @@ Seq[Any](format.raw/*1.50*/("""
     </div>
 
     <div class="container">
-	    """),_display_(Seq[Any](/*82.7*/if(flash.contains(Application.FLASH_ERROR_KEY))/*82.54*/ {_display_(Seq[Any](format.raw/*82.56*/("""
+	    """),_display_(Seq[Any](/*81.7*/if(flash.contains(Application.FLASH_ERROR_KEY))/*81.54*/ {_display_(Seq[Any](format.raw/*81.56*/("""
 	      <div class="alert alert-error">
-	      	"""),_display_(Seq[Any](/*84.10*/flash()/*84.17*/.get(Application.FLASH_ERROR_KEY))),format.raw/*84.50*/("""
+	      	"""),_display_(Seq[Any](/*83.10*/flash()/*83.17*/.get(Application.FLASH_ERROR_KEY))),format.raw/*83.50*/("""
 	      </div>
-	    """)))})),format.raw/*86.7*/("""
-	    """),_display_(Seq[Any](/*87.7*/if(flash.contains(Application.FLASH_MESSAGE_KEY))/*87.56*/ {_display_(Seq[Any](format.raw/*87.58*/("""
+	    """)))})),format.raw/*85.7*/("""
+	    """),_display_(Seq[Any](/*86.7*/if(flash.contains(Application.FLASH_MESSAGE_KEY))/*86.56*/ {_display_(Seq[Any](format.raw/*86.58*/("""
 	      <div class="alert alert-success">
-	      	"""),_display_(Seq[Any](/*89.10*/flash()/*89.17*/.get(Application.FLASH_MESSAGE_KEY))),format.raw/*89.52*/("""
+	      	"""),_display_(Seq[Any](/*88.10*/flash()/*88.17*/.get(Application.FLASH_MESSAGE_KEY))),format.raw/*88.52*/("""
 	      </div>
-	    """)))})),format.raw/*91.7*/("""
+	    """)))})),format.raw/*90.7*/("""
 
     <!-- Drop in the content for this page... -->
-		"""),_display_(Seq[Any](/*94.4*/content)),format.raw/*94.11*/("""
+		"""),_display_(Seq[Any](/*93.4*/content)),format.raw/*93.11*/("""
 		
     <hr>
 
@@ -129,6 +128,9 @@ Seq[Any](format.raw/*1.50*/("""
         <p>&copy; 2012 ThoughtPoll</p>
       </footer>
     </div> <!-- /container -->
+
+    <!-- More of le scripts -->
+    <script src=""""),_display_(Seq[Any](/*103.19*/routes/*103.25*/.Assets.at("js/poll.js"))),format.raw/*103.49*/("""" type="text/javascript" charset="utf-8"></script>
 
   </body>
 </html>
@@ -144,11 +146,11 @@ Seq[Any](format.raw/*1.50*/("""
 }
                 /*
                     -- GENERATED --
-                    DATE: Mon Dec 03 23:07:55 EST 2012
+                    DATE: Thu Dec 06 00:13:39 EST 2012
                     SOURCE: /Users/caw/Projects/ThoughtPoll/main/app/views/main.scala.html
-                    HASH: 05b339ea76d5624abcf3b1d12978de9ffbda559b
-                    MATRIX: 766->1|972->49|1000->133|1065->163|1079->169|1107->176|1166->200|1192->205|1610->587|1625->593|1671->617|1776->686|1791->692|1846->725|1912->755|1927->761|1970->782|2074->850|2089->856|2149->894|2222->931|2237->937|2285->963|2358->1000|2373->1006|2430->1041|3069->1644|3084->1650|3126->1670|3247->1755|3292->1791|3332->1793|3381->1806|3435->1851|3483->1861|3637->1979|3650->1983|3677->1988|3840->2115|3855->2121|3899->2143|3938->2146|4008->2193|4082->2231|4097->2237|4134->2252|4173->2255|4245->2304|4359->2382|4371->2385|4454->2446|4519->2474|4588->2520|4661->2561|4692->2574|4705->2579|4744->2580|4803->2603|4818->2609|4860->2629|4931->2664|4987->2697|5027->2700|5095->2745|5143->2761|5301->2883|5349->2909|5397->2921|5412->2927|5454->2947|5493->2950|5560->2994|5632->3030|5690->3066|5738->3078|5753->3084|5801->3109|5841->3112|5914->3162|6071->3283|6117->3320|6157->3322|6220->3349|6274->3381|6322->3393|6337->3399|6380->3420|6420->3423|6489->3469|6545->3493|6712->3625|6768->3672|6808->3674|6893->3723|6909->3730|6964->3763|7016->3784|7058->3791|7116->3840|7156->3842|7243->3893|7259->3900|7316->3935|7368->3956|7458->4011|7487->4018
-                    LINES: 27->1|33->1|35->5|37->7|37->7|37->7|39->9|39->9|49->19|49->19|49->19|50->20|50->20|50->20|51->21|51->21|51->21|54->24|54->24|54->24|55->25|55->25|55->25|56->26|56->26|56->26|74->44|74->44|74->44|77->47|77->47|77->47|78->48|78->48|78->48|80->50|80->50|80->50|84->54|84->54|84->54|84->54|84->54|85->55|85->55|85->55|85->55|85->55|87->57|87->57|87->57|87->57|87->57|89->59|90->60|90->60|90->60|91->61|91->61|91->61|91->61|91->61|91->61|91->61|92->62|98->68|98->68|98->68|98->68|98->68|98->68|98->68|99->69|99->69|99->69|99->69|99->69|99->69|99->69|102->72|102->72|102->72|103->73|103->73|103->73|103->73|103->73|103->73|103->73|104->74|112->82|112->82|112->82|114->84|114->84|114->84|116->86|117->87|117->87|117->87|119->89|119->89|119->89|121->91|124->94|124->94
+                    HASH: 051f597bdaeb78bcb4074e4120b222ae11ec236e
+                    MATRIX: 766->1|972->49|1000->133|1065->163|1079->169|1107->176|1166->200|1192->205|1610->587|1625->593|1680->626|1746->656|1761->662|1804->683|1908->751|1923->757|1983->795|2056->832|2071->838|2119->864|2192->901|2207->907|2264->942|2903->1545|2918->1551|2960->1571|3081->1656|3126->1692|3166->1694|3215->1707|3269->1752|3317->1762|3471->1880|3484->1884|3511->1889|3674->2016|3689->2022|3733->2044|3772->2047|3842->2094|3916->2132|3931->2138|3968->2153|4007->2156|4079->2205|4193->2283|4205->2286|4288->2347|4353->2375|4422->2421|4495->2462|4526->2475|4539->2480|4578->2481|4637->2504|4652->2510|4694->2530|4765->2565|4821->2598|4861->2601|4929->2646|4977->2662|5135->2784|5183->2810|5231->2822|5246->2828|5288->2848|5327->2851|5394->2895|5466->2931|5524->2967|5572->2979|5587->2985|5635->3010|5675->3013|5748->3063|5905->3184|5951->3221|5991->3223|6054->3250|6108->3282|6156->3294|6171->3300|6214->3321|6254->3324|6323->3370|6379->3394|6546->3526|6602->3573|6642->3575|6727->3624|6743->3631|6798->3664|6850->3685|6892->3692|6950->3741|6990->3743|7077->3794|7093->3801|7150->3836|7202->3857|7292->3912|7321->3919|7524->4085|7540->4091|7587->4115
+                    LINES: 27->1|33->1|35->5|37->7|37->7|37->7|39->9|39->9|49->19|49->19|49->19|50->20|50->20|50->20|53->23|53->23|53->23|54->24|54->24|54->24|55->25|55->25|55->25|73->43|73->43|73->43|76->46|76->46|76->46|77->47|77->47|77->47|79->49|79->49|79->49|83->53|83->53|83->53|83->53|83->53|84->54|84->54|84->54|84->54|84->54|86->56|86->56|86->56|86->56|86->56|88->58|89->59|89->59|89->59|90->60|90->60|90->60|90->60|90->60|90->60|90->60|91->61|97->67|97->67|97->67|97->67|97->67|97->67|97->67|98->68|98->68|98->68|98->68|98->68|98->68|98->68|101->71|101->71|101->71|102->72|102->72|102->72|102->72|102->72|102->72|102->72|103->73|111->81|111->81|111->81|113->83|113->83|113->83|115->85|116->86|116->86|116->86|118->88|118->88|118->88|120->90|123->93|123->93|133->103|133->103|133->103
                     -- GENERATED --
                 */
             

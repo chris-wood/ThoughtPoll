@@ -1,6 +1,6 @@
 // @SOURCE:/Users/caw/Projects/ThoughtPoll/main/conf/routes
-// @HASH:ca73026bf2c00f2637f1e222f59169a9b0efdb7c
-// @DATE:Mon Dec 03 23:40:19 EST 2012
+// @HASH:9d5d2f473c2494f19e2806664cda63dda1b018ab
+// @DATE:Wed Dec 05 23:54:22 EST 2012
 
 import play.core._
 import play.core.Router._
@@ -42,6 +42,7 @@ def authenticate(provider:String) = {
 }
                     
 
+// @LINE:51
 // @LINE:50
 // @LINE:47
 // @LINE:44
@@ -136,6 +137,7 @@ def unverified() = {
 }
                             
 
+// @LINE:51
 // @LINE:50
 // @LINE:19
 // @LINE:18
@@ -159,6 +161,12 @@ def signup() = {
 // @LINE:12
 def login() = {
    Call("GET", "/login")
+}
+                                                        
+ 
+// @LINE:51
+def create_poll_new() = {
+   Call("POST", "/create_poll/new")
 }
                                                         
  
@@ -335,6 +343,7 @@ def authenticate = JavascriptReverseRoute(
 }
                     
 
+// @LINE:51
 // @LINE:50
 // @LINE:47
 // @LINE:44
@@ -469,6 +478,7 @@ def unverified = JavascriptReverseRoute(
 }
                             
 
+// @LINE:51
 // @LINE:50
 // @LINE:19
 // @LINE:18
@@ -500,6 +510,17 @@ def login = JavascriptReverseRoute(
    """
       function() {
       return _wA({method:"GET", url:"/login"})
+      }
+   """
+)
+                                                        
+ 
+// @LINE:51
+def create_poll_new = JavascriptReverseRoute(
+   "controllers.Application.create_poll_new",
+   """
+      function() {
+      return _wA({method:"POST", url:"/create_poll/new"})
       }
    """
 )
@@ -748,6 +769,7 @@ def authenticate(provider:String) = new play.api.mvc.HandlerRef(
 }
                     
 
+// @LINE:51
 // @LINE:50
 // @LINE:47
 // @LINE:44
@@ -842,6 +864,7 @@ def unverified() = new play.api.mvc.HandlerRef(
 }
                             
 
+// @LINE:51
 // @LINE:50
 // @LINE:19
 // @LINE:18
@@ -865,6 +888,12 @@ def signup() = new play.api.mvc.HandlerRef(
 // @LINE:12
 def login() = new play.api.mvc.HandlerRef(
    controllers.Application.login(), HandlerDef(this, "controllers.Application", "login", Seq())
+)
+                              
+ 
+// @LINE:51
+def create_poll_new() = new play.api.mvc.HandlerRef(
+   controllers.Application.create_poll_new(), HandlerDef(this, "controllers.Application", "create_poll_new", Seq())
 )
                               
  
