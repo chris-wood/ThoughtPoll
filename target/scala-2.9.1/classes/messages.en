@@ -1,0 +1,7 @@
+### --- ThoughtPoll START ---
+
+# index: the main page and general messages
+thoughtpoll.index.title=ThoughtPoll
+
+# create_poll: the page where admins and users create polls
+thoughtpoll.create_poll.heading=Create a new Poll
