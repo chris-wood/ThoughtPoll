@@ -24,7 +24,7 @@ create table choice (
   foreign key(question_id)  references question(id) on delete cascade
 );
 
-create table answers (
+create table answer (
   user_id                   bigint not null,
   question_id               bigint not null,
   choice_id                 bigint not null,

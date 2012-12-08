@@ -1,13 +1,43 @@
-2012-12-07 19:45:46,607 - [INFO] - from play in main 
+2012-12-07 19:58:57,103 - [INFO] - from play in main 
 Listening for HTTP on port 9000...
 
-2012-12-07 19:45:50,966 - [INFO] - from play in play-akka.actor.default-dispatcher-2 
+2012-12-07 19:59:06,813 - [ERROR] - from application in New I/O  worker #1 
+
+
+! Internal server error, for request [GET /] ->
+
+sbt.PlayExceptions$CompilationException: Compilation error [too many arguments for method apply: (question_id: Long, choice_text: String)models.Choice in object Choice]
+	at sbt.PlayReloader$$anon$2$$anonfun$reload$3$$anonfun$4$$anonfun$apply$12$$anonfun$apply$13.apply(PlayReloader.scala:236) ~[na:na]
+	at sbt.PlayReloader$$anon$2$$anonfun$reload$3$$anonfun$4$$anonfun$apply$12$$anonfun$apply$13.apply(PlayReloader.scala:236) ~[na:na]
+	at scala.Option.map(Option.scala:133) ~[scala-library.jar:0.11.3]
+	at sbt.PlayReloader$$anon$2$$anonfun$reload$3$$anonfun$4$$anonfun$apply$12.apply(PlayReloader.scala:236) ~[na:na]
+	at sbt.PlayReloader$$anon$2$$anonfun$reload$3$$anonfun$4$$anonfun$apply$12.apply(PlayReloader.scala:233) ~[na:na]
+	at scala.Option.map(Option.scala:133) ~[scala-library.jar:0.11.3]
+	at sbt.PlayReloader$$anon$2$$anonfun$reload$3$$anonfun$4.apply(PlayReloader.scala:233) ~[na:na]
+	at sbt.PlayReloader$$anon$2$$anonfun$reload$3$$anonfun$4.apply(PlayReloader.scala:231) ~[na:na]
+	at scala.Either$LeftProjection.map(Either.scala:183) ~[scala-library.jar:0.11.3]
+	at sbt.PlayReloader$$anon$2$$anonfun$reload$3.apply(PlayReloader.scala:231) ~[na:na]
+	at sbt.PlayReloader$$anon$2$$anonfun$reload$3.apply(PlayReloader.scala:226) ~[na:na]
+	at scala.Option.getOrElse(Option.scala:108) ~[scala-library.jar:0.11.3]
+	at sbt.PlayReloader$$anon$2.reload(PlayReloader.scala:226) ~[na:na]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:110) ~[play_2.9.1.jar:2.0.4]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:110) ~[play_2.9.1.jar:2.0.4]
+	at akka.dispatch.Future$$anon$3.liftedTree1$1(Future.scala:195) ~[akka-actor.jar:2.0.2]
+	at akka.dispatch.Future$$anon$3.run(Future.scala:194) ~[akka-actor.jar:2.0.2]
+	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:94) ~[akka-actor.jar:2.0.2]
+	at akka.jsr166y.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1381) ~[akka-actor.jar:2.0.2]
+	at akka.jsr166y.ForkJoinTask.doExec(ForkJoinTask.java:259) ~[akka-actor.jar:2.0.2]
+	at akka.jsr166y.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:975) ~[akka-actor.jar:2.0.2]
+	at akka.jsr166y.ForkJoinPool.runWorker(ForkJoinPool.java:1479) ~[akka-actor.jar:2.0.2]
+	at akka.jsr166y.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:104) ~[akka-actor.jar:2.0.2]
+
+2012-12-07 19:59:22,773 - [INFO] - from play in play-akka.actor.default-dispatcher-1 
 database [default] connected at jdbc:h2:mem:play
 
-2012-12-07 19:45:51,070 - [ERROR] - from application in New I/O  worker #1 
+2012-12-07 19:59:22,867 - [ERROR] - from application in New I/O  worker #1 
 
 
-! @6ci1o5n48 - Internal server error, for request [GET /] ->
+! @6ci1pome9 - Internal server error, for request [GET /] ->
 
 play.api.db.evolutions.InvalidDatabaseRevision: Database 'default' needs evolution! [An SQL script need to be run on your database.]
 	at play.api.db.evolutions.EvolutionsPlugin$$anonfun$onStart$1$$anonfun$apply$1.apply$mcV$sp(Evolutions.scala:427) ~[play_2.9.1.jar:2.0.4]
@@ -39,10 +69,10 @@ play.api.db.evolutions.InvalidDatabaseRevision: Database 'default' needs evoluti
 	at akka.jsr166y.ForkJoinPool.runWorker(ForkJoinPool.java:1479) ~[akka-actor.jar:2.0.2]
 	at akka.jsr166y.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:104) ~[akka-actor.jar:2.0.2]
 
-2012-12-07 19:45:53,817 - [WARN] - from play in New I/O  worker #1 
+2012-12-07 19:59:25,219 - [WARN] - from play in New I/O  worker #1 
 Applying evolution script for database 'default':
 
-# --- Rev:1,Ups - 4be2792
+# --- Rev:1,Ups - ded96e6
 create table user (
 id                        bigint not null primary key AUTO_INCREMENT,
 email                     varchar(255) not null,
@@ -65,7 +95,7 @@ choice_text               varchar(255),
 foreign key(question_id)  references question(id) on delete cascade
 );
 
-create table answers (
+create table answer (
 user_id                   bigint not null,
 question_id               bigint not null,
 choice_id                 bigint not null,
@@ -106,9 +136,9 @@ foreign key(project)      references project(id) on delete cascade
 create sequence task_seq start with 1000;
 
 
-2012-12-07 19:45:54,580 - [INFO] - from play in play-akka.actor.default-dispatcher-2 
+2012-12-07 19:59:25,817 - [INFO] - from play in play-akka.actor.default-dispatcher-1 
 database [default] connected at jdbc:h2:mem:play
 
-2012-12-07 19:45:54,708 - [INFO] - from play in play-akka.actor.default-dispatcher-2 
+2012-12-07 19:59:25,977 - [INFO] - from play in play-akka.actor.default-dispatcher-1 
 Application started (Dev)
 

@@ -9,20 +9,19 @@ import anorm.SqlParser._
 import java.util.Date;
 
 // TODO: this should be a date object!
-case class Question(user_id: Long, question_text: String, date_started: Date) 
+case class Choice(question_id: Long, choice_text: String) 
 
-object Question {
+object Choice {
   
   // -- Parsers
   
   /**
-   * Parse a Question from a ResultSet
+   * Parse a Choice from a ResultSet
    */
   val simple = {
-    get[Long]("question.user_id") ~
-    get[String]("question.question_text") ~
-    get[Date]("question.date_started") map {
-      case uid~text~date => Question(uid, text, date)
+    get[Long]("choice.question_id") ~
+    get[String]("choice.choice_text") map {
+      case qid~text => Choice(qid, text)
     }
   }
   
@@ -72,23 +71,22 @@ object Question {
   */
    
   /**
-   * Create a Question.
+   * Create a Choice.
    */
-  def create(question: Question): Question = {
+  def create(choice: Choice): Choice = {
     DB.withConnection { implicit connection =>
       SQL(
         """
-          insert into question (user_id, question_text, date_started) values (
-            {user_id}, {question_text}, {date_started}
+          insert into choice (question_id, choice_text) values (
+            {question_id}, {choice_text}
           )
         """
       ).on(
-        'user_id -> question.user_id,
-        'question_text -> question.question_text,
-        'date_started -> question.date_started
+        'question_id -> choice.question_id,
+        'choice_text -> choice.choice_text
       ).executeUpdate()
       
-      question
+      choice
       
     }
   }

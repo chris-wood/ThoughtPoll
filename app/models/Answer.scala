@@ -9,20 +9,26 @@ import anorm.SqlParser._
 import java.util.Date;
 
 // TODO: this should be a date object!
-case class Question(user_id: Long, question_text: String, date_started: Date) 
+case class Answer(user_id: Long, 
+  question_id: Long, 
+  choice_id: Long,
+  explanation: String,
+  date_started: Date) 
 
-object Question {
+object Answer {
   
   // -- Parsers
   
   /**
-   * Parse a Question from a ResultSet
+   * Parse a Answer from a ResultSet
    */
   val simple = {
-    get[Long]("question.user_id") ~
-    get[String]("question.question_text") ~
-    get[Date]("question.date_started") map {
-      case uid~text~date => Question(uid, text, date)
+    get[Long]("answer.user_id") ~
+    get[Long]("answer.question_id") ~
+    get[Long]("answer.choice_id") ~
+    get[String]("answer.explanation") ~
+    get[Date]("answer.date_started") map {
+      case uid~qid~cid~expl~date => Answer(uid, qid, cid, expl, date)
     }
   }
   
@@ -72,23 +78,25 @@ object Question {
   */
    
   /**
-   * Create a Question.
+   * Create a Answer.
    */
-  def create(question: Question): Question = {
+  def create(answer: Answer): Answer = {
     DB.withConnection { implicit connection =>
       SQL(
         """
-          insert into question (user_id, question_text, date_started) values (
-            {user_id}, {question_text}, {date_started}
+          insert into answer (user_id, question_id, choice_id, explanation, date_started) values (
+            {user_id}, {question_id}, {choice_id}, {explanation}, {date_started}
           )
         """
       ).on(
-        'user_id -> question.user_id,
-        'question_text -> question.question_text,
-        'date_started -> question.date_started
+        'user_id -> answer.user_id,
+        'question_id -> answer.question_id,
+        'choice_id -> answer.choice_id,
+        'explanation -> answer.explanation,
+        'date_started -> answer.date_started
       ).executeUpdate()
       
-      question
+      answer
       
     }
   }

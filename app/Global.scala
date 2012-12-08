@@ -4,7 +4,6 @@ import models._
 import anorm._
 
 import java.util.Date;
-//import java.util.{Date, Collection, List}
 
 object Global extends GlobalSettings {
   
@@ -31,43 +30,33 @@ object InitialData {
 
       // Insert a dummy test user
       Seq(
-        User("root", "Test", "toor")
+        User("root", "Test", "toor"),
+        User("root2", "Test", "toor"),
+        User("root3", "Test", "toor"),
+        User("root4", "Test", "toor"),
+        User("root5", "Test", "toor")
       ).foreach(User.create)
 
       // Insert a dummy question
       Seq(
-        Question(1, "What's your name?", date)
+        Question(1, "Do you like spicy food?", date)
       ).foreach(Question.create)
-      
-      /*
+
+      // Insert a dummy set of choices for the question above
       Seq(
-        Project(Id(1), "Play framework", "Play 2.0") -> Seq("guillaume@sample.com", "maxime@sample.com", "sadek@sample.com", "erwan@sample.com"),
-        Project(Id(2), "Play framework", "Play 1.2.4") -> Seq("guillaume@sample.com", "erwan@sample.com"),
-        Project(Id(3), "Play framework", "Website") -> Seq("guillaume@sample.com", "maxime@sample.com"),
-        Project(Id(4), "Zenexity", "Secret project") -> Seq("guillaume@sample.com", "maxime@sample.com", "sadek@sample.com", "erwan@sample.com"),
-        Project(Id(5), "Zenexity", "Playmate") -> Seq("maxime@sample.com"),
-        Project(Id(6), "Personal", "Things to do") -> Seq("guillaume@sample.com"),
-        Project(Id(7), "Zenexity", "Play samples") -> Seq("guillaume@sample.com", "maxime@sample.com"),
-        Project(Id(8), "Personal", "Private") -> Seq("maxime@sample.com"),
-        Project(Id(9), "Personal", "Private") -> Seq("guillaume@sample.com"),
-        Project(Id(10), "Personal", "Private") -> Seq("erwan@sample.com"),
-        Project(Id(11), "Personal", "Private") -> Seq("sadek@sample.com")
-      ).foreach {
-        case (project,members) => Project.create(project, members)
-      }
-      
+        Choice(1, "Yes"),
+        Choice(1, "No"),
+        Choice(1, "I'M CONFUSED HELP ME")
+      ).foreach(Choice.create)
+
+      // Insert a dummy set of answers for the question above
       Seq(
-        Task(NotAssigned, "Todo", 1, "Fix the documentation", false, None, Some("guillaume@sample.com")),
-        Task(NotAssigned, "Urgent", 1, "Prepare the beta release", false, Some(date("2011-11-15")), None),
-        Task(NotAssigned, "Todo", 9, "Buy some milk", false, None, None),
-        Task(NotAssigned, "Todo", 2, "Check 1.2.4-RC2", false, Some(date("2011-11-18")), Some("guillaume@sample.com")),
-        Task(NotAssigned, "Todo", 7, "Finish zentask integration", true, Some(date("2011-11-15")), Some("maxime@sample.com")),
-        Task(NotAssigned, "Todo", 4, "Release the secret project", false, Some(date("2012-01-01")), Some("sadek@sample.com"))
-      ).foreach(Task.create)
-      */
-      
+        Answer(1, 1, 1, "I like spicy food", date),
+        Answer(2, 1, 1, "I like spicy food", date),
+        Answer(3, 1, 1, "I like spicy food", date),
+        Answer(4, 1, 1, "I like spicy food", date),
+        Answer(5, 1, 1, "I like spicy food", date)
+      ).foreach(Answer.create)      
     }
-    
   }
-  
 }
