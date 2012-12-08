@@ -1,5 +1,3 @@
-@(form: Form[(String,String)])(implicit flash: Flash)
-
 <html>
     <head>
         <title>@Messages("thoughtpoll.index.title")</title>
@@ -9,7 +7,7 @@
     <body>
         
         <header>
-            <a href="@routes.Projects.index" id="logo"><span>Thought</span>Poll</a>
+            <a href="@routes.TPController.index" id="logo"><span>Thought</span>Poll</a>
         </header>
 
         <div id="create_poll_container">
@@ -43,37 +41,13 @@
         Here's a fancy button just hanging around. Cool.
         <p><a class="btn" href="#">@Messages("thoughtpoll.index.title") &raquo;</a></p>
         
-        @helper.form(routes.Application.authenticate) {
-            
-            <h1>Sign in</h1>
-            
-            @form.globalError.map { error =>
-                <p class="error">
-                    @error.message
-                </p>
-            }
-            
-            @flash.get("success").map { message =>
-                <p class="success">
-                    @message
-                </p>
-            }
-            
-            <p>
-                <input type="email" name="email" placeholder="Email" id="email" value="@form("email").value">
-            </p>
-            <p>
-                <input type="password" name="password" id="password" placeholder="Password">
-            </p>
-            <p>
-                <button type="submit" id="loginbutton">Login</button>
-            </p>
-            
-        }
         
+        
+        <!--
         <p class="note">
             Try <em>root</em> with <em>toor</em> as password.
         </p>
+      -->
             
     </body>
 </html>

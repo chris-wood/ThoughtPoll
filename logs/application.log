@@ -1,13 +1,13 @@
-2012-12-06 21:57:00,187 - [INFO] - from play in main 
+2012-12-07 19:45:46,607 - [INFO] - from play in main 
 Listening for HTTP on port 9000...
 
-2012-12-06 21:57:06,946 - [INFO] - from play in play-akka.actor.default-dispatcher-1 
+2012-12-07 19:45:50,966 - [INFO] - from play in play-akka.actor.default-dispatcher-2 
 database [default] connected at jdbc:h2:mem:play
 
-2012-12-06 21:57:07,093 - [ERROR] - from application in New I/O  worker #1 
+2012-12-07 19:45:51,070 - [ERROR] - from application in New I/O  worker #1 
 
 
-! @6chl8a19e - Internal server error, for request [GET /] ->
+! @6ci1o5n48 - Internal server error, for request [GET /] ->
 
 play.api.db.evolutions.InvalidDatabaseRevision: Database 'default' needs evolution! [An SQL script need to be run on your database.]
 	at play.api.db.evolutions.EvolutionsPlugin$$anonfun$onStart$1$$anonfun$apply$1.apply$mcV$sp(Evolutions.scala:427) ~[play_2.9.1.jar:2.0.4]
@@ -39,10 +39,10 @@ play.api.db.evolutions.InvalidDatabaseRevision: Database 'default' needs evoluti
 	at akka.jsr166y.ForkJoinPool.runWorker(ForkJoinPool.java:1479) ~[akka-actor.jar:2.0.2]
 	at akka.jsr166y.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:104) ~[akka-actor.jar:2.0.2]
 
-2012-12-06 21:57:08,782 - [WARN] - from play in New I/O  worker #1 
+2012-12-07 19:45:53,817 - [WARN] - from play in New I/O  worker #1 
 Applying evolution script for database 'default':
 
-# --- Rev:1,Ups - 14447cc
+# --- Rev:1,Ups - 4be2792
 create table user (
 id                        bigint not null primary key AUTO_INCREMENT,
 email                     varchar(255) not null,
@@ -52,10 +52,28 @@ password                  varchar(255) not null
 
 create table question (
 id                        bigint not null primary key AUTO_INCREMENT,
-user_id                   varchar(255),
+user_id                   bigint not null,
 question_text             varchar(255),
-date_started              timestamp,
+date_started              timestamp not null,
 foreign key(user_id)      references user(id) on delete cascade
+);
+
+create table choice (
+id                        bigint not null primary key AUTO_INCREMENT,
+question_id               bigint not null,
+choice_text               varchar(255),
+foreign key(question_id)  references question(id) on delete cascade
+);
+
+create table answers (
+user_id                   bigint not null,
+question_id               bigint not null,
+choice_id                 bigint not null,
+explanation               varchar(255),
+date_started              timestamp not null,
+foreign key(user_id)      references user(id) on delete cascade,
+foreign key(question_id)  references question(id) on delete cascade,
+foreign key(choice_id)    references choice(id) on delete cascade
 );
 
 create table project (
@@ -88,9 +106,9 @@ foreign key(project)      references project(id) on delete cascade
 create sequence task_seq start with 1000;
 
 
-2012-12-06 21:57:09,611 - [INFO] - from play in play-akka.actor.default-dispatcher-1 
+2012-12-07 19:45:54,580 - [INFO] - from play in play-akka.actor.default-dispatcher-2 
 database [default] connected at jdbc:h2:mem:play
 
-2012-12-06 21:57:09,727 - [INFO] - from play in play-akka.actor.default-dispatcher-1 
+2012-12-07 19:45:54,708 - [INFO] - from play in play-akka.actor.default-dispatcher-2 
 Application started (Dev)
 

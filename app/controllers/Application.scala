@@ -34,7 +34,7 @@ object Application extends Controller {
   def authenticate = Action { implicit request =>
     loginForm.bindFromRequest.fold(
       formWithErrors => BadRequest(html.login(formWithErrors)),
-      user => Redirect(routes.Projects.index).withSession("email" -> user._1)
+      user => Redirect(routes.TPController.index).withSession("email" -> user._1)
     )
   }
 

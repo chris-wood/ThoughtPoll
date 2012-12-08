@@ -1,6 +1,6 @@
 // @SOURCE:/Users/caw/Projects/ThoughtPoll/conf/routes
-// @HASH:aed2e34a348954fea6be29d6304955c1b38f6b22
-// @DATE:Thu Dec 06 21:11:06 EST 2012
+// @HASH:f27e048053c7dbf40202122415cb37c92d5a20c5
+// @DATE:Fri Dec 07 19:29:52 EST 2012
 
 import play.core._
 import play.core.Router._
@@ -15,7 +15,7 @@ object Routes extends Router.Routes {
 
 
 // @LINE:6
-val controllers_Projects_index0 = Route("GET", PathPattern(List(StaticPart("/"))))
+val controllers_TPController_index0 = Route("GET", PathPattern(List(StaticPart("/"))))
                     
 
 // @LINE:9
@@ -97,15 +97,15 @@ val controllers_Application_javascriptRoutes19 = Route("GET", PathPattern(List(S
 // @LINE:40
 val controllers_Assets_at20 = Route("GET", PathPattern(List(StaticPart("/assets/"),DynamicPart("file", """.+"""))))
                     
-def documentation = List(("""GET""","""/""","""controllers.Projects.index"""),("""GET""","""/login""","""controllers.Application.login"""),("""POST""","""/login""","""controllers.Application.authenticate"""),("""GET""","""/logout""","""controllers.Application.logout"""),("""POST""","""/projects""","""controllers.Projects.add"""),("""POST""","""/projects/groups""","""controllers.Projects.addGroup()"""),("""DELETE""","""/projects/groups""","""controllers.Projects.deleteGroup(group:String)"""),("""PUT""","""/projects/groups""","""controllers.Projects.renameGroup(group:String)"""),("""DELETE""","""/projects/$project<[^/]+>""","""controllers.Projects.delete(project:Long)"""),("""PUT""","""/projects/$project<[^/]+>""","""controllers.Projects.rename(project:Long)"""),("""POST""","""/projects/$project<[^/]+>/team""","""controllers.Projects.addUser(project:Long)"""),("""DELETE""","""/projects/$project<[^/]+>/team""","""controllers.Projects.removeUser(project:Long)"""),("""GET""","""/projects/$project<[^/]+>/tasks""","""controllers.Tasks.index(project:Long)"""),("""POST""","""/projects/$project<[^/]+>/tasks""","""controllers.Tasks.add(project:Long, folder:String)"""),("""PUT""","""/tasks/$task<[^/]+>""","""controllers.Tasks.update(task:Long)"""),("""DELETE""","""/tasks/$task<[^/]+>""","""controllers.Tasks.delete(task:Long)"""),("""POST""","""/tasks/folder""","""controllers.Tasks.addFolder"""),("""DELETE""","""/projects/$project<[^/]+>/tasks/folder""","""controllers.Tasks.deleteFolder(project:Long, folder:String)"""),("""PUT""","""/project/$project<[^/]+>/tasks/folder""","""controllers.Tasks.renameFolder(project:Long, folder:String)"""),("""GET""","""/assets/javascripts/routes""","""controllers.Application.javascriptRoutes"""),("""GET""","""/assets/$file<.+>""","""controllers.Assets.at(path:String = "/public", file:String)"""))
+def documentation = List(("""GET""","""/""","""controllers.TPController.index"""),("""GET""","""/login""","""controllers.Application.login"""),("""POST""","""/login""","""controllers.Application.authenticate"""),("""GET""","""/logout""","""controllers.Application.logout"""),("""POST""","""/projects""","""controllers.Projects.add"""),("""POST""","""/projects/groups""","""controllers.Projects.addGroup()"""),("""DELETE""","""/projects/groups""","""controllers.Projects.deleteGroup(group:String)"""),("""PUT""","""/projects/groups""","""controllers.Projects.renameGroup(group:String)"""),("""DELETE""","""/projects/$project<[^/]+>""","""controllers.Projects.delete(project:Long)"""),("""PUT""","""/projects/$project<[^/]+>""","""controllers.Projects.rename(project:Long)"""),("""POST""","""/projects/$project<[^/]+>/team""","""controllers.Projects.addUser(project:Long)"""),("""DELETE""","""/projects/$project<[^/]+>/team""","""controllers.Projects.removeUser(project:Long)"""),("""GET""","""/projects/$project<[^/]+>/tasks""","""controllers.Tasks.index(project:Long)"""),("""POST""","""/projects/$project<[^/]+>/tasks""","""controllers.Tasks.add(project:Long, folder:String)"""),("""PUT""","""/tasks/$task<[^/]+>""","""controllers.Tasks.update(task:Long)"""),("""DELETE""","""/tasks/$task<[^/]+>""","""controllers.Tasks.delete(task:Long)"""),("""POST""","""/tasks/folder""","""controllers.Tasks.addFolder"""),("""DELETE""","""/projects/$project<[^/]+>/tasks/folder""","""controllers.Tasks.deleteFolder(project:Long, folder:String)"""),("""PUT""","""/project/$project<[^/]+>/tasks/folder""","""controllers.Tasks.renameFolder(project:Long, folder:String)"""),("""GET""","""/assets/javascripts/routes""","""controllers.Application.javascriptRoutes"""),("""GET""","""/assets/$file<.+>""","""controllers.Assets.at(path:String = "/public", file:String)"""))
              
     
 def routes:PartialFunction[RequestHeader,Handler] = {        
 
 // @LINE:6
-case controllers_Projects_index0(params) => {
+case controllers_TPController_index0(params) => {
    call { 
-        invokeHandler(_root_.controllers.Projects.index, HandlerDef(this, "controllers.Projects", "index", Nil))
+        invokeHandler(_root_.controllers.TPController.index, HandlerDef(this, "controllers.TPController", "index", Nil))
    }
 }
                     

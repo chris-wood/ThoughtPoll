@@ -21,8 +21,6 @@ object Projects extends Controller with Secured {
   def index = IsAuthenticated { username => _ =>
 
     // TODO: render the index page - with an interactive view of D3
-
-    /*
     User.findByEmail(username).map { user =>
       Ok(
         html.dashboard(
@@ -32,7 +30,6 @@ object Projects extends Controller with Secured {
         )
       )
     }.getOrElse(Forbidden)
-    */
   }
 
   // -- Projects

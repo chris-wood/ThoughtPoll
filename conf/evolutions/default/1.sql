@@ -11,10 +11,28 @@ create table user (
 
 create table question (
   id                        bigint not null primary key AUTO_INCREMENT,
-  user_id                   varchar(255),
+  user_id                   bigint not null,
   question_text             varchar(255),
-  date_started              timestamp,
+  date_started              timestamp not null,
   foreign key(user_id)      references user(id) on delete cascade
+);
+
+create table choice (
+  id                        bigint not null primary key AUTO_INCREMENT,
+  question_id               bigint not null,
+  choice_text               varchar(255),
+  foreign key(question_id)  references question(id) on delete cascade
+);
+
+create table answers (
+  user_id                   bigint not null,
+  question_id               bigint not null,
+  choice_id                 bigint not null,
+  explanation               varchar(255),
+  date_started              timestamp not null,
+  foreign key(user_id)      references user(id) on delete cascade,
+  foreign key(question_id)  references question(id) on delete cascade,
+  foreign key(choice_id)    references choice(id) on delete cascade
 );
 
 create table project (
