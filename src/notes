@@ -1,0 +1,50 @@
+/** 
+ * This method is an exact algorithm that returns the number of  
+ * cliques of size 5 in this graph. 
+ **/ 
+public int numCliquesSize5(Graph g) { 
+int[] temp = new int[size]; 
+for(int i = 0 ; i < g.getSize() ; i++) { 
+    temp[i] = g.getDegree(i); 
+} 
+   
+Graph tempG = g; 
+int[] temp2 = new int[0]; 
+for(int i = 0 ; i < g.getSize() ; i++) { 
+    if(temp[i] >= 4) { 
+ temp2 = add(temp2,i); 
+    } else { 
+ tempG = remove(tempG,i); 
+    } 
+} 
+int out = 0; 
+boolean[] intersect = new boolean[tempG.getSize()]; 
+intersect = initAll(intersect); 
+boolean[] intersect1 = new boolean[tempG.getSize()]; 
+boolean[] intersect2 = new boolean[tempG.getSize()]; 
+boolean[] intersect3 = new boolean[tempG.getSize()]; 
+boolean[] intersect4 = new boolean[tempG.getSize()]; 
+boolean[] intersect5 = new boolean[tempG.getSize()]; 
+   
+for(int x1 = 0 ; x1 < (temp2.length - 4) ; x1++) { 
+   intersect1 = intersection(intersect, connectedList(tempG, temp2[x1])); 
+     
+   for(int x2 = (x1 + 1) ; x2 < (temp2.length - 3) ; x2++) { 
+   intersect2 = intersection(intersect1, connectedList(tempG, temp2[x2]));   
+      for(int x3 = (x2 + 1) ; x3 < (temp2.length - 2) ; x3++) { 
+      intersect3 = intersection(intersect2, connectedList(tempG, temp2[x3])); 
+         for(int x4 = (x3 + 1) ; x4 < (temp2.length - 1) ; x4++) { 
+         intersect4 = intersection(intersect3, connectedList(tempG, temp2[x4])); 
+            for(int x5 = (x4 + 1) ; x5 < temp2.length ; x5++) { 
+            intersect5 = intersection(intersect4, connectedList(tempG, temp2[x5])); 
+       
+        if(numTrue(intersect5) > 4) { 
+           out++; 
+      } 
+    } 
+     } 
+ }  
+    } 
+} 
+return out; 
+}
