@@ -25,7 +25,7 @@ app.configure('production', function(){
 
 // Routes
 app.get('/', routes.index);
-app.get('/home', routes.index);
+app.get('/index', routes.index);
 app.get('/history', routes.history);
 app.get('/about', routes.about);
 app.get('/partials/:name', routes.partials);

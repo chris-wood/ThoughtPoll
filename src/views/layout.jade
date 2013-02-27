@@ -17,7 +17,7 @@ html(ng-app="thoughtPoll")
               span.icon-bar
             a(href='#').brand #{brand}
             ul.nav
-              - var obj = { 'home':'Home', 'history':'History', about':'About' }
+              - var obj = { 'home':'Home', 'history':'History', 'about':'About' }
                 - each val, key in obj
                   - if (id == key)
                     li.active
