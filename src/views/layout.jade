@@ -1,5 +1,5 @@
 !!!
-html(ng-app="myApp")
+html(ng-app="thoughtPoll")
   include inc/header
   head
     meta(charset='utf8')
@@ -15,9 +15,9 @@ html(ng-app="myApp")
               span.icon-bar
               span.icon-bar
               span.icon-bar
-            a(href='#').brand #{brand}
+            a(href='/').brand #{brand}
             ul.nav
-              - var obj = { 'home':'Home', 'about':'About' }
+              - var obj = { 'home':'Home', 'history':'History', about':'About' }
                 - each val, key in obj
                   - if (id == key)
                     li.active
@@ -26,7 +26,8 @@ html(ng-app="myApp")
                     li
                       a(href='#{key}') #{val}
     div.container
-      block content
+      block content 
+      
       include inc/footer
 
     include inc/scripts
