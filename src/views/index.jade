@@ -1,13 +1,14 @@
 extends layout
 
-block body
+block append content
   div(ng-controller='AppCtrl')
     h2 Hello {{name}}
     ul.menu
       li
-        a(href='view1') view1
-      li
-        a(href='view2') view2
+        a(href='home') home
+
+    div.hero
+      p Testing, 123...
 
     div(ng-view)
 
