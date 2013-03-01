@@ -1,5 +1,7 @@
 div.hero-unit
-	h1 ThoughtPoll - A Worldly View
+	h1 TODO
 
-p Loaded the home view template
+ul
+	li(ng-repeat="question in pollQuestions")
+		p Question: {{question}}
 
