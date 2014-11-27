@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  poll_question_id: 1
+  poll_answer_id: 1
+  lat: 1.5
+  lon: 1.5
+
+two:
+  poll_question_id: 1
+  poll_answer_id: 1
+  lat: 1.5
+  lon: 1.5

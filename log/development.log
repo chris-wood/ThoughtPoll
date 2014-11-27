@@ -1,0 +1,735 @@
+
+
+Started GET "/" for 127.0.0.1 at 2014-11-27 10:53:44 -0800
+
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+	bin/rake db:migrate RAILS_ENV=development
+
+):
+  activerecord (4.1.2) lib/active_record/migration.rb:389:in `check_pending!'
+  activerecord (4.1.2) lib/active_record/migration.rb:377:in `call'
+  actionpack (4.1.2) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.1.2) lib/active_support/callbacks.rb:82:in `run_callbacks'
+  actionpack (4.1.2) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.1.2) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.1.2) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.1.2) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.1.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.2) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.2) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.2) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.2) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.2) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.2) lib/rails/engine.rb:514:in `call'
+  railties (4.1.2) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/cwood/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/cwood/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/cwood/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/cwood/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.5ms)
+  Rendered /Users/cwood/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.0ms)
+  Rendered /Users/cwood/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/cwood/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (17.2ms)
+  [1m[36m (1.0ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (0.8ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to CreatePollQuestions (20141127183318)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  CREATE TABLE "poll_questions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "body" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20141127183318"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+Migrating to CreatePollAnswers (20141127183417)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  CREATE TABLE "poll_answers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "body" varchar(255), "votes" integer, "poll_question_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20141127183417"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+Migrating to CreatePollVoteHistories (20141127185249)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  CREATE TABLE "poll_vote_histories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "poll_question_id" integer, "poll_answer_id" integer, "lat" float, "lon" float, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20141127185249"]]
+  [1m[35m (1.0ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+
+Started GET "/" for 127.0.0.1 at 2014-11-27 10:54:09 -0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PollQuestionsController#index as HTML
+  [1m[35mPollQuestion Load (0.2ms)[0m  SELECT "poll_questions".* FROM "poll_questions"
+  Rendered poll_questions/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 767ms (Views: 755.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/poll_answers.css?body=1" for 127.0.0.1 at 2014-11-27 10:54:10 -0800
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-11-27 10:54:10 -0800
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-11-27 10:54:10 -0800
+
+
+Started GET "/assets/poll_vote_histories.css?body=1" for 127.0.0.1 at 2014-11-27 10:54:10 -0800
+
+
+Started GET "/assets/poll_questions.css?body=1" for 127.0.0.1 at 2014-11-27 10:54:10 -0800
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-11-27 10:54:10 -0800
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-11-27 10:54:10 -0800
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-11-27 10:54:10 -0800
+
+
+Started GET "/assets/poll_answers.js?body=1" for 127.0.0.1 at 2014-11-27 10:54:10 -0800
+
+
+Started GET "/assets/poll_questions.js?body=1" for 127.0.0.1 at 2014-11-27 10:54:10 -0800
+
+
+Started GET "/assets/poll_vote_histories.js?body=1" for 127.0.0.1 at 2014-11-27 10:54:10 -0800
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-11-27 10:54:10 -0800
+
+
+Started GET "/" for 127.0.0.1 at 2014-11-27 11:05:42 -0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PollQuestionsController#index as HTML
+  [1m[35mPollQuestion Load (0.1ms)[0m  SELECT "poll_questions".* FROM "poll_questions"
+  Rendered poll_questions/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 2492ms (Views: 2483.7ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-11-27 11:05:44 -0800
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2014-11-27 11:05:44 -0800
+
+
+Started GET "/assets/poll_answers.css?body=1" for 127.0.0.1 at 2014-11-27 11:05:44 -0800
+
+
+Started GET "/assets/poll_questions.css?body=1" for 127.0.0.1 at 2014-11-27 11:05:44 -0800
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2014-11-27 11:05:44 -0800
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for 127.0.0.1 at 2014-11-27 11:05:44 -0800
+
+
+Started GET "/assets/poll_vote_histories.css?body=1" for 127.0.0.1 at 2014-11-27 11:05:44 -0800
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-11-27 11:05:44 -0800
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2014-11-27 11:05:44 -0800
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-11-27 11:05:44 -0800
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-11-27 11:05:44 -0800
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-11-27 11:05:45 -0800
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-11-27 11:05:45 -0800
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2014-11-27 11:05:45 -0800
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-11-27 11:05:45 -0800
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-11-27 11:05:45 -0800
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2014-11-27 11:05:45 -0800
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-11-27 11:05:45 -0800
+
+
+Started GET "/assets/bootstrap-sprockets.js?body=1" for 127.0.0.1 at 2014-11-27 11:05:45 -0800
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-11-27 11:05:45 -0800
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-11-27 11:05:45 -0800
+
+
+Started GET "/assets/poll_answers.js?body=1" for 127.0.0.1 at 2014-11-27 11:05:45 -0800
+
+
+Started GET "/assets/poll_questions.js?body=1" for 127.0.0.1 at 2014-11-27 11:05:45 -0800
+
+
+Started GET "/assets/poll_vote_histories.js?body=1" for 127.0.0.1 at 2014-11-27 11:05:45 -0800
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-11-27 11:05:45 -0800
+
+
+Started GET "/" for 127.0.0.1 at 2014-11-27 11:41:15 -0800
+Processing by PollQuestionsController#index as HTML
+  Rendered poll_questions/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 140ms (Views: 138.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-11-27 11:41:15 -0800
+
+
+Started GET "/assets/poll_answers.css?body=1" for 127.0.0.1 at 2014-11-27 11:41:15 -0800
+
+
+Started GET "/assets/poll_questions.css?body=1" for 127.0.0.1 at 2014-11-27 11:41:15 -0800
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-11-27 11:41:15 -0800
+
+
+Started GET "/assets/poll_vote_histories.css?body=1" for 127.0.0.1 at 2014-11-27 11:41:15 -0800
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-11-27 11:41:15 -0800
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-11-27 11:41:16 -0800
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-11-27 11:41:16 -0800
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for 127.0.0.1 at 2014-11-27 11:41:16 -0800
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2014-11-27 11:41:16 -0800
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2014-11-27 11:41:16 -0800
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-11-27 11:41:16 -0800
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2014-11-27 11:41:16 -0800
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-11-27 11:41:16 -0800
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-11-27 11:41:16 -0800
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-11-27 11:41:16 -0800
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2014-11-27 11:41:16 -0800
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-11-27 11:41:16 -0800
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-11-27 11:41:16 -0800
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2014-11-27 11:41:16 -0800
+
+
+Started GET "/assets/bootstrap-sprockets.js?body=1" for 127.0.0.1 at 2014-11-27 11:41:16 -0800
+
+
+Started GET "/assets/poll_answers.js?body=1" for 127.0.0.1 at 2014-11-27 11:41:16 -0800
+
+
+Started GET "/assets/poll_questions.js?body=1" for 127.0.0.1 at 2014-11-27 11:41:16 -0800
+
+
+Started GET "/assets/poll_vote_histories.js?body=1" for 127.0.0.1 at 2014-11-27 11:41:16 -0800
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-11-27 11:41:16 -0800
+
+
+Started GET "/" for 127.0.0.1 at 2014-11-27 11:41:32 -0800
+Processing by PollQuestionsController#index as HTML
+  Rendered poll_questions/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 131ms (Views: 130.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-11-27 11:41:32 -0800
+
+
+Started GET "/assets/poll_answers.css?body=1" for 127.0.0.1 at 2014-11-27 11:41:32 -0800
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-11-27 11:41:32 -0800
+
+
+Started GET "/assets/poll_questions.css?body=1" for 127.0.0.1 at 2014-11-27 11:41:32 -0800
+
+
+Started GET "/assets/poll_vote_histories.css?body=1" for 127.0.0.1 at 2014-11-27 11:41:32 -0800
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-11-27 11:41:32 -0800
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-11-27 11:41:32 -0800
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-11-27 11:41:32 -0800
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for 127.0.0.1 at 2014-11-27 11:41:32 -0800
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2014-11-27 11:41:32 -0800
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2014-11-27 11:41:32 -0800
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2014-11-27 11:41:32 -0800
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-11-27 11:41:32 -0800
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-11-27 11:41:32 -0800
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-11-27 11:41:32 -0800
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2014-11-27 11:41:32 -0800
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-11-27 11:41:32 -0800
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-11-27 11:41:32 -0800
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-11-27 11:41:32 -0800
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2014-11-27 11:41:32 -0800
+
+
+Started GET "/assets/bootstrap-sprockets.js?body=1" for 127.0.0.1 at 2014-11-27 11:41:32 -0800
+
+
+Started GET "/assets/poll_answers.js?body=1" for 127.0.0.1 at 2014-11-27 11:41:32 -0800
+
+
+Started GET "/assets/poll_questions.js?body=1" for 127.0.0.1 at 2014-11-27 11:41:32 -0800
+
+
+Started GET "/assets/poll_vote_histories.js?body=1" for 127.0.0.1 at 2014-11-27 11:41:32 -0800
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-11-27 11:41:32 -0800
+
+
+Started GET "/" for 127.0.0.1 at 2014-11-27 11:41:41 -0800
+Processing by PollQuestionsController#index as HTML
+  Rendered poll_questions/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 122ms (Views: 121.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-11-27 11:42:37 -0800
+Processing by PollQuestionsController#index as HTML
+  Rendered poll_questions/index.html.erb within layouts/application (0.0ms)
+Completed 500 Internal Server Error in 27ms
+
+ActionView::Template::Error (couldn't find file 'bootstrap'
+  (in /Users/cwood/Projects/ThoughtPoll/app/app/assets/stylesheets/application.css:15)):
+    2: <html>
+    3: <head>
+    4:   <title>App</title>
+    5:   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    6:   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    7:   <%= csrf_meta_tags %>
+    8: </head>
+  app/views/layouts/application.html.erb:5:in `_app_views_layouts_application_html_erb__813146168556487885_70231929054400'
+
+
+  Rendered /Users/cwood/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.4ms)
+  Rendered /Users/cwood/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/cwood/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.2/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (11.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-11-27 11:42:41 -0800
+Processing by PollQuestionsController#index as HTML
+  Rendered poll_questions/index.html.erb within layouts/application (0.0ms)
+Completed 500 Internal Server Error in 29ms
+
+ActionView::Template::Error (couldn't find file 'bootstrap'
+  (in /Users/cwood/Projects/ThoughtPoll/app/app/assets/stylesheets/application.css:15)):
+    2: <html>
+    3: <head>
+    4:   <title>App</title>
+    5:   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    6:   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    7:   <%= csrf_meta_tags %>
+    8: </head>
+  app/views/layouts/application.html.erb:5:in `_app_views_layouts_application_html_erb__813146168556487885_70231929054400'
+
+
+  Rendered /Users/cwood/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.4ms)
+  Rendered /Users/cwood/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /Users/cwood/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.2/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (11.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-11-27 11:42:46 -0800
+Processing by PollQuestionsController#index as HTML
+  Rendered poll_questions/index.html.erb within layouts/application (0.0ms)
+Completed 500 Internal Server Error in 26ms
+
+ActionView::Template::Error (couldn't find file 'bootstrap'
+  (in /Users/cwood/Projects/ThoughtPoll/app/app/assets/stylesheets/application.css:15)):
+    2: <html>
+    3: <head>
+    4:   <title>App</title>
+    5:   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    6:   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    7:   <%= csrf_meta_tags %>
+    8: </head>
+  app/views/layouts/application.html.erb:5:in `_app_views_layouts_application_html_erb__813146168556487885_70231929054400'
+
+
+  Rendered /Users/cwood/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.0ms)
+  Rendered /Users/cwood/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /Users/cwood/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.2/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (8.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-11-27 11:45:30 -0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PollQuestionsController#index as HTML
+  Rendered poll_questions/index.html.erb within layouts/application (0.9ms)
+Completed 500 Internal Server Error in 36ms
+
+ActionView::Template::Error (couldn't find file 'bootstrap'
+  (in /Users/cwood/Projects/ThoughtPoll/app/app/assets/stylesheets/application.css:15)):
+    2: <html>
+    3: <head>
+    4:   <title>App</title>
+    5:   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    6:   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    7:   <%= csrf_meta_tags %>
+    8: </head>
+  app/views/layouts/application.html.erb:5:in `_app_views_layouts_application_html_erb__3870419320261273422_70184139786280'
+
+
+  Rendered /Users/cwood/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.1ms)
+  Rendered /Users/cwood/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /Users/cwood/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.2/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (8.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-11-27 11:45:32 -0800
+Processing by PollQuestionsController#index as HTML
+  Rendered poll_questions/index.html.erb within layouts/application (0.0ms)
+Completed 500 Internal Server Error in 23ms
+
+ActionView::Template::Error (couldn't find file 'bootstrap'
+  (in /Users/cwood/Projects/ThoughtPoll/app/app/assets/stylesheets/application.css:15)):
+    2: <html>
+    3: <head>
+    4:   <title>App</title>
+    5:   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    6:   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    7:   <%= csrf_meta_tags %>
+    8: </head>
+  app/views/layouts/application.html.erb:5:in `_app_views_layouts_application_html_erb__3870419320261273422_70184139786280'
+
+
+  Rendered /Users/cwood/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.2ms)
+  Rendered /Users/cwood/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/cwood/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.2/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (9.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-11-27 11:45:40 -0800
+Processing by PollQuestionsController#index as HTML
+  Rendered poll_questions/index.html.erb within layouts/application (0.0ms)
+Completed 500 Internal Server Error in 33ms
+
+LoadError (cannot load such file -- less
+  (in /Users/cwood/Projects/ThoughtPoll/app/app/assets/stylesheets/bootstrap_and_overrides.css.less)):
+  app/views/layouts/application.html.erb:5:in `_app_views_layouts_application_html_erb__3870419320261273422_70184139786280'
+
+
+  Rendered /Users/cwood/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.3ms)
+  Rendered /Users/cwood/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.6ms)
+  Rendered /Users/cwood/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/cwood/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (17.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-11-27 11:45:43 -0800
+Processing by PollQuestionsController#index as HTML
+  Rendered poll_questions/index.html.erb within layouts/application (0.0ms)
+Completed 500 Internal Server Error in 19ms
+
+LoadError (cannot load such file -- less
+  (in /Users/cwood/Projects/ThoughtPoll/app/app/assets/stylesheets/bootstrap_and_overrides.css.less)):
+  app/views/layouts/application.html.erb:5:in `_app_views_layouts_application_html_erb__3870419320261273422_70184139786280'
+
+
+  Rendered /Users/cwood/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.7ms)
+  Rendered /Users/cwood/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.4ms)
+  Rendered /Users/cwood/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/cwood/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (12.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-11-27 11:45:44 -0800
+Processing by PollQuestionsController#index as HTML
+  Rendered poll_questions/index.html.erb within layouts/application (0.0ms)
+Completed 500 Internal Server Error in 18ms
+
+LoadError (cannot load such file -- less
+  (in /Users/cwood/Projects/ThoughtPoll/app/app/assets/stylesheets/bootstrap_and_overrides.css.less)):
+  app/views/layouts/application.html.erb:5:in `_app_views_layouts_application_html_erb__3870419320261273422_70184139786280'
+
+
+  Rendered /Users/cwood/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.7ms)
+  Rendered /Users/cwood/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.2ms)
+  Rendered /Users/cwood/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/cwood/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (12.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-11-27 11:46:33 -0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PollQuestionsController#index as HTML
+  Rendered poll_questions/index.html.erb within layouts/application (0.9ms)
+Completed 500 Internal Server Error in 29ms
+
+LoadError (cannot load such file -- less
+  (in /Users/cwood/Projects/ThoughtPoll/app/app/assets/stylesheets/bootstrap_and_overrides.css.less)):
+  app/views/layouts/application.html.erb:5:in `_app_views_layouts_application_html_erb___3996273527652105746_70192589522820'
+
+
+  Rendered /Users/cwood/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.5ms)
+  Rendered /Users/cwood/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.9ms)
+  Rendered /Users/cwood/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /Users/cwood/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (11.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-11-27 11:48:23 -0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PollQuestionsController#index as HTML
+  Rendered poll_questions/index.html.erb within layouts/application (1.4ms)
+Completed 500 Internal Server Error in 920ms
+
+ActionView::Template::Error (couldn't find file 'bootstrap-sprockets'
+  (in /Users/cwood/Projects/ThoughtPoll/app/app/assets/javascripts/application.js:17)):
+    3: <head>
+    4:   <title>App</title>
+    5:   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    6:   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    7:   <%= csrf_meta_tags %>
+    8: </head>
+    9: <body>
+  app/views/layouts/application.html.erb:6:in `_app_views_layouts_application_html_erb___4463687769049791586_70161128828800'
+
+
+  Rendered /Users/cwood/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.0ms)
+  Rendered /Users/cwood/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /Users/cwood/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.2/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (8.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-11-27 11:48:33 -0800
+Processing by PollQuestionsController#index as HTML
+  Rendered poll_questions/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 299ms (Views: 298.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/bootstrap_and_overrides.css?body=1" for 127.0.0.1 at 2014-11-27 11:48:34 -0800
+
+
+Started GET "/assets/twitter/bootstrap/alert.js?body=1" for 127.0.0.1 at 2014-11-27 11:48:34 -0800
+
+
+Started GET "/assets/twitter/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-11-27 11:48:34 -0800
+
+
+Started GET "/assets/poll_answers.css?body=1" for 127.0.0.1 at 2014-11-27 11:48:34 -0800
+
+
+Started GET "/assets/twitter/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-11-27 11:48:34 -0800
+
+
+Started GET "/assets/twitter/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-11-27 11:48:34 -0800
+
+
+Started GET "/assets/poll_questions.css?body=1" for 127.0.0.1 at 2014-11-27 11:48:34 -0800
+
+
+Started GET "/assets/poll_vote_histories.css?body=1" for 127.0.0.1 at 2014-11-27 11:48:34 -0800
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-11-27 11:48:34 -0800
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-11-27 11:48:34 -0800
+
+
+Started GET "/assets/twitter/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2014-11-27 11:48:34 -0800
+
+
+Started GET "/assets/twitter/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-11-27 11:48:34 -0800
+
+
+Started GET "/assets/twitter/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-11-27 11:48:34 -0800
+
+
+Started GET "/assets/twitter/bootstrap/button.js?body=1" for 127.0.0.1 at 2014-11-27 11:48:34 -0800
+
+
+Started GET "/assets/twitter/bootstrap/popover.js?body=1" for 127.0.0.1 at 2014-11-27 11:48:34 -0800
+
+
+Started GET "/assets/twitter/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-11-27 11:48:34 -0800
+
+
+Started GET "/assets/twitter/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2014-11-27 11:48:34 -0800
+
+
+Started GET "/assets/twitter/bootstrap/affix.js?body=1" for 127.0.0.1 at 2014-11-27 11:48:34 -0800
+
+
+Started GET "/assets/twitter/bootstrap.js?body=1" for 127.0.0.1 at 2014-11-27 11:48:34 -0800
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-11-27 11:48:34 -0800
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-11-27 11:48:34 -0800
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-11-27 11:48:34 -0800
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-11-27 11:48:34 -0800
+
+
+Started GET "/assets/poll_answers.js?body=1" for 127.0.0.1 at 2014-11-27 11:48:34 -0800
+
+
+Started GET "/assets/poll_questions.js?body=1" for 127.0.0.1 at 2014-11-27 11:48:34 -0800
+
+
+Started GET "/assets/poll_vote_histories.js?body=1" for 127.0.0.1 at 2014-11-27 11:48:34 -0800
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-11-27 11:48:34 -0800
+
+
+Started GET "/" for 127.0.0.1 at 2014-11-27 11:49:28 -0800
+Processing by PollQuestionsController#index as HTML
+  Rendered poll_questions/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 148ms (Views: 148.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/bootstrap_and_overrides.css?body=1" for 127.0.0.1 at 2014-11-27 11:49:28 -0800
+
+
+Started GET "/assets/poll_answers.css?body=1" for 127.0.0.1 at 2014-11-27 11:49:28 -0800
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-11-27 11:49:28 -0800
+
+
+Started GET "/assets/poll_questions.css?body=1" for 127.0.0.1 at 2014-11-27 11:49:28 -0800
+
+
+Started GET "/assets/poll_vote_histories.css?body=1" for 127.0.0.1 at 2014-11-27 11:49:28 -0800
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-11-27 11:49:28 -0800
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-11-27 11:49:28 -0800
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-11-27 11:49:28 -0800
+
+
+Started GET "/assets/twitter/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-11-27 11:49:28 -0800
+
+
+Started GET "/assets/twitter/bootstrap/alert.js?body=1" for 127.0.0.1 at 2014-11-27 11:49:28 -0800
+
+
+Started GET "/assets/twitter/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-11-27 11:49:28 -0800
+
+
+Started GET "/assets/twitter/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-11-27 11:49:28 -0800
+
+
+Started GET "/assets/twitter/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2014-11-27 11:49:28 -0800
+
+
+Started GET "/assets/twitter/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-11-27 11:49:28 -0800
+
+
+Started GET "/assets/twitter/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-11-27 11:49:28 -0800
+
+
+Started GET "/assets/twitter/bootstrap/popover.js?body=1" for 127.0.0.1 at 2014-11-27 11:49:28 -0800
+
+
+Started GET "/assets/twitter/bootstrap/button.js?body=1" for 127.0.0.1 at 2014-11-27 11:49:28 -0800
+
+
+Started GET "/assets/twitter/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-11-27 11:49:28 -0800
+
+
+Started GET "/assets/twitter/bootstrap/affix.js?body=1" for 127.0.0.1 at 2014-11-27 11:49:28 -0800
+
+
+Started GET "/assets/twitter/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2014-11-27 11:49:28 -0800
+
+
+Started GET "/assets/twitter/bootstrap.js?body=1" for 127.0.0.1 at 2014-11-27 11:49:28 -0800
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-11-27 11:49:28 -0800
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-11-27 11:49:28 -0800
+
+
+Started GET "/assets/poll_answers.js?body=1" for 127.0.0.1 at 2014-11-27 11:49:28 -0800
+
+
+Started GET "/assets/poll_questions.js?body=1" for 127.0.0.1 at 2014-11-27 11:49:28 -0800
+
+
+Started GET "/assets/poll_vote_histories.js?body=1" for 127.0.0.1 at 2014-11-27 11:49:28 -0800
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-11-27 11:49:28 -0800

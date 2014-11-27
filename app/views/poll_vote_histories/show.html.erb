@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Poll question:</strong>
+  <%= @poll_vote_history.poll_question_id %>
+</p>
+
+<p>
+  <strong>Poll answer:</strong>
+  <%= @poll_vote_history.poll_answer_id %>
+</p>
+
+<p>
+  <strong>Lat:</strong>
+  <%= @poll_vote_history.lat %>
+</p>
+
+<p>
+  <strong>Lon:</strong>
+  <%= @poll_vote_history.lon %>
+</p>
+
+<%= link_to 'Edit', edit_poll_vote_history_path(@poll_vote_history) %> |
+<%= link_to 'Back', poll_vote_histories_path %>
