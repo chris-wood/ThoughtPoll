@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   resources :poll_questions
 
   get '/' => 'poll_questions#index'
+  get '/qotd' => 'poll_questions#qotd'
 end

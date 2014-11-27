@@ -1,6 +1,16 @@
 class PollQuestionsController < ApplicationController
   before_action :set_poll_question, only: [:show, :edit, :update, :destroy]
 
+  def qotd
+    @poll_question = PollQuestion.last # get the last question added
+
+    # JSONify the question (recursively) and return the result
+    respond_to do |format|
+      format.html { render :index }
+      format.json { render json: @poll_question }
+    end
+  end
+
   # GET /poll_questions
   # GET /poll_questions.json
   def index

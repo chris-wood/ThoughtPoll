@@ -733,3 +733,1398 @@ Started GET "/assets/poll_vote_histories.js?body=1" for 127.0.0.1 at 2014-11-27 
 
 
 Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-11-27 11:49:28 -0800
+
+
+Started GET "/" for 127.0.0.1 at 2014-11-27 12:19:33 -0800
+
+ActiveRecord::NoDatabaseError (FATAL:  database "cwood" does not exist
+Run `$ bin/rake db:create db:migrate` to create your database):
+  activerecord (4.1.2) lib/active_record/connection_adapters/postgresql_adapter.rb:898:in `rescue in connect'
+  activerecord (4.1.2) lib/active_record/connection_adapters/postgresql_adapter.rb:888:in `connect'
+  activerecord (4.1.2) lib/active_record/connection_adapters/postgresql_adapter.rb:568:in `initialize'
+  activerecord (4.1.2) lib/active_record/connection_adapters/postgresql_adapter.rb:41:in `new'
+  activerecord (4.1.2) lib/active_record/connection_adapters/postgresql_adapter.rb:41:in `postgresql_connection'
+  activerecord (4.1.2) lib/active_record/connection_adapters/abstract/connection_pool.rb:435:in `new_connection'
+  activerecord (4.1.2) lib/active_record/connection_adapters/abstract/connection_pool.rb:445:in `checkout_new_connection'
+  activerecord (4.1.2) lib/active_record/connection_adapters/abstract/connection_pool.rb:416:in `acquire_connection'
+  activerecord (4.1.2) lib/active_record/connection_adapters/abstract/connection_pool.rb:351:in `block in checkout'
+  /Users/cwood/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/monitor.rb:211:in `mon_synchronize'
+  activerecord (4.1.2) lib/active_record/connection_adapters/abstract/connection_pool.rb:350:in `checkout'
+  activerecord (4.1.2) lib/active_record/connection_adapters/abstract/connection_pool.rb:265:in `block in connection'
+  /Users/cwood/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/monitor.rb:211:in `mon_synchronize'
+  activerecord (4.1.2) lib/active_record/connection_adapters/abstract/connection_pool.rb:264:in `connection'
+  activerecord (4.1.2) lib/active_record/connection_adapters/abstract/connection_pool.rb:541:in `retrieve_connection'
+  activerecord (4.1.2) lib/active_record/connection_handling.rb:113:in `retrieve_connection'
+  activerecord (4.1.2) lib/active_record/connection_handling.rb:87:in `connection'
+  activerecord (4.1.2) lib/active_record/migration.rb:388:in `check_pending!'
+  activerecord (4.1.2) lib/active_record/migration.rb:377:in `call'
+  actionpack (4.1.2) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.1.2) lib/active_support/callbacks.rb:82:in `run_callbacks'
+  actionpack (4.1.2) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.1.2) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.1.2) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.1.2) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.1.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.2) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.2) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.2) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.2) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.2) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.2) lib/rails/engine.rb:514:in `call'
+  railties (4.1.2) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/cwood/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/cwood/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/cwood/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/cwood/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.4ms)
+  Rendered /Users/cwood/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.8ms)
+  Rendered /Users/cwood/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/cwood/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (11.7ms)
+  [1m[36m (2.6ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) [0m
+  [1m[35m (1.6ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreatePollQuestions (20141127183318)
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (3.4ms)[0m  [1mCREATE TABLE "poll_questions" ("id" serial primary key, "body" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20141127183318"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Migrating to CreatePollAnswers (20141127183417)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (2.3ms)[0m  [1mCREATE TABLE "poll_answers" ("id" serial primary key, "body" character varying(255), "votes" integer, "poll_question_id" integer, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20141127183417"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Migrating to CreatePollVoteHistories (20141127185249)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (2.3ms)[0m  [1mCREATE TABLE "poll_vote_histories" ("id" serial primary key, "poll_question_id" integer, "poll_answer_id" integer, "lat" float, "lon" float, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20141127185249"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+
+
+Started GET "/" for 127.0.0.1 at 2014-11-27 12:29:46 -0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PollQuestionsController#index as HTML
+  Rendered poll_questions/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 1451ms (Views: 1437.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/bootstrap_and_overrides.css?body=1" for 127.0.0.1 at 2014-11-27 12:29:48 -0800
+
+
+Started GET "/assets/poll_questions.css?body=1" for 127.0.0.1 at 2014-11-27 12:29:48 -0800
+
+
+Started GET "/assets/poll_vote_histories.css?body=1" for 127.0.0.1 at 2014-11-27 12:29:48 -0800
+
+
+Started GET "/assets/poll_answers.css?body=1" for 127.0.0.1 at 2014-11-27 12:29:48 -0800
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-11-27 12:29:48 -0800
+
+
+Started GET "/assets/angular.js?body=1" for 127.0.0.1 at 2014-11-27 12:29:48 -0800
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-11-27 12:29:48 -0800
+
+
+Started GET "/assets/angular-animate.js?body=1" for 127.0.0.1 at 2014-11-27 12:29:48 -0800
+
+
+Started GET "/assets/angular-resource.js?body=1" for 127.0.0.1 at 2014-11-27 12:29:48 -0800
+
+
+Started GET "/assets/thoughtpoll.ang.js?body=1" for 127.0.0.1 at 2014-11-27 12:29:48 -0800
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-11-27 12:29:48 -0800
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-11-27 12:29:48 -0800
+
+
+Started GET "/assets/twitter/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-11-27 12:29:48 -0800
+
+
+Started GET "/assets/twitter/bootstrap/alert.js?body=1" for 127.0.0.1 at 2014-11-27 12:29:48 -0800
+
+
+Started GET "/assets/twitter/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-11-27 12:29:48 -0800
+
+
+Started GET "/assets/twitter/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-11-27 12:29:48 -0800
+
+
+Started GET "/assets/twitter/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2014-11-27 12:29:48 -0800
+
+
+Started GET "/assets/twitter/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-11-27 12:29:48 -0800
+
+
+Started GET "/assets/twitter/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-11-27 12:29:48 -0800
+
+
+Started GET "/assets/twitter/bootstrap/popover.js?body=1" for 127.0.0.1 at 2014-11-27 12:29:48 -0800
+
+
+Started GET "/assets/twitter/bootstrap/button.js?body=1" for 127.0.0.1 at 2014-11-27 12:29:48 -0800
+
+
+Started GET "/assets/twitter/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-11-27 12:29:48 -0800
+
+
+Started GET "/assets/twitter/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2014-11-27 12:29:48 -0800
+
+
+Started GET "/assets/twitter/bootstrap/affix.js?body=1" for 127.0.0.1 at 2014-11-27 12:29:48 -0800
+
+
+Started GET "/assets/twitter/bootstrap.js?body=1" for 127.0.0.1 at 2014-11-27 12:29:48 -0800
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-11-27 12:29:48 -0800
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-11-27 12:29:48 -0800
+
+
+Started GET "/assets/poll_answers.js?body=1" for 127.0.0.1 at 2014-11-27 12:29:48 -0800
+
+
+Started GET "/assets/poll_questions.js?body=1" for 127.0.0.1 at 2014-11-27 12:29:48 -0800
+
+
+Started GET "/assets/poll_vote_histories.js?body=1" for 127.0.0.1 at 2014-11-27 12:29:48 -0800
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-11-27 12:29:48 -0800
+
+
+Started GET "/" for 127.0.0.1 at 2014-11-27 12:33:10 -0800
+Processing by PollQuestionsController#index as HTML
+  Rendered poll_questions/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 243ms (Views: 235.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/bootstrap_and_overrides.css?body=1" for 127.0.0.1 at 2014-11-27 12:33:10 -0800
+
+
+Started GET "/assets/poll_questions.css?body=1" for 127.0.0.1 at 2014-11-27 12:33:10 -0800
+
+
+Started GET "/assets/poll_vote_histories.css?body=1" for 127.0.0.1 at 2014-11-27 12:33:10 -0800
+
+
+Started GET "/assets/poll_answers.css?body=1" for 127.0.0.1 at 2014-11-27 12:33:10 -0800
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-11-27 12:33:10 -0800
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-11-27 12:33:10 -0800
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-11-27 12:33:10 -0800
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-11-27 12:33:10 -0800
+
+
+Started GET "/assets/twitter/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-11-27 12:33:11 -0800
+
+
+Started GET "/assets/twitter/bootstrap/alert.js?body=1" for 127.0.0.1 at 2014-11-27 12:33:11 -0800
+
+
+Started GET "/assets/twitter/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-11-27 12:33:11 -0800
+
+
+Started GET "/assets/twitter/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-11-27 12:33:11 -0800
+
+
+Started GET "/assets/twitter/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2014-11-27 12:33:11 -0800
+
+
+Started GET "/assets/twitter/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-11-27 12:33:11 -0800
+
+
+Started GET "/assets/twitter/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-11-27 12:33:11 -0800
+
+
+Started GET "/assets/twitter/bootstrap/popover.js?body=1" for 127.0.0.1 at 2014-11-27 12:33:11 -0800
+
+
+Started GET "/assets/twitter/bootstrap/button.js?body=1" for 127.0.0.1 at 2014-11-27 12:33:11 -0800
+
+
+Started GET "/assets/twitter/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-11-27 12:33:11 -0800
+
+
+Started GET "/assets/twitter/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2014-11-27 12:33:11 -0800
+
+
+Started GET "/assets/twitter/bootstrap/affix.js?body=1" for 127.0.0.1 at 2014-11-27 12:33:11 -0800
+
+
+Started GET "/assets/twitter/bootstrap.js?body=1" for 127.0.0.1 at 2014-11-27 12:33:11 -0800
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-11-27 12:33:11 -0800
+
+
+Started GET "/assets/angular.js?body=1" for 127.0.0.1 at 2014-11-27 12:33:11 -0800
+
+
+Started GET "/assets/angular-animate.js?body=1" for 127.0.0.1 at 2014-11-27 12:33:11 -0800
+
+
+Started GET "/assets/angular-resource.js?body=1" for 127.0.0.1 at 2014-11-27 12:33:11 -0800
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-11-27 12:33:11 -0800
+
+
+Started GET "/assets/poll_answers.js?body=1" for 127.0.0.1 at 2014-11-27 12:33:11 -0800
+
+
+Started GET "/assets/poll_questions.js?body=1" for 127.0.0.1 at 2014-11-27 12:33:11 -0800
+
+
+Started GET "/assets/poll_vote_histories.js?body=1" for 127.0.0.1 at 2014-11-27 12:33:11 -0800
+
+
+Started GET "/assets/thoughtpoll.ang.js?body=1" for 127.0.0.1 at 2014-11-27 12:33:11 -0800
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-11-27 12:33:11 -0800
+
+
+Started GET "/qotd" for 127.0.0.1 at 2014-11-27 12:33:13 -0800
+Processing by PollQuestionsController#qotd as HTML
+  [1m[35mPollQuestion Load (0.8ms)[0m  SELECT  "poll_questions".* FROM "poll_questions"   ORDER BY "poll_questions"."id" DESC LIMIT 1
+Completed 406 Not Acceptable in 4ms
+
+ActionController::UnknownFormat (ActionController::UnknownFormat):
+  app/controllers/poll_questions_controller.rb:6:in `qotd'
+
+
+  Rendered /Users/cwood/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.5ms)
+  Rendered /Users/cwood/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.0ms)
+  Rendered /Users/cwood/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/cwood/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (14.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-11-27 12:34:04 -0800
+Processing by PollQuestionsController#index as HTML
+  Rendered poll_questions/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 219ms (Views: 218.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/bootstrap_and_overrides.css?body=1" for 127.0.0.1 at 2014-11-27 12:34:05 -0800
+
+
+Started GET "/assets/poll_answers.css?body=1" for 127.0.0.1 at 2014-11-27 12:34:05 -0800
+
+
+Started GET "/assets/poll_questions.css?body=1" for 127.0.0.1 at 2014-11-27 12:34:05 -0800
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-11-27 12:34:05 -0800
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-11-27 12:34:05 -0800
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-11-27 12:34:05 -0800
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-11-27 12:34:05 -0800
+
+
+Started GET "/assets/poll_vote_histories.css?body=1" for 127.0.0.1 at 2014-11-27 12:34:05 -0800
+
+
+Started GET "/assets/twitter/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-11-27 12:34:05 -0800
+
+
+Started GET "/assets/twitter/bootstrap/alert.js?body=1" for 127.0.0.1 at 2014-11-27 12:34:05 -0800
+
+
+Started GET "/assets/twitter/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-11-27 12:34:05 -0800
+
+
+Started GET "/assets/twitter/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-11-27 12:34:05 -0800
+
+
+Started GET "/assets/twitter/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2014-11-27 12:34:05 -0800
+
+
+Started GET "/assets/twitter/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-11-27 12:34:05 -0800
+
+
+Started GET "/assets/twitter/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-11-27 12:34:05 -0800
+
+
+Started GET "/assets/twitter/bootstrap/popover.js?body=1" for 127.0.0.1 at 2014-11-27 12:34:05 -0800
+
+
+Started GET "/assets/twitter/bootstrap/button.js?body=1" for 127.0.0.1 at 2014-11-27 12:34:05 -0800
+
+
+Started GET "/assets/twitter/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-11-27 12:34:05 -0800
+
+
+Started GET "/assets/twitter/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2014-11-27 12:34:05 -0800
+
+
+Started GET "/assets/twitter/bootstrap/affix.js?body=1" for 127.0.0.1 at 2014-11-27 12:34:05 -0800
+
+
+Started GET "/assets/twitter/bootstrap.js?body=1" for 127.0.0.1 at 2014-11-27 12:34:05 -0800
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-11-27 12:34:05 -0800
+
+
+Started GET "/assets/angular.js?body=1" for 127.0.0.1 at 2014-11-27 12:34:05 -0800
+
+
+Started GET "/assets/angular-animate.js?body=1" for 127.0.0.1 at 2014-11-27 12:34:05 -0800
+
+
+Started GET "/assets/angular-resource.js?body=1" for 127.0.0.1 at 2014-11-27 12:34:05 -0800
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-11-27 12:34:05 -0800
+
+
+Started GET "/assets/poll_answers.js?body=1" for 127.0.0.1 at 2014-11-27 12:34:05 -0800
+
+
+Started GET "/assets/poll_questions.js?body=1" for 127.0.0.1 at 2014-11-27 12:34:05 -0800
+
+
+Started GET "/assets/poll_vote_histories.js?body=1" for 127.0.0.1 at 2014-11-27 12:34:05 -0800
+
+
+Started GET "/assets/thoughtpoll.ang.js?body=1" for 127.0.0.1 at 2014-11-27 12:34:05 -0800
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-11-27 12:34:05 -0800
+
+
+Started GET "/qotd" for 127.0.0.1 at 2014-11-27 12:34:07 -0800
+Processing by PollQuestionsController#qotd as HTML
+  [1m[36mPollQuestion Load (0.4ms)[0m  [1mSELECT  "poll_questions".* FROM "poll_questions"   ORDER BY "poll_questions"."id" DESC LIMIT 1[0m
+Completed 406 Not Acceptable in 1ms
+
+ActionController::UnknownFormat (ActionController::UnknownFormat):
+  app/controllers/poll_questions_controller.rb:6:in `qotd'
+
+
+  Rendered /Users/cwood/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.6ms)
+  Rendered /Users/cwood/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+  Rendered /Users/cwood/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/cwood/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (12.7ms)
+
+
+Started GET "/qotd" for 127.0.0.1 at 2014-11-27 12:35:41 -0800
+Processing by PollQuestionsController#qotd as HTML
+  [1m[35mPollQuestion Load (0.2ms)[0m  SELECT  "poll_questions".* FROM "poll_questions"   ORDER BY "poll_questions"."id" DESC LIMIT 1
+Completed 500 Internal Server Error in 5ms
+
+ArgumentError (too few arguments):
+  app/controllers/poll_questions_controller.rb:7:in `format'
+  app/controllers/poll_questions_controller.rb:7:in `qotd'
+
+
+  Rendered /Users/cwood/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.7ms)
+  Rendered /Users/cwood/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.9ms)
+  Rendered /Users/cwood/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /Users/cwood/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (12.3ms)
+
+
+Started GET "/qotd" for 127.0.0.1 at 2014-11-27 12:36:13 -0800
+Processing by PollQuestionsController#qotd as HTML
+  [1m[36mPollQuestion Load (0.2ms)[0m  [1mSELECT  "poll_questions".* FROM "poll_questions"   ORDER BY "poll_questions"."id" DESC LIMIT 1[0m
+Redirected to 
+Completed 500 Internal Server Error in 10ms
+
+NoMethodError (undefined method `index_url' for #<PollQuestionsController:0x007f8c4a39d2e8>):
+  app/controllers/poll_questions_controller.rb:10:in `block (2 levels) in qotd'
+  app/controllers/poll_questions_controller.rb:7:in `qotd'
+
+
+  Rendered /Users/cwood/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.5ms)
+  Rendered /Users/cwood/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.0ms)
+  Rendered /Users/cwood/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/cwood/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (13.2ms)
+
+
+Started GET "/qotd" for 127.0.0.1 at 2014-11-27 12:45:04 -0800
+Processing by PollQuestionsController#qotd as HTML
+  [1m[35mPollQuestion Load (0.2ms)[0m  SELECT  "poll_questions".* FROM "poll_questions"   ORDER BY "poll_questions"."id" DESC LIMIT 1
+  Rendered poll_questions/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 233ms (Views: 228.2ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/assets/bootstrap_and_overrides.css?body=1" for 127.0.0.1 at 2014-11-27 12:45:04 -0800
+
+
+Started GET "/assets/poll_answers.css?body=1" for 127.0.0.1 at 2014-11-27 12:45:04 -0800
+
+
+Started GET "/assets/poll_questions.css?body=1" for 127.0.0.1 at 2014-11-27 12:45:04 -0800
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-11-27 12:45:04 -0800
+
+
+Started GET "/assets/poll_vote_histories.css?body=1" for 127.0.0.1 at 2014-11-27 12:45:04 -0800
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-11-27 12:45:04 -0800
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-11-27 12:45:04 -0800
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-11-27 12:45:04 -0800
+
+
+Started GET "/assets/twitter/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-11-27 12:45:04 -0800
+
+
+Started GET "/assets/twitter/bootstrap/alert.js?body=1" for 127.0.0.1 at 2014-11-27 12:45:04 -0800
+
+
+Started GET "/assets/twitter/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-11-27 12:45:04 -0800
+
+
+Started GET "/assets/twitter/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-11-27 12:45:04 -0800
+
+
+Started GET "/assets/twitter/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2014-11-27 12:45:04 -0800
+
+
+Started GET "/assets/twitter/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-11-27 12:45:04 -0800
+
+
+Started GET "/assets/twitter/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-11-27 12:45:04 -0800
+
+
+Started GET "/assets/twitter/bootstrap/popover.js?body=1" for 127.0.0.1 at 2014-11-27 12:45:04 -0800
+
+
+Started GET "/assets/twitter/bootstrap/button.js?body=1" for 127.0.0.1 at 2014-11-27 12:45:04 -0800
+
+
+Started GET "/assets/twitter/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-11-27 12:45:04 -0800
+
+
+Started GET "/assets/twitter/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2014-11-27 12:45:04 -0800
+
+
+Started GET "/assets/twitter/bootstrap/affix.js?body=1" for 127.0.0.1 at 2014-11-27 12:45:04 -0800
+
+
+Started GET "/assets/twitter/bootstrap.js?body=1" for 127.0.0.1 at 2014-11-27 12:45:04 -0800
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-11-27 12:45:04 -0800
+
+
+Started GET "/assets/angular.js?body=1" for 127.0.0.1 at 2014-11-27 12:45:04 -0800
+
+
+Started GET "/assets/angular-animate.js?body=1" for 127.0.0.1 at 2014-11-27 12:45:04 -0800
+
+
+Started GET "/assets/angular-resource.js?body=1" for 127.0.0.1 at 2014-11-27 12:45:04 -0800
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-11-27 12:45:04 -0800
+
+
+Started GET "/assets/poll_answers.js?body=1" for 127.0.0.1 at 2014-11-27 12:45:04 -0800
+
+
+Started GET "/assets/poll_questions.js?body=1" for 127.0.0.1 at 2014-11-27 12:45:04 -0800
+
+
+Started GET "/assets/poll_vote_histories.js?body=1" for 127.0.0.1 at 2014-11-27 12:45:04 -0800
+
+
+Started GET "/assets/thoughtpoll.ang.js?body=1" for 127.0.0.1 at 2014-11-27 12:45:04 -0800
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-11-27 12:45:04 -0800
+
+
+Started GET "/qotd" for 127.0.0.1 at 2014-11-27 12:45:06 -0800
+Processing by PollQuestionsController#qotd as HTML
+  [1m[36mPollQuestion Load (0.3ms)[0m  [1mSELECT  "poll_questions".* FROM "poll_questions"   ORDER BY "poll_questions"."id" DESC LIMIT 1[0m
+  Rendered poll_questions/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 186ms (Views: 184.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/poll_answers.css?body=1" for 127.0.0.1 at 2014-11-27 12:45:07 -0800
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-11-27 12:45:07 -0800
+
+
+Started GET "/assets/poll_questions.css?body=1" for 127.0.0.1 at 2014-11-27 12:45:07 -0800
+
+
+Started GET "/assets/bootstrap_and_overrides.css?body=1" for 127.0.0.1 at 2014-11-27 12:45:07 -0800
+
+
+Started GET "/assets/poll_vote_histories.css?body=1" for 127.0.0.1 at 2014-11-27 12:45:07 -0800
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-11-27 12:45:07 -0800
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-11-27 12:45:07 -0800
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-11-27 12:45:07 -0800
+
+
+Started GET "/assets/twitter/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-11-27 12:45:07 -0800
+
+
+Started GET "/assets/twitter/bootstrap/alert.js?body=1" for 127.0.0.1 at 2014-11-27 12:45:07 -0800
+
+
+Started GET "/assets/twitter/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-11-27 12:45:07 -0800
+
+
+Started GET "/assets/twitter/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-11-27 12:45:07 -0800
+
+
+Started GET "/assets/twitter/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2014-11-27 12:45:07 -0800
+
+
+Started GET "/assets/twitter/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-11-27 12:45:07 -0800
+
+
+Started GET "/assets/twitter/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-11-27 12:45:07 -0800
+
+
+Started GET "/assets/twitter/bootstrap/popover.js?body=1" for 127.0.0.1 at 2014-11-27 12:45:07 -0800
+
+
+Started GET "/assets/twitter/bootstrap/button.js?body=1" for 127.0.0.1 at 2014-11-27 12:45:07 -0800
+
+
+Started GET "/assets/twitter/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-11-27 12:45:07 -0800
+
+
+Started GET "/assets/twitter/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2014-11-27 12:45:07 -0800
+
+
+Started GET "/assets/twitter/bootstrap/affix.js?body=1" for 127.0.0.1 at 2014-11-27 12:45:07 -0800
+
+
+Started GET "/assets/twitter/bootstrap.js?body=1" for 127.0.0.1 at 2014-11-27 12:45:07 -0800
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-11-27 12:45:07 -0800
+
+
+Started GET "/assets/angular.js?body=1" for 127.0.0.1 at 2014-11-27 12:45:07 -0800
+
+
+Started GET "/assets/angular-animate.js?body=1" for 127.0.0.1 at 2014-11-27 12:45:07 -0800
+
+
+Started GET "/assets/angular-resource.js?body=1" for 127.0.0.1 at 2014-11-27 12:45:07 -0800
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-11-27 12:45:07 -0800
+
+
+Started GET "/assets/poll_answers.js?body=1" for 127.0.0.1 at 2014-11-27 12:45:07 -0800
+
+
+Started GET "/assets/poll_questions.js?body=1" for 127.0.0.1 at 2014-11-27 12:45:07 -0800
+
+
+Started GET "/assets/poll_vote_histories.js?body=1" for 127.0.0.1 at 2014-11-27 12:45:07 -0800
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-11-27 12:45:07 -0800
+
+
+Started GET "/qotd" for 127.0.0.1 at 2014-11-27 12:46:33 -0800
+Processing by PollQuestionsController#qotd as HTML
+  [1m[35mPollQuestion Load (0.3ms)[0m  SELECT  "poll_questions".* FROM "poll_questions"   ORDER BY "poll_questions"."id" DESC LIMIT 1
+  Rendered poll_questions/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 271ms (Views: 267.1ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/assets/bootstrap_and_overrides.css?body=1" for 127.0.0.1 at 2014-11-27 12:46:33 -0800
+
+
+Started GET "/assets/poll_questions.css?body=1" for 127.0.0.1 at 2014-11-27 12:46:33 -0800
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-11-27 12:46:33 -0800
+
+
+Started GET "/assets/poll_answers.css?body=1" for 127.0.0.1 at 2014-11-27 12:46:33 -0800
+
+
+Started GET "/assets/poll_vote_histories.css?body=1" for 127.0.0.1 at 2014-11-27 12:46:33 -0800
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-11-27 12:46:33 -0800
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-11-27 12:46:33 -0800
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-11-27 12:46:33 -0800
+
+
+Started GET "/assets/twitter/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-11-27 12:46:33 -0800
+
+
+Started GET "/assets/twitter/bootstrap/alert.js?body=1" for 127.0.0.1 at 2014-11-27 12:46:33 -0800
+
+
+Started GET "/assets/twitter/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-11-27 12:46:33 -0800
+
+
+Started GET "/assets/twitter/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-11-27 12:46:33 -0800
+
+
+Started GET "/assets/twitter/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2014-11-27 12:46:34 -0800
+
+
+Started GET "/assets/twitter/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-11-27 12:46:34 -0800
+
+
+Started GET "/assets/twitter/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-11-27 12:46:34 -0800
+
+
+Started GET "/assets/twitter/bootstrap/popover.js?body=1" for 127.0.0.1 at 2014-11-27 12:46:34 -0800
+
+
+Started GET "/assets/twitter/bootstrap/button.js?body=1" for 127.0.0.1 at 2014-11-27 12:46:34 -0800
+
+
+Started GET "/assets/twitter/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-11-27 12:46:34 -0800
+
+
+Started GET "/assets/twitter/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2014-11-27 12:46:34 -0800
+
+
+Started GET "/assets/twitter/bootstrap/affix.js?body=1" for 127.0.0.1 at 2014-11-27 12:46:34 -0800
+
+
+Started GET "/assets/twitter/bootstrap.js?body=1" for 127.0.0.1 at 2014-11-27 12:46:34 -0800
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-11-27 12:46:34 -0800
+
+
+Started GET "/assets/angular.js?body=1" for 127.0.0.1 at 2014-11-27 12:46:34 -0800
+
+
+Started GET "/assets/angular-animate.js?body=1" for 127.0.0.1 at 2014-11-27 12:46:34 -0800
+
+
+Started GET "/assets/angular-resource.js?body=1" for 127.0.0.1 at 2014-11-27 12:46:34 -0800
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-11-27 12:46:34 -0800
+
+
+Started GET "/assets/poll_answers.js?body=1" for 127.0.0.1 at 2014-11-27 12:46:34 -0800
+
+
+Started GET "/assets/poll_questions.js?body=1" for 127.0.0.1 at 2014-11-27 12:46:34 -0800
+
+
+Started GET "/assets/poll_vote_histories.js?body=1" for 127.0.0.1 at 2014-11-27 12:46:34 -0800
+
+
+Started GET "/assets/thoughtpoll.ang.js?body=1" for 127.0.0.1 at 2014-11-27 12:46:34 -0800
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-11-27 12:46:34 -0800
+
+
+Started GET "/" for 127.0.0.1 at 2014-11-27 12:46:40 -0800
+Processing by PollQuestionsController#index as HTML
+  Rendered poll_questions/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 189ms (Views: 188.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/bootstrap_and_overrides.css?body=1" for 127.0.0.1 at 2014-11-27 12:46:41 -0800
+
+
+Started GET "/assets/poll_answers.css?body=1" for 127.0.0.1 at 2014-11-27 12:46:41 -0800
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-11-27 12:46:41 -0800
+
+
+Started GET "/assets/poll_vote_histories.css?body=1" for 127.0.0.1 at 2014-11-27 12:46:41 -0800
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-11-27 12:46:41 -0800
+
+
+Started GET "/assets/poll_questions.css?body=1" for 127.0.0.1 at 2014-11-27 12:46:41 -0800
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-11-27 12:46:41 -0800
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-11-27 12:46:41 -0800
+
+
+Started GET "/assets/twitter/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-11-27 12:46:41 -0800
+
+
+Started GET "/assets/twitter/bootstrap/alert.js?body=1" for 127.0.0.1 at 2014-11-27 12:46:41 -0800
+
+
+Started GET "/assets/twitter/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-11-27 12:46:41 -0800
+
+
+Started GET "/assets/twitter/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-11-27 12:46:41 -0800
+
+
+Started GET "/assets/twitter/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2014-11-27 12:46:41 -0800
+
+
+Started GET "/assets/twitter/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-11-27 12:46:41 -0800
+
+
+Started GET "/assets/twitter/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-11-27 12:46:41 -0800
+
+
+Started GET "/assets/twitter/bootstrap/popover.js?body=1" for 127.0.0.1 at 2014-11-27 12:46:41 -0800
+
+
+Started GET "/assets/twitter/bootstrap/button.js?body=1" for 127.0.0.1 at 2014-11-27 12:46:41 -0800
+
+
+Started GET "/assets/twitter/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-11-27 12:46:41 -0800
+
+
+Started GET "/assets/twitter/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2014-11-27 12:46:41 -0800
+
+
+Started GET "/assets/twitter/bootstrap/affix.js?body=1" for 127.0.0.1 at 2014-11-27 12:46:41 -0800
+
+
+Started GET "/assets/twitter/bootstrap.js?body=1" for 127.0.0.1 at 2014-11-27 12:46:41 -0800
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-11-27 12:46:41 -0800
+
+
+Started GET "/assets/angular.js?body=1" for 127.0.0.1 at 2014-11-27 12:46:41 -0800
+
+
+Started GET "/assets/angular-animate.js?body=1" for 127.0.0.1 at 2014-11-27 12:46:41 -0800
+
+
+Started GET "/assets/angular-resource.js?body=1" for 127.0.0.1 at 2014-11-27 12:46:41 -0800
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-11-27 12:46:41 -0800
+
+
+Started GET "/assets/poll_answers.js?body=1" for 127.0.0.1 at 2014-11-27 12:46:41 -0800
+
+
+Started GET "/assets/poll_questions.js?body=1" for 127.0.0.1 at 2014-11-27 12:46:41 -0800
+
+
+Started GET "/assets/poll_vote_histories.js?body=1" for 127.0.0.1 at 2014-11-27 12:46:41 -0800
+
+
+Started GET "/assets/thoughtpoll.ang.js?body=1" for 127.0.0.1 at 2014-11-27 12:46:41 -0800
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-11-27 12:46:41 -0800
+
+
+Started GET "/assets/bootstrap_and_overrides.css?body=1" for 127.0.0.1 at 2014-11-27 12:47:04 -0800
+
+
+Started GET "/assets/poll_vote_histories.css?body=1" for 127.0.0.1 at 2014-11-27 12:47:04 -0800
+
+
+Started GET "/assets/poll_answers.css?body=1" for 127.0.0.1 at 2014-11-27 12:47:04 -0800
+
+
+Started GET "/assets/poll_questions.css?body=1" for 127.0.0.1 at 2014-11-27 12:47:04 -0800
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-11-27 12:47:04 -0800
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-11-27 12:47:04 -0800
+
+
+Started GET "/" for 127.0.0.1 at 2014-11-27 12:47:38 -0800
+Processing by PollQuestionsController#index as HTML
+  Rendered poll_questions/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 231ms (Views: 230.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/bootstrap_and_overrides.css?body=1" for 127.0.0.1 at 2014-11-27 12:47:38 -0800
+
+
+Started GET "/assets/poll_answers.css?body=1" for 127.0.0.1 at 2014-11-27 12:47:38 -0800
+
+
+Started GET "/assets/poll_questions.css?body=1" for 127.0.0.1 at 2014-11-27 12:47:38 -0800
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-11-27 12:47:38 -0800
+
+
+Started GET "/assets/poll_vote_histories.css?body=1" for 127.0.0.1 at 2014-11-27 12:47:38 -0800
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-11-27 12:47:38 -0800
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-11-27 12:47:38 -0800
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-11-27 12:47:38 -0800
+
+
+Started GET "/assets/twitter/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-11-27 12:47:38 -0800
+
+
+Started GET "/assets/twitter/bootstrap/alert.js?body=1" for 127.0.0.1 at 2014-11-27 12:47:38 -0800
+
+
+Started GET "/assets/twitter/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-11-27 12:47:38 -0800
+
+
+Started GET "/assets/twitter/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-11-27 12:47:38 -0800
+
+
+Started GET "/assets/twitter/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2014-11-27 12:47:38 -0800
+
+
+Started GET "/assets/twitter/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-11-27 12:47:38 -0800
+
+
+Started GET "/assets/twitter/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-11-27 12:47:38 -0800
+
+
+Started GET "/assets/twitter/bootstrap/popover.js?body=1" for 127.0.0.1 at 2014-11-27 12:47:38 -0800
+
+
+Started GET "/assets/twitter/bootstrap/button.js?body=1" for 127.0.0.1 at 2014-11-27 12:47:38 -0800
+
+
+Started GET "/assets/twitter/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-11-27 12:47:38 -0800
+
+
+Started GET "/assets/twitter/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2014-11-27 12:47:38 -0800
+
+
+Started GET "/assets/twitter/bootstrap/affix.js?body=1" for 127.0.0.1 at 2014-11-27 12:47:38 -0800
+
+
+Started GET "/assets/twitter/bootstrap.js?body=1" for 127.0.0.1 at 2014-11-27 12:47:38 -0800
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-11-27 12:47:38 -0800
+
+
+Started GET "/assets/angular.js?body=1" for 127.0.0.1 at 2014-11-27 12:47:38 -0800
+
+
+Started GET "/assets/angular-animate.js?body=1" for 127.0.0.1 at 2014-11-27 12:47:38 -0800
+
+
+Started GET "/assets/angular-resource.js?body=1" for 127.0.0.1 at 2014-11-27 12:47:38 -0800
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-11-27 12:47:38 -0800
+
+
+Started GET "/assets/poll_answers.js?body=1" for 127.0.0.1 at 2014-11-27 12:47:38 -0800
+
+
+Started GET "/assets/poll_questions.js?body=1" for 127.0.0.1 at 2014-11-27 12:47:38 -0800
+
+
+Started GET "/assets/poll_vote_histories.js?body=1" for 127.0.0.1 at 2014-11-27 12:47:38 -0800
+
+
+Started GET "/assets/thoughtpoll.ang.js?body=1" for 127.0.0.1 at 2014-11-27 12:47:38 -0800
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-11-27 12:47:38 -0800
+
+
+Started GET "/" for 127.0.0.1 at 2014-11-27 12:48:16 -0800
+Processing by PollQuestionsController#index as HTML
+  Rendered poll_questions/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 216ms (Views: 215.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/bootstrap_and_overrides.css?body=1" for 127.0.0.1 at 2014-11-27 12:48:17 -0800
+
+
+Started GET "/assets/poll_vote_histories.css?body=1" for 127.0.0.1 at 2014-11-27 12:48:17 -0800
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-11-27 12:48:17 -0800
+
+
+Started GET "/assets/poll_answers.css?body=1" for 127.0.0.1 at 2014-11-27 12:48:17 -0800
+
+
+Started GET "/assets/poll_questions.css?body=1" for 127.0.0.1 at 2014-11-27 12:48:17 -0800
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-11-27 12:48:17 -0800
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-11-27 12:48:17 -0800
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-11-27 12:48:17 -0800
+
+
+Started GET "/assets/twitter/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-11-27 12:48:17 -0800
+
+
+Started GET "/assets/twitter/bootstrap/alert.js?body=1" for 127.0.0.1 at 2014-11-27 12:48:17 -0800
+
+
+Started GET "/assets/twitter/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-11-27 12:48:17 -0800
+
+
+Started GET "/assets/twitter/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-11-27 12:48:17 -0800
+
+
+Started GET "/assets/twitter/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2014-11-27 12:48:17 -0800
+
+
+Started GET "/assets/twitter/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-11-27 12:48:17 -0800
+
+
+Started GET "/assets/twitter/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-11-27 12:48:17 -0800
+
+
+Started GET "/assets/twitter/bootstrap/popover.js?body=1" for 127.0.0.1 at 2014-11-27 12:48:17 -0800
+
+
+Started GET "/assets/twitter/bootstrap/button.js?body=1" for 127.0.0.1 at 2014-11-27 12:48:17 -0800
+
+
+Started GET "/assets/twitter/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-11-27 12:48:17 -0800
+
+
+Started GET "/assets/twitter/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2014-11-27 12:48:17 -0800
+
+
+Started GET "/assets/twitter/bootstrap/affix.js?body=1" for 127.0.0.1 at 2014-11-27 12:48:17 -0800
+
+
+Started GET "/assets/twitter/bootstrap.js?body=1" for 127.0.0.1 at 2014-11-27 12:48:17 -0800
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-11-27 12:48:17 -0800
+
+
+Started GET "/assets/angular.js?body=1" for 127.0.0.1 at 2014-11-27 12:48:17 -0800
+
+
+Started GET "/assets/angular-animate.js?body=1" for 127.0.0.1 at 2014-11-27 12:48:17 -0800
+
+
+Started GET "/assets/angular-resource.js?body=1" for 127.0.0.1 at 2014-11-27 12:48:17 -0800
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-11-27 12:48:17 -0800
+
+
+Started GET "/assets/poll_answers.js?body=1" for 127.0.0.1 at 2014-11-27 12:48:17 -0800
+
+
+Started GET "/assets/poll_questions.js?body=1" for 127.0.0.1 at 2014-11-27 12:48:17 -0800
+
+
+Started GET "/assets/poll_vote_histories.js?body=1" for 127.0.0.1 at 2014-11-27 12:48:17 -0800
+
+
+Started GET "/assets/thoughtpoll.ang.js?body=1" for 127.0.0.1 at 2014-11-27 12:48:17 -0800
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-11-27 12:48:17 -0800
+
+
+Started GET "/qotd.json" for 127.0.0.1 at 2014-11-27 12:48:19 -0800
+Processing by PollQuestionsController#qotd as JSON
+  [1m[36mPollQuestion Load (0.3ms)[0m  [1mSELECT  "poll_questions".* FROM "poll_questions"   ORDER BY "poll_questions"."id" DESC LIMIT 1[0m
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-11-27 12:48:28 -0800
+Processing by PollQuestionsController#index as HTML
+  Rendered poll_questions/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 214ms (Views: 213.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/bootstrap_and_overrides.css?body=1" for 127.0.0.1 at 2014-11-27 12:48:29 -0800
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-11-27 12:48:29 -0800
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-11-27 12:48:29 -0800
+
+
+Started GET "/assets/poll_answers.css?body=1" for 127.0.0.1 at 2014-11-27 12:48:29 -0800
+
+
+Started GET "/assets/poll_vote_histories.css?body=1" for 127.0.0.1 at 2014-11-27 12:48:29 -0800
+
+
+Started GET "/assets/poll_questions.css?body=1" for 127.0.0.1 at 2014-11-27 12:48:29 -0800
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-11-27 12:48:29 -0800
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-11-27 12:48:29 -0800
+
+
+Started GET "/assets/twitter/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-11-27 12:48:29 -0800
+
+
+Started GET "/assets/twitter/bootstrap/alert.js?body=1" for 127.0.0.1 at 2014-11-27 12:48:29 -0800
+
+
+Started GET "/assets/twitter/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-11-27 12:48:29 -0800
+
+
+Started GET "/assets/twitter/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-11-27 12:48:29 -0800
+
+
+Started GET "/assets/twitter/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2014-11-27 12:48:29 -0800
+
+
+Started GET "/assets/twitter/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-11-27 12:48:29 -0800
+
+
+Started GET "/assets/twitter/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-11-27 12:48:29 -0800
+
+
+Started GET "/assets/twitter/bootstrap/popover.js?body=1" for 127.0.0.1 at 2014-11-27 12:48:29 -0800
+
+
+Started GET "/assets/twitter/bootstrap/button.js?body=1" for 127.0.0.1 at 2014-11-27 12:48:29 -0800
+
+
+Started GET "/assets/twitter/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-11-27 12:48:29 -0800
+
+
+Started GET "/assets/twitter/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2014-11-27 12:48:29 -0800
+
+
+Started GET "/assets/twitter/bootstrap/affix.js?body=1" for 127.0.0.1 at 2014-11-27 12:48:29 -0800
+
+
+Started GET "/assets/twitter/bootstrap.js?body=1" for 127.0.0.1 at 2014-11-27 12:48:29 -0800
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-11-27 12:48:29 -0800
+
+
+Started GET "/assets/angular.js?body=1" for 127.0.0.1 at 2014-11-27 12:48:29 -0800
+
+
+Started GET "/assets/angular-animate.js?body=1" for 127.0.0.1 at 2014-11-27 12:48:29 -0800
+
+
+Started GET "/assets/angular-resource.js?body=1" for 127.0.0.1 at 2014-11-27 12:48:29 -0800
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-11-27 12:48:29 -0800
+
+
+Started GET "/assets/poll_answers.js?body=1" for 127.0.0.1 at 2014-11-27 12:48:29 -0800
+
+
+Started GET "/assets/poll_questions.js?body=1" for 127.0.0.1 at 2014-11-27 12:48:29 -0800
+
+
+Started GET "/assets/poll_vote_histories.js?body=1" for 127.0.0.1 at 2014-11-27 12:48:29 -0800
+
+
+Started GET "/assets/thoughtpoll.ang.js?body=1" for 127.0.0.1 at 2014-11-27 12:48:29 -0800
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-11-27 12:48:29 -0800
+
+
+Started GET "/qotd.json" for 127.0.0.1 at 2014-11-27 12:48:31 -0800
+Processing by PollQuestionsController#qotd as JSON
+  [1m[35mPollQuestion Load (0.3ms)[0m  SELECT  "poll_questions".* FROM "poll_questions"   ORDER BY "poll_questions"."id" DESC LIMIT 1
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.3ms)
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.4ms)[0m  ROLLBACK
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (2.6ms)[0m  INSERT INTO "poll_questions" ("body", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["body", "rawr"], ["created_at", "2014-11-27 20:49:06.993444"], ["updated_at", "2014-11-27 20:49:06.993444"]]
+  [1m[36m (50.2ms)[0m  [1mCOMMIT[0m
+
+
+Started GET "/" for 127.0.0.1 at 2014-11-27 12:50:48 -0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PollQuestionsController#index as HTML
+  Rendered poll_questions/index.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 327ms (Views: 317.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/bootstrap_and_overrides.css?body=1" for 127.0.0.1 at 2014-11-27 12:50:49 -0800
+
+
+Started GET "/assets/poll_vote_histories.css?body=1" for 127.0.0.1 at 2014-11-27 12:50:49 -0800
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-11-27 12:50:49 -0800
+
+
+Started GET "/assets/poll_answers.css?body=1" for 127.0.0.1 at 2014-11-27 12:50:49 -0800
+
+
+Started GET "/assets/poll_questions.css?body=1" for 127.0.0.1 at 2014-11-27 12:50:49 -0800
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-11-27 12:50:49 -0800
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-11-27 12:50:49 -0800
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-11-27 12:50:49 -0800
+
+
+Started GET "/assets/twitter/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-11-27 12:50:49 -0800
+
+
+Started GET "/assets/twitter/bootstrap/alert.js?body=1" for 127.0.0.1 at 2014-11-27 12:50:49 -0800
+
+
+Started GET "/assets/twitter/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-11-27 12:50:49 -0800
+
+
+Started GET "/assets/twitter/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-11-27 12:50:49 -0800
+
+
+Started GET "/assets/twitter/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2014-11-27 12:50:49 -0800
+
+
+Started GET "/assets/twitter/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-11-27 12:50:49 -0800
+
+
+Started GET "/assets/twitter/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-11-27 12:50:49 -0800
+
+
+Started GET "/assets/twitter/bootstrap/popover.js?body=1" for 127.0.0.1 at 2014-11-27 12:50:49 -0800
+
+
+Started GET "/assets/twitter/bootstrap/button.js?body=1" for 127.0.0.1 at 2014-11-27 12:50:49 -0800
+
+
+Started GET "/assets/twitter/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-11-27 12:50:49 -0800
+
+
+Started GET "/assets/twitter/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2014-11-27 12:50:49 -0800
+
+
+Started GET "/assets/twitter/bootstrap/affix.js?body=1" for 127.0.0.1 at 2014-11-27 12:50:49 -0800
+
+
+Started GET "/assets/twitter/bootstrap.js?body=1" for 127.0.0.1 at 2014-11-27 12:50:49 -0800
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-11-27 12:50:49 -0800
+
+
+Started GET "/assets/angular.js?body=1" for 127.0.0.1 at 2014-11-27 12:50:49 -0800
+
+
+Started GET "/assets/angular-animate.js?body=1" for 127.0.0.1 at 2014-11-27 12:50:49 -0800
+
+
+Started GET "/assets/angular-resource.js?body=1" for 127.0.0.1 at 2014-11-27 12:50:49 -0800
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-11-27 12:50:49 -0800
+
+
+Started GET "/assets/poll_answers.js?body=1" for 127.0.0.1 at 2014-11-27 12:50:49 -0800
+
+
+Started GET "/assets/poll_questions.js?body=1" for 127.0.0.1 at 2014-11-27 12:50:49 -0800
+
+
+Started GET "/assets/poll_vote_histories.js?body=1" for 127.0.0.1 at 2014-11-27 12:50:49 -0800
+
+
+Started GET "/assets/thoughtpoll.ang.js?body=1" for 127.0.0.1 at 2014-11-27 12:50:49 -0800
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-11-27 12:50:49 -0800
+
+
+Started GET "/qotd.json" for 127.0.0.1 at 2014-11-27 12:50:50 -0800
+Processing by PollQuestionsController#qotd as JSON
+  [1m[35mPollQuestion Load (1.2ms)[0m  SELECT  "poll_questions".* FROM "poll_questions"   ORDER BY "poll_questions"."id" DESC LIMIT 1
+Completed 200 OK in 10ms (Views: 0.5ms | ActiveRecord: 3.9ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "poll_questions" ("body", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["body", "Sample Question Text"], ["created_at", "2014-11-27 20:51:17.317576"], ["updated_at", "2014-11-27 20:51:17.317576"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (1.8ms)[0m  INSERT INTO "poll_answers" ("body", "created_at", "poll_question_id", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["body", "Answer 1"], ["created_at", "2014-11-27 20:51:17.330658"], ["poll_question_id", 2], ["updated_at", "2014-11-27 20:51:17.330658"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "poll_answers" ("body", "created_at", "poll_question_id", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["body", "Answer 2"], ["created_at", "2014-11-27 20:51:17.334123"], ["poll_question_id", 2], ["updated_at", "2014-11-27 20:51:17.334123"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "poll_answers" ("body", "created_at", "poll_question_id", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["body", "Answer 3"], ["created_at", "2014-11-27 20:51:17.335472"], ["poll_question_id", 2], ["updated_at", "2014-11-27 20:51:17.335472"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "poll_answers" ("body", "created_at", "poll_question_id", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["body", "Answer 4"], ["created_at", "2014-11-27 20:51:17.336691"], ["poll_question_id", 2], ["updated_at", "2014-11-27 20:51:17.336691"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+
+
+Started GET "/" for 127.0.0.1 at 2014-11-27 12:51:21 -0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PollQuestionsController#index as HTML
+  Rendered poll_questions/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 316ms (Views: 305.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/bootstrap_and_overrides.css?body=1" for 127.0.0.1 at 2014-11-27 12:51:21 -0800
+
+
+Started GET "/assets/poll_vote_histories.css?body=1" for 127.0.0.1 at 2014-11-27 12:51:21 -0800
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-11-27 12:51:21 -0800
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-11-27 12:51:21 -0800
+
+
+Started GET "/assets/poll_questions.css?body=1" for 127.0.0.1 at 2014-11-27 12:51:21 -0800
+
+
+Started GET "/assets/poll_answers.css?body=1" for 127.0.0.1 at 2014-11-27 12:51:21 -0800
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-11-27 12:51:21 -0800
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-11-27 12:51:21 -0800
+
+
+Started GET "/assets/twitter/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-11-27 12:51:21 -0800
+
+
+Started GET "/assets/twitter/bootstrap/alert.js?body=1" for 127.0.0.1 at 2014-11-27 12:51:21 -0800
+
+
+Started GET "/assets/twitter/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-11-27 12:51:21 -0800
+
+
+Started GET "/assets/twitter/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-11-27 12:51:21 -0800
+
+
+Started GET "/assets/twitter/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2014-11-27 12:51:21 -0800
+
+
+Started GET "/assets/twitter/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-11-27 12:51:21 -0800
+
+
+Started GET "/assets/twitter/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-11-27 12:51:21 -0800
+
+
+Started GET "/assets/twitter/bootstrap/popover.js?body=1" for 127.0.0.1 at 2014-11-27 12:51:21 -0800
+
+
+Started GET "/assets/twitter/bootstrap/button.js?body=1" for 127.0.0.1 at 2014-11-27 12:51:21 -0800
+
+
+Started GET "/assets/twitter/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-11-27 12:51:21 -0800
+
+
+Started GET "/assets/twitter/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2014-11-27 12:51:21 -0800
+
+
+Started GET "/assets/twitter/bootstrap/affix.js?body=1" for 127.0.0.1 at 2014-11-27 12:51:21 -0800
+
+
+Started GET "/assets/twitter/bootstrap.js?body=1" for 127.0.0.1 at 2014-11-27 12:51:21 -0800
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-11-27 12:51:21 -0800
+
+
+Started GET "/assets/angular.js?body=1" for 127.0.0.1 at 2014-11-27 12:51:21 -0800
+
+
+Started GET "/assets/angular-animate.js?body=1" for 127.0.0.1 at 2014-11-27 12:51:21 -0800
+
+
+Started GET "/assets/angular-resource.js?body=1" for 127.0.0.1 at 2014-11-27 12:51:22 -0800
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-11-27 12:51:22 -0800
+
+
+Started GET "/assets/poll_answers.js?body=1" for 127.0.0.1 at 2014-11-27 12:51:22 -0800
+
+
+Started GET "/assets/poll_questions.js?body=1" for 127.0.0.1 at 2014-11-27 12:51:22 -0800
+
+
+Started GET "/assets/poll_vote_histories.js?body=1" for 127.0.0.1 at 2014-11-27 12:51:22 -0800
+
+
+Started GET "/assets/thoughtpoll.ang.js?body=1" for 127.0.0.1 at 2014-11-27 12:51:22 -0800
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-11-27 12:51:22 -0800
+
+
+Started GET "/qotd.json" for 127.0.0.1 at 2014-11-27 12:51:23 -0800
+Processing by PollQuestionsController#qotd as JSON
+  [1m[35mPollQuestion Load (0.8ms)[0m  SELECT  "poll_questions".* FROM "poll_questions"   ORDER BY "poll_questions"."id" DESC LIMIT 1
+Completed 200 OK in 8ms (Views: 0.6ms | ActiveRecord: 2.9ms)

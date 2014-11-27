@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20141127185249) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "poll_answers", force: true do |t|
     t.string   "body"
     t.integer  "votes"
