@@ -13,3 +13,5 @@ a2 = PollAnswer.create(body:"Answer 2", poll_question_id: q1.id)
 a3 = PollAnswer.create(body:"Answer 3", poll_question_id: q1.id)
 a4 = PollAnswer.create(body:"Answer 4", poll_question_id: q1.id)
 
+h1 = PollVoteHistory.create(poll_question_id:q1.id, poll_answer_id:a1.id)
+

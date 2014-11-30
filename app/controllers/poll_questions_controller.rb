@@ -1,13 +1,34 @@
 class PollQuestionsController < ApplicationController
+
+  # WTF HACK
+  skip_before_filter  :verify_authenticity_token
+
   before_action :set_poll_question, only: [:show, :edit, :update, :destroy]
 
   def qotd
-    @poll_question = PollQuestion.last # get the last question added
+    # get the last question added and then JSONify it
+    @poll_question = PollQuestion.last 
 
     # JSONify the question (recursively) and return the result
     respond_to do |format|
       format.html { render :index }
-      format.json { render json: @poll_question }
+      format.json { render json: @poll_question.to_json(:include => :poll_answers) }
+    end
+  end
+
+  def submitVote 
+    qid = params[:question_id]
+    aid = params[:answer_id]
+
+    history = PollVoteHistory.create(poll_question_id:qid, poll_answer_id:aid)
+
+    puts qid
+    puts aid
+    puts history.to_json
+
+    respond_to do |format|
+      format.html { head :ok }
+      format.json { head :ok }
     end
   end
 
