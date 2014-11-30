@@ -17,21 +17,12 @@ tp.controller('TPQuestionController', ['$scope', '$http', function($scope, $http
 		});
 	};
 
-  $scope.submitVote = function(qid, aid) {
-  	var index = 0;
-  	for (var i = 0; i < $scope.question.poll_answers.length; i++) {
-  		if ($scope.question.poll_answers[i].id == aid) {
-  			index = i;
-  			break;
-  		}
-  	}
-
-  	alert(index);
-
+  $scope.submitVote = function(qid, aindex) {
+  	var aid = $scope.question.poll_answers[aindex].id;
   	var vote = {
   		question_id : qid,
   		answer_id : aid,
-  		answer_index: index
+  		answer_index: aindex
   	};
 
   	$http.post('/vote.json', vote).
@@ -68,15 +59,6 @@ tp.controller('TPQuestionController', ['$scope', '$http', function($scope, $http
 	            highlightFill: "rgba(220,220,220,0.75)",
 	            highlightStroke: "rgba(220,220,220,1)",
 	            // data: [65, 59, 80, 81]
-	            data: dd
-	        },
-	        {
-	            label: "My Second dataset",
-	            fillColor: "rgba(151,187,205,0.5)",
-	            strokeColor: "rgba(151,187,205,0.8)",
-	            highlightFill: "rgba(151,187,205,0.75)",
-	            highlightStroke: "rgba(151,187,205,1)",
-	            // data: [28, 48, 40, 19]
 	            data: dd
 	        }
 	    ]
