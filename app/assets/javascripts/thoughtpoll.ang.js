@@ -30,8 +30,11 @@ tp.controller('TPQuestionController', ['$scope', '$http', function($scope, $http
 				$scope.questionHeader = "HERE'S WHAT THE WORLD THINKS";
 
 				// Generate all of the plots
-				$scope.plotBarChart(data);
+				var tuple = $scope.generateResults(data);
+				$scope.plotBarChart(tuple);
+				$scope.plotDonutChart(tuple);
 
+				// Now turn on data visualization after everything's prepped
 				$scope.prepareVisualization();
 			}).
 			error(function(data, status, headers, config) {
@@ -39,8 +42,7 @@ tp.controller('TPQuestionController', ['$scope', '$http', function($scope, $http
 			});
 	};
 
-	$scope.plotBarChart = function(results) {
-
+	$scope.generateResults = function(results) {
 		// Generate the list of labels
 		var ls = [];
 		var dd = [];
@@ -49,7 +51,7 @@ tp.controller('TPQuestionController', ['$scope', '$http', function($scope, $http
 			dd.push(0); // initialize the results array to 0
 		}
 
-		console.log(results);
+		// Generate the data counts
 		for (var i = 0; i < results.length; i++) {
 			if (results[i].answer_index == null) {
 				dd[0] = dd[0] + 1;
@@ -59,8 +61,87 @@ tp.controller('TPQuestionController', ['$scope', '$http', function($scope, $http
 			}
 		}
 
+		return {labels: ls, data: dd};
+	}
+
+	// tuple: {labels: [list of labels], data: [list of answer counts]}
+	$scope.plotRadarChart = function(tuple) {
+
+	}
+
+	// tuple: {labels: [list of labels], data: [list of answer counts]}
+	$scope.plotDonutChart = function(tuple) {
+		var data = [];
+
+		var labels = tuple["labels"];
+		for (var i = 0; i < labels.length; i++) {
+			data.push({
+				value: tuple["data"][i],
+				label: labels[i],
+				color: "rgba(220,220,220,0.2)" // "#F7464A" -- we can always use hex color codes, though rgba is easier for gradient computation
+			});
+		}
+
+		// var data = [
+		// 	{
+		// 		value: 300,
+		// 		color:"#F7464A",
+		// 		highlight: "#FF5A5E",
+		// 		label: "Red"
+		// 	},
+		// 	{
+		// 		value: 50,
+		// 		color: "#46BFBD",
+		// 		highlight: "#5AD3D1",
+		// 		label: "Green"
+		// 	},
+		// 	{
+		// 		value: 100,
+		// 		color: "#FDB45C",
+		// 		highlight: "#FFC870",
+		// 		label: "Yellow"
+		// 	}
+		// ];
+
+		var options = {
+			//Boolean - Whether we should show a stroke on each segment
+			segmentShowStroke : true,
+
+			//String - The colour of each segment stroke
+			segmentStrokeColor : "#fff",
+
+			//Number - The width of each segment stroke
+			segmentStrokeWidth : 2,
+
+			//Number - The percentage of the chart that we cut out of the middle
+			percentageInnerCutout : 50, // This is 0 for Pie charts
+
+			//Number - Amount of animation steps
+			animationSteps : 100,
+
+			//String - Animation easing effect
+			animationEasing : "easeOutBounce",
+
+			//Boolean - Whether we animate the rotation of the Doughnut
+			animateRotate : true,
+
+			//Boolean - Whether we animate scaling the Doughnut from the centre
+			animateScale : false,
+
+			//String - A legend template
+			legendTemplate : "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<segments.length; i++){%><li><span style=\"background-color:<%=segments[i].fillColor%>\"></span><%if(segments[i].label){%><%=segments[i].label%><%}%></li><%}%></ul>"
+		}
+
+		var ctx = document.getElementById("donutChart").getContext("2d");
+		var myPieChart = new Chart(ctx).Pie(data, options);
+	};
+
+	// tuple: {labels: [list of labels], data: [list of answer counts]}
+	$scope.plotBarChart = function(tuple) {
+
+		
 		var data = {
-			labels: ls,
+			labels: tuple["labels"],
 			datasets: [
 				{
 					label: "My First dataset",
@@ -68,7 +149,7 @@ tp.controller('TPQuestionController', ['$scope', '$http', function($scope, $http
 					strokeColor: "rgba(220,220,220,0.8)",
 					highlightFill: "rgba(220,220,220,0.75)",
 					highlightStroke: "rgba(220,220,220,1)",
-					data: dd
+					data: tuple["data"]
 				}
 			]
 		};
@@ -106,6 +187,7 @@ tp.controller('TPQuestionController', ['$scope', '$http', function($scope, $http
 		var myBarChart = new Chart(ctx).Bar(data, options);
 	};
 
+	// Set up the slick carousel and then turn on that part of the page
 	$scope.prepareVisualization = function() {
 		$('.fade').slick({
 			dots: true,
@@ -123,8 +205,7 @@ tp.controller('TPQuestionController', ['$scope', '$http', function($scope, $http
 			autoplaySpeed: 2000,
 		});
 
-		console.log("SHOWING!");
-		$scope.answered = true; // go bro
+		$scope.answered = true; // go brah
 	}
 
 	//////////////////

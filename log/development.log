@@ -28229,3 +28229,644 @@ Processing by PollQuestionsController#submitVote as JSON
   [1m[35m (0.4ms)[0m  COMMIT
   [1m[36mPollVoteHistory Load (0.6ms)[0m  [1mSELECT "poll_vote_histories".* FROM "poll_vote_histories"  WHERE "poll_vote_histories"."poll_question_id" = 3[0m
 Completed 200 OK in 19ms (Views: 0.2ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-11-30 10:27:24 -0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PollQuestionsController#index as HTML
+  Rendered poll_questions/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 307ms (Views: 295.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/slick.css?body=1" for 127.0.0.1 at 2014-11-30 10:27:25 -0800
+
+
+Started GET "/assets/bootstrap_and_overrides.css?body=1" for 127.0.0.1 at 2014-11-30 10:27:25 -0800
+
+
+Started GET "/assets/poll_answers.css?body=1" for 127.0.0.1 at 2014-11-30 10:27:25 -0800
+
+
+Started GET "/assets/poll_questions.css?body=1" for 127.0.0.1 at 2014-11-30 10:27:25 -0800
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-11-30 10:27:25 -0800
+
+
+Started GET "/assets/poll_vote_histories.css?body=1" for 127.0.0.1 at 2014-11-30 10:27:25 -0800
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-11-30 10:27:25 -0800
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-11-30 10:27:25 -0800
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-11-30 10:27:25 -0800
+
+
+Started GET "/assets/twitter/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-11-30 10:27:25 -0800
+
+
+Started GET "/assets/twitter/bootstrap/alert.js?body=1" for 127.0.0.1 at 2014-11-30 10:27:25 -0800
+
+
+Started GET "/assets/twitter/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-11-30 10:27:25 -0800
+
+
+Started GET "/assets/twitter/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-11-30 10:27:25 -0800
+
+
+Started GET "/assets/twitter/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2014-11-30 10:27:25 -0800
+
+
+Started GET "/assets/twitter/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-11-30 10:27:25 -0800
+
+
+Started GET "/assets/twitter/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-11-30 10:27:25 -0800
+
+
+Started GET "/assets/twitter/bootstrap/popover.js?body=1" for 127.0.0.1 at 2014-11-30 10:27:25 -0800
+
+
+Started GET "/assets/twitter/bootstrap/button.js?body=1" for 127.0.0.1 at 2014-11-30 10:27:25 -0800
+
+
+Started GET "/assets/twitter/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-11-30 10:27:25 -0800
+
+
+Started GET "/assets/twitter/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2014-11-30 10:27:25 -0800
+
+
+Started GET "/assets/twitter/bootstrap/affix.js?body=1" for 127.0.0.1 at 2014-11-30 10:27:25 -0800
+
+
+Started GET "/assets/twitter/bootstrap.js?body=1" for 127.0.0.1 at 2014-11-30 10:27:25 -0800
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-11-30 10:27:25 -0800
+
+
+Started GET "/assets/angular.js?body=1" for 127.0.0.1 at 2014-11-30 10:27:25 -0800
+
+
+Started GET "/assets/angular-animate.js?body=1" for 127.0.0.1 at 2014-11-30 10:27:25 -0800
+
+
+Started GET "/assets/angular-resource.js?body=1" for 127.0.0.1 at 2014-11-30 10:27:25 -0800
+
+
+Started GET "/assets/Chart.js?body=1" for 127.0.0.1 at 2014-11-30 10:27:25 -0800
+
+
+Started GET "/assets/slick.min.js?body=1" for 127.0.0.1 at 2014-11-30 10:27:25 -0800
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-11-30 10:27:25 -0800
+
+
+Started GET "/assets/poll_answers.js?body=1" for 127.0.0.1 at 2014-11-30 10:27:25 -0800
+
+
+Started GET "/assets/poll_questions.js?body=1" for 127.0.0.1 at 2014-11-30 10:27:25 -0800
+
+
+Started GET "/assets/poll_vote_histories.js?body=1" for 127.0.0.1 at 2014-11-30 10:27:25 -0800
+
+
+Started GET "/assets/thoughtpoll.ang.js?body=1" for 127.0.0.1 at 2014-11-30 10:27:25 -0800
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-11-30 10:27:25 -0800
+
+
+Started GET "/assets/slick.css.map" for 127.0.0.1 at 2014-11-30 10:27:25 -0800
+
+
+Started GET "/qotd.json" for 127.0.0.1 at 2014-11-30 10:27:25 -0800
+Processing by PollQuestionsController#qotd as JSON
+  [1m[35mPollQuestion Load (1.4ms)[0m  SELECT  "poll_questions".* FROM "poll_questions"   ORDER BY "poll_questions"."id" DESC LIMIT 1
+  [1m[36mPollAnswer Load (1.1ms)[0m  [1mSELECT "poll_answers".* FROM "poll_answers"  WHERE "poll_answers"."poll_question_id" = $1[0m  [["poll_question_id", 3]]
+Completed 200 OK in 54ms (Views: 0.2ms | ActiveRecord: 10.3ms)
+
+
+Started POST "/vote.json" for 127.0.0.1 at 2014-11-30 10:27:51 -0800
+Processing by PollQuestionsController#submitVote as JSON
+  Parameters: {"question_id"=>3, "answer_id"=>5, "answer_index"=>0, "poll_question"=>{}}
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "poll_vote_histories" ("answer_index", "created_at", "poll_answer_id", "poll_question_id", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["answer_index", 0], ["created_at", "2014-11-30 18:27:51.599665"], ["poll_answer_id", 5], ["poll_question_id", 3], ["updated_at", "2014-11-30 18:27:51.599665"]]
+  [1m[35m (1.7ms)[0m  COMMIT
+  [1m[36mPollVoteHistory Load (1.0ms)[0m  [1mSELECT "poll_vote_histories".* FROM "poll_vote_histories"  WHERE "poll_vote_histories"."poll_question_id" = 3[0m
+Completed 200 OK in 41ms (Views: 0.1ms | ActiveRecord: 5.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-11-30 10:28:51 -0800
+Processing by PollQuestionsController#index as HTML
+  Rendered poll_questions/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 273ms (Views: 271.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/slick.css?body=1" for 127.0.0.1 at 2014-11-30 10:28:52 -0800
+
+
+Started GET "/assets/bootstrap_and_overrides.css?body=1" for 127.0.0.1 at 2014-11-30 10:28:52 -0800
+
+
+Started GET "/assets/poll_questions.css?body=1" for 127.0.0.1 at 2014-11-30 10:28:52 -0800
+
+
+Started GET "/assets/poll_vote_histories.css?body=1" for 127.0.0.1 at 2014-11-30 10:28:52 -0800
+
+
+Started GET "/assets/poll_answers.css?body=1" for 127.0.0.1 at 2014-11-30 10:28:52 -0800
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-11-30 10:28:52 -0800
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-11-30 10:28:52 -0800
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-11-30 10:28:52 -0800
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-11-30 10:28:52 -0800
+
+
+Started GET "/assets/twitter/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-11-30 10:28:52 -0800
+
+
+Started GET "/assets/twitter/bootstrap/alert.js?body=1" for 127.0.0.1 at 2014-11-30 10:28:52 -0800
+
+
+Started GET "/assets/twitter/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-11-30 10:28:52 -0800
+
+
+Started GET "/assets/twitter/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-11-30 10:28:52 -0800
+
+
+Started GET "/assets/twitter/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2014-11-30 10:28:52 -0800
+
+
+Started GET "/assets/twitter/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-11-30 10:28:52 -0800
+
+
+Started GET "/assets/twitter/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-11-30 10:28:52 -0800
+
+
+Started GET "/assets/twitter/bootstrap/popover.js?body=1" for 127.0.0.1 at 2014-11-30 10:28:52 -0800
+
+
+Started GET "/assets/twitter/bootstrap/button.js?body=1" for 127.0.0.1 at 2014-11-30 10:28:52 -0800
+
+
+Started GET "/assets/twitter/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-11-30 10:28:52 -0800
+
+
+Started GET "/assets/twitter/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2014-11-30 10:28:52 -0800
+
+
+Started GET "/assets/twitter/bootstrap/affix.js?body=1" for 127.0.0.1 at 2014-11-30 10:28:52 -0800
+
+
+Started GET "/assets/twitter/bootstrap.js?body=1" for 127.0.0.1 at 2014-11-30 10:28:52 -0800
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-11-30 10:28:52 -0800
+
+
+Started GET "/assets/angular.js?body=1" for 127.0.0.1 at 2014-11-30 10:28:52 -0800
+
+
+Started GET "/assets/angular-animate.js?body=1" for 127.0.0.1 at 2014-11-30 10:28:52 -0800
+
+
+Started GET "/assets/angular-resource.js?body=1" for 127.0.0.1 at 2014-11-30 10:28:52 -0800
+
+
+Started GET "/assets/Chart.js?body=1" for 127.0.0.1 at 2014-11-30 10:28:52 -0800
+
+
+Started GET "/assets/slick.min.js?body=1" for 127.0.0.1 at 2014-11-30 10:28:52 -0800
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-11-30 10:28:52 -0800
+
+
+Started GET "/assets/poll_answers.js?body=1" for 127.0.0.1 at 2014-11-30 10:28:52 -0800
+
+
+Started GET "/assets/poll_questions.js?body=1" for 127.0.0.1 at 2014-11-30 10:28:52 -0800
+
+
+Started GET "/assets/poll_vote_histories.js?body=1" for 127.0.0.1 at 2014-11-30 10:28:52 -0800
+
+
+Started GET "/assets/thoughtpoll.ang.js?body=1" for 127.0.0.1 at 2014-11-30 10:28:52 -0800
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-11-30 10:28:52 -0800
+
+
+Started GET "/qotd.json" for 127.0.0.1 at 2014-11-30 10:28:52 -0800
+Processing by PollQuestionsController#qotd as JSON
+  [1m[35mPollQuestion Load (0.4ms)[0m  SELECT  "poll_questions".* FROM "poll_questions"   ORDER BY "poll_questions"."id" DESC LIMIT 1
+  [1m[36mPollAnswer Load (0.3ms)[0m  [1mSELECT "poll_answers".* FROM "poll_answers"  WHERE "poll_answers"."poll_question_id" = $1[0m  [["poll_question_id", 3]]
+Completed 200 OK in 4ms (Views: 0.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/slick.css.map" for 127.0.0.1 at 2014-11-30 10:28:53 -0800
+
+
+Started POST "/vote.json" for 127.0.0.1 at 2014-11-30 10:28:56 -0800
+Processing by PollQuestionsController#submitVote as JSON
+  Parameters: {"question_id"=>3, "answer_id"=>5, "answer_index"=>0, "poll_question"=>{}}
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "poll_vote_histories" ("answer_index", "created_at", "poll_answer_id", "poll_question_id", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["answer_index", 0], ["created_at", "2014-11-30 18:28:56.182448"], ["poll_answer_id", 5], ["poll_question_id", 3], ["updated_at", "2014-11-30 18:28:56.182448"]]
+  [1m[35m (1.8ms)[0m  COMMIT
+  [1m[36mPollVoteHistory Load (0.6ms)[0m  [1mSELECT "poll_vote_histories".* FROM "poll_vote_histories"  WHERE "poll_vote_histories"."poll_question_id" = 3[0m
+Completed 200 OK in 21ms (Views: 0.2ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-11-30 10:29:31 -0800
+Processing by PollQuestionsController#index as HTML
+  Rendered poll_questions/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 254ms (Views: 253.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/slick.css?body=1" for 127.0.0.1 at 2014-11-30 10:29:31 -0800
+
+
+Started GET "/assets/bootstrap_and_overrides.css?body=1" for 127.0.0.1 at 2014-11-30 10:29:31 -0800
+
+
+Started GET "/assets/poll_questions.css?body=1" for 127.0.0.1 at 2014-11-30 10:29:31 -0800
+
+
+Started GET "/assets/poll_answers.css?body=1" for 127.0.0.1 at 2014-11-30 10:29:31 -0800
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-11-30 10:29:31 -0800
+
+
+Started GET "/assets/poll_vote_histories.css?body=1" for 127.0.0.1 at 2014-11-30 10:29:31 -0800
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-11-30 10:29:31 -0800
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-11-30 10:29:31 -0800
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-11-30 10:29:31 -0800
+
+
+Started GET "/assets/twitter/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-11-30 10:29:31 -0800
+
+
+Started GET "/assets/twitter/bootstrap/alert.js?body=1" for 127.0.0.1 at 2014-11-30 10:29:31 -0800
+
+
+Started GET "/assets/twitter/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-11-30 10:29:31 -0800
+
+
+Started GET "/assets/twitter/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-11-30 10:29:31 -0800
+
+
+Started GET "/assets/twitter/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2014-11-30 10:29:31 -0800
+
+
+Started GET "/assets/twitter/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-11-30 10:29:31 -0800
+
+
+Started GET "/assets/twitter/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-11-30 10:29:31 -0800
+
+
+Started GET "/assets/twitter/bootstrap/popover.js?body=1" for 127.0.0.1 at 2014-11-30 10:29:31 -0800
+
+
+Started GET "/assets/twitter/bootstrap/button.js?body=1" for 127.0.0.1 at 2014-11-30 10:29:31 -0800
+
+
+Started GET "/assets/twitter/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-11-30 10:29:31 -0800
+
+
+Started GET "/assets/twitter/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2014-11-30 10:29:31 -0800
+
+
+Started GET "/assets/twitter/bootstrap/affix.js?body=1" for 127.0.0.1 at 2014-11-30 10:29:31 -0800
+
+
+Started GET "/assets/twitter/bootstrap.js?body=1" for 127.0.0.1 at 2014-11-30 10:29:31 -0800
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-11-30 10:29:31 -0800
+
+
+Started GET "/assets/angular.js?body=1" for 127.0.0.1 at 2014-11-30 10:29:31 -0800
+
+
+Started GET "/assets/angular-animate.js?body=1" for 127.0.0.1 at 2014-11-30 10:29:31 -0800
+
+
+Started GET "/assets/angular-resource.js?body=1" for 127.0.0.1 at 2014-11-30 10:29:31 -0800
+
+
+Started GET "/assets/Chart.js?body=1" for 127.0.0.1 at 2014-11-30 10:29:31 -0800
+
+
+Started GET "/assets/slick.min.js?body=1" for 127.0.0.1 at 2014-11-30 10:29:31 -0800
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-11-30 10:29:31 -0800
+
+
+Started GET "/assets/poll_answers.js?body=1" for 127.0.0.1 at 2014-11-30 10:29:31 -0800
+
+
+Started GET "/assets/poll_questions.js?body=1" for 127.0.0.1 at 2014-11-30 10:29:31 -0800
+
+
+Started GET "/assets/poll_vote_histories.js?body=1" for 127.0.0.1 at 2014-11-30 10:29:31 -0800
+
+
+Started GET "/assets/thoughtpoll.ang.js?body=1" for 127.0.0.1 at 2014-11-30 10:29:31 -0800
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-11-30 10:29:31 -0800
+
+
+Started GET "/assets/slick.css.map" for 127.0.0.1 at 2014-11-30 10:29:32 -0800
+
+
+Started GET "/qotd.json" for 127.0.0.1 at 2014-11-30 10:29:32 -0800
+Processing by PollQuestionsController#qotd as JSON
+  [1m[35mPollQuestion Load (0.4ms)[0m  SELECT  "poll_questions".* FROM "poll_questions"   ORDER BY "poll_questions"."id" DESC LIMIT 1
+  [1m[36mPollAnswer Load (0.3ms)[0m  [1mSELECT "poll_answers".* FROM "poll_answers"  WHERE "poll_answers"."poll_question_id" = $1[0m  [["poll_question_id", 3]]
+Completed 200 OK in 4ms (Views: 0.1ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/vote.json" for 127.0.0.1 at 2014-11-30 10:29:34 -0800
+Processing by PollQuestionsController#submitVote as JSON
+  Parameters: {"question_id"=>3, "answer_id"=>8, "answer_index"=>3, "poll_question"=>{}}
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "poll_vote_histories" ("answer_index", "created_at", "poll_answer_id", "poll_question_id", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["answer_index", 3], ["created_at", "2014-11-30 18:29:34.605444"], ["poll_answer_id", 8], ["poll_question_id", 3], ["updated_at", "2014-11-30 18:29:34.605444"]]
+  [1m[35m (1.8ms)[0m  COMMIT
+  [1m[36mPollVoteHistory Load (0.6ms)[0m  [1mSELECT "poll_vote_histories".* FROM "poll_vote_histories"  WHERE "poll_vote_histories"."poll_question_id" = 3[0m
+Completed 200 OK in 20ms (Views: 0.1ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-11-30 10:31:20 -0800
+Processing by PollQuestionsController#index as HTML
+  Rendered poll_questions/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 251ms (Views: 250.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/slick.css?body=1" for 127.0.0.1 at 2014-11-30 10:31:20 -0800
+
+
+Started GET "/assets/bootstrap_and_overrides.css?body=1" for 127.0.0.1 at 2014-11-30 10:31:20 -0800
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-11-30 10:31:20 -0800
+
+
+Started GET "/assets/poll_answers.css?body=1" for 127.0.0.1 at 2014-11-30 10:31:20 -0800
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-11-30 10:31:20 -0800
+
+
+Started GET "/assets/poll_questions.css?body=1" for 127.0.0.1 at 2014-11-30 10:31:20 -0800
+
+
+Started GET "/assets/poll_vote_histories.css?body=1" for 127.0.0.1 at 2014-11-30 10:31:20 -0800
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-11-30 10:31:20 -0800
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-11-30 10:31:20 -0800
+
+
+Started GET "/assets/twitter/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-11-30 10:31:20 -0800
+
+
+Started GET "/assets/twitter/bootstrap/alert.js?body=1" for 127.0.0.1 at 2014-11-30 10:31:20 -0800
+
+
+Started GET "/assets/twitter/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-11-30 10:31:20 -0800
+
+
+Started GET "/assets/twitter/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-11-30 10:31:20 -0800
+
+
+Started GET "/assets/twitter/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2014-11-30 10:31:20 -0800
+
+
+Started GET "/assets/twitter/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-11-30 10:31:20 -0800
+
+
+Started GET "/assets/twitter/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-11-30 10:31:20 -0800
+
+
+Started GET "/assets/twitter/bootstrap/popover.js?body=1" for 127.0.0.1 at 2014-11-30 10:31:20 -0800
+
+
+Started GET "/assets/twitter/bootstrap/button.js?body=1" for 127.0.0.1 at 2014-11-30 10:31:20 -0800
+
+
+Started GET "/assets/twitter/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-11-30 10:31:20 -0800
+
+
+Started GET "/assets/twitter/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2014-11-30 10:31:20 -0800
+
+
+Started GET "/assets/twitter/bootstrap/affix.js?body=1" for 127.0.0.1 at 2014-11-30 10:31:20 -0800
+
+
+Started GET "/assets/twitter/bootstrap.js?body=1" for 127.0.0.1 at 2014-11-30 10:31:20 -0800
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-11-30 10:31:20 -0800
+
+
+Started GET "/assets/angular.js?body=1" for 127.0.0.1 at 2014-11-30 10:31:20 -0800
+
+
+Started GET "/assets/angular-animate.js?body=1" for 127.0.0.1 at 2014-11-30 10:31:20 -0800
+
+
+Started GET "/assets/angular-resource.js?body=1" for 127.0.0.1 at 2014-11-30 10:31:20 -0800
+
+
+Started GET "/assets/Chart.js?body=1" for 127.0.0.1 at 2014-11-30 10:31:20 -0800
+
+
+Started GET "/assets/slick.min.js?body=1" for 127.0.0.1 at 2014-11-30 10:31:20 -0800
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-11-30 10:31:20 -0800
+
+
+Started GET "/assets/poll_answers.js?body=1" for 127.0.0.1 at 2014-11-30 10:31:20 -0800
+
+
+Started GET "/assets/poll_questions.js?body=1" for 127.0.0.1 at 2014-11-30 10:31:20 -0800
+
+
+Started GET "/assets/poll_vote_histories.js?body=1" for 127.0.0.1 at 2014-11-30 10:31:20 -0800
+
+
+Started GET "/assets/thoughtpoll.ang.js?body=1" for 127.0.0.1 at 2014-11-30 10:31:20 -0800
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-11-30 10:31:20 -0800
+
+
+Started GET "/assets/slick.css.map" for 127.0.0.1 at 2014-11-30 10:31:20 -0800
+
+
+Started GET "/qotd.json" for 127.0.0.1 at 2014-11-30 10:31:20 -0800
+Processing by PollQuestionsController#qotd as JSON
+  [1m[35mPollQuestion Load (0.4ms)[0m  SELECT  "poll_questions".* FROM "poll_questions"   ORDER BY "poll_questions"."id" DESC LIMIT 1
+  [1m[36mPollAnswer Load (0.3ms)[0m  [1mSELECT "poll_answers".* FROM "poll_answers"  WHERE "poll_answers"."poll_question_id" = $1[0m  [["poll_question_id", 3]]
+Completed 200 OK in 4ms (Views: 0.1ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/vote.json" for 127.0.0.1 at 2014-11-30 10:31:23 -0800
+Processing by PollQuestionsController#submitVote as JSON
+  Parameters: {"question_id"=>3, "answer_id"=>5, "answer_index"=>0, "poll_question"=>{}}
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "poll_vote_histories" ("answer_index", "created_at", "poll_answer_id", "poll_question_id", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["answer_index", 0], ["created_at", "2014-11-30 18:31:23.365065"], ["poll_answer_id", 5], ["poll_question_id", 3], ["updated_at", "2014-11-30 18:31:23.365065"]]
+  [1m[35m (1.8ms)[0m  COMMIT
+  [1m[36mPollVoteHistory Load (0.6ms)[0m  [1mSELECT "poll_vote_histories".* FROM "poll_vote_histories"  WHERE "poll_vote_histories"."poll_question_id" = 3[0m
+Completed 200 OK in 21ms (Views: 0.1ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-11-30 10:31:43 -0800
+Processing by PollQuestionsController#index as HTML
+  Rendered poll_questions/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 213ms (Views: 212.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/slick.css?body=1" for 127.0.0.1 at 2014-11-30 10:31:43 -0800
+
+
+Started GET "/assets/bootstrap_and_overrides.css?body=1" for 127.0.0.1 at 2014-11-30 10:31:43 -0800
+
+
+Started GET "/assets/poll_questions.css?body=1" for 127.0.0.1 at 2014-11-30 10:31:43 -0800
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-11-30 10:31:43 -0800
+
+
+Started GET "/assets/poll_vote_histories.css?body=1" for 127.0.0.1 at 2014-11-30 10:31:43 -0800
+
+
+Started GET "/assets/poll_answers.css?body=1" for 127.0.0.1 at 2014-11-30 10:31:43 -0800
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-11-30 10:31:43 -0800
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-11-30 10:31:43 -0800
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-11-30 10:31:43 -0800
+
+
+Started GET "/assets/twitter/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-11-30 10:31:43 -0800
+
+
+Started GET "/assets/twitter/bootstrap/alert.js?body=1" for 127.0.0.1 at 2014-11-30 10:31:43 -0800
+
+
+Started GET "/assets/twitter/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-11-30 10:31:43 -0800
+
+
+Started GET "/assets/twitter/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-11-30 10:31:43 -0800
+
+
+Started GET "/assets/twitter/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2014-11-30 10:31:43 -0800
+
+
+Started GET "/assets/twitter/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-11-30 10:31:43 -0800
+
+
+Started GET "/assets/twitter/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-11-30 10:31:43 -0800
+
+
+Started GET "/assets/twitter/bootstrap/popover.js?body=1" for 127.0.0.1 at 2014-11-30 10:31:43 -0800
+
+
+Started GET "/assets/twitter/bootstrap/button.js?body=1" for 127.0.0.1 at 2014-11-30 10:31:43 -0800
+
+
+Started GET "/assets/twitter/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-11-30 10:31:43 -0800
+
+
+Started GET "/assets/twitter/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2014-11-30 10:31:43 -0800
+
+
+Started GET "/assets/twitter/bootstrap/affix.js?body=1" for 127.0.0.1 at 2014-11-30 10:31:43 -0800
+
+
+Started GET "/assets/twitter/bootstrap.js?body=1" for 127.0.0.1 at 2014-11-30 10:31:43 -0800
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-11-30 10:31:43 -0800
+
+
+Started GET "/assets/angular.js?body=1" for 127.0.0.1 at 2014-11-30 10:31:43 -0800
+
+
+Started GET "/assets/angular-animate.js?body=1" for 127.0.0.1 at 2014-11-30 10:31:43 -0800
+
+
+Started GET "/assets/angular-resource.js?body=1" for 127.0.0.1 at 2014-11-30 10:31:43 -0800
+
+
+Started GET "/assets/Chart.js?body=1" for 127.0.0.1 at 2014-11-30 10:31:43 -0800
+
+
+Started GET "/assets/slick.min.js?body=1" for 127.0.0.1 at 2014-11-30 10:31:43 -0800
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-11-30 10:31:43 -0800
+
+
+Started GET "/assets/poll_answers.js?body=1" for 127.0.0.1 at 2014-11-30 10:31:43 -0800
+
+
+Started GET "/assets/poll_questions.js?body=1" for 127.0.0.1 at 2014-11-30 10:31:43 -0800
+
+
+Started GET "/assets/poll_vote_histories.js?body=1" for 127.0.0.1 at 2014-11-30 10:31:43 -0800
+
+
+Started GET "/assets/thoughtpoll.ang.js?body=1" for 127.0.0.1 at 2014-11-30 10:31:43 -0800
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-11-30 10:31:43 -0800
+
+
+Started GET "/assets/slick.css.map" for 127.0.0.1 at 2014-11-30 10:31:43 -0800
+
+
+Started GET "/qotd.json" for 127.0.0.1 at 2014-11-30 10:31:43 -0800
+Processing by PollQuestionsController#qotd as JSON
+  [1m[35mPollQuestion Load (0.4ms)[0m  SELECT  "poll_questions".* FROM "poll_questions"   ORDER BY "poll_questions"."id" DESC LIMIT 1
+  [1m[36mPollAnswer Load (0.3ms)[0m  [1mSELECT "poll_answers".* FROM "poll_answers"  WHERE "poll_answers"."poll_question_id" = $1[0m  [["poll_question_id", 3]]
+Completed 200 OK in 4ms (Views: 0.1ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/vote.json" for 127.0.0.1 at 2014-11-30 10:31:47 -0800
+Processing by PollQuestionsController#submitVote as JSON
+  Parameters: {"question_id"=>3, "answer_id"=>7, "answer_index"=>2, "poll_question"=>{}}
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "poll_vote_histories" ("answer_index", "created_at", "poll_answer_id", "poll_question_id", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["answer_index", 2], ["created_at", "2014-11-30 18:31:47.313276"], ["poll_answer_id", 7], ["poll_question_id", 3], ["updated_at", "2014-11-30 18:31:47.313276"]]
+  [1m[35m (1.7ms)[0m  COMMIT
+  [1m[36mPollVoteHistory Load (0.6ms)[0m  [1mSELECT "poll_vote_histories".* FROM "poll_vote_histories"  WHERE "poll_vote_histories"."poll_question_id" = 3[0m
+Completed 200 OK in 20ms (Views: 0.2ms | ActiveRecord: 2.7ms)
