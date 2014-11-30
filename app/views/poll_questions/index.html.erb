@@ -1,44 +1,58 @@
-<div id="questionModal" class="modal show" tabindex="-1" role="dialog" aria-hidden="true" ng-controller="TPQuestionController">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="text-center">{{questionHeader}}</h1>
-      </div>
+<div ng-controller="TPQuestionController">
+  <div id="questionModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="text-center">{{questionHeader}}</h1>
+        </div>
 
-      <div class="modal-body sample-show-hide" ng-show="!answered">
-        <h3 style="text-align:center;">{{question.body}}</h3>
+        <div class="modal-body sample-show-hide" ng-show="!answered">
+          <h3 style="text-align:center;">{{question.body}}</h3>
 
-        <form class="form-horizontal" ng-submit="submitVote(question.id, answer_id)">
-         <!-- <fieldset> -->
-          <div class="form-group">
-           <div class="col-xs-9">
+          <form class="form-horizontal" ng-submit="submitVote(question.id, answer_id)">
+            <div class="form-group">
+             <div class="col-xs-9">
 
-            <div class="radio" ng-repeat="answer in question.poll_answers">
-              <input type="radio" name="answer" ng-model="$parent.answer_id" id="answer_radio_{{$index}}" ng-value="{{$index}}" />
-              <label for="answer_radio_{{$index}}">{{answer.body}} -- {{$index}} -- {{$parent.answer_id}}</label>
+              <div class="radio" ng-repeat="answer in question.poll_answers">
+                <input type="radio" name="answer" ng-model="$parent.answer_id" id="answer_radio_{{$index}}" ng-value="{{$index}}" />
+                <label for="answer_radio_{{$index}}">{{answer.body}} -- {{$index}} -- {{$parent.answer_id}}</label>
+              </div>
+
+             </div>
             </div>
 
-           </div>
-          </div>
-         <!-- </fieldset> -->
-
-         <button type="submit">Vote</button>
-        </form>
-      </div>
-    </div>
-
-    <div class="modal-body sample-show-hide" ng-show="answered">
-        <h3 style="text-align:center;">{{question.body}}</h3>
-        <div ng-repeat="answer in question.poll_answers">
-          {{answer.body}} -- {{$index}} -- {{answer_id}}
+           <button type="submit">Vote</button>
+          </form>
         </div>
+      </div>
+
+      <div class="modal-body sample-show-hide" ng-show="answered">
+          <h3 style="text-align:center;">{{question.body}}</h3>
+          <div ng-repeat="answer in question.poll_answers">
+            {{answer.body}} -- {{$index}} -- {{answer_id}}
+          </div>
+      </div>
+
     </div>
-
   </div>
-</div>
 
-<div class="row">
-  <div class="col-md-offset-3 col-md-6" style="margin-top:400px; background-color:white; text-align:center">
-      <canvas id="barChart" width="400" height="400"></canvas>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-offset-3 col-md-6" ng-show="answered">
+        <div class="slider autoplay data-viz-block" style="text-align:center;">
+          <div>
+            <canvas id="barChart" width="400" height="400"></canvas>
+          </div>
+          <div><h3>2</h3></div>
+          <div><h3>3</h3></div>
+          <div><h3>4</h3></div>
+        </div>
+      </div>
+
+      <!--  the old chart -->
+      <!-- <div class="col-md-offset-3 col-md-6" style="background-color:white; text-align:center"> -->
+          <!-- <canvas id="barChart" width="400" height="400"></canvas> -->
+      <!-- </div> -->
+    </div>
   </div>
 </div>

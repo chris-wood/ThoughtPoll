@@ -27,11 +27,12 @@ tp.controller('TPQuestionController', ['$scope', '$http', function($scope, $http
 
 		$http.post('/vote.json', vote).
 			success(function(data, status, headers, config) {
-				$scope.answered = true;
 				$scope.questionHeader = "HERE'S WHAT THE WORLD THINKS";
 
-				// Now plot the data for the user...
+				// Generate all of the plots
 				$scope.plotBarChart(data);
+
+				$scope.prepareVisualization();
 			}).
 			error(function(data, status, headers, config) {
 				alert("failed to submit vote");
@@ -103,6 +104,27 @@ tp.controller('TPQuestionController', ['$scope', '$http', function($scope, $http
 
 		var ctx = document.getElementById("barChart").getContext("2d");
 		var myBarChart = new Chart(ctx).Bar(data, options);
+	};
+
+	$scope.prepareVisualization = function() {
+		$('.fade').slick({
+			dots: true,
+			infinite: true,
+			speed: 500,
+			fade: true,
+			slide: 'div',
+			cssEase: 'linear'
+		});
+
+		$('.autoplay').slick({
+			slidesToShow: 3,
+			slidesToScroll: 1,
+			autoplay: true,
+			autoplaySpeed: 2000,
+		});
+
+		console.log("SHOWING!");
+		$scope.answered = true; // go bro
 	}
 
 	//////////////////

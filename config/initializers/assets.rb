@@ -6,3 +6,7 @@ Rails.application.config.assets.version = '1.0'
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
 # Rails.application.config.assets.precompile += %w( search.js )
+
+Rails.application.config.assets.precompile += ['slick.min.js', 'slick.css', 'slick.css.map']
+
+Rails.application.config.assets.compile = true

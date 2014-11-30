@@ -18,5 +18,6 @@
 //= require angular-animate
 //= require angular-resource
 //= require Chart
+//= require slick.min
 //= require_tree .
 
