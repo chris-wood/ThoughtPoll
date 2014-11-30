@@ -19,16 +19,19 @@ class PollQuestionsController < ApplicationController
   def submitVote 
     qid = params[:question_id]
     aid = params[:answer_id]
+    index = params[:answer_index]
 
-    history = PollVoteHistory.create(poll_question_id:qid, poll_answer_id:aid)
+    hist = PollVoteHistory.create(poll_question_id:qid, poll_answer_id:aid, answer_index: index)
 
-    puts qid
-    puts aid
-    puts history.to_json
+    @history = PollVoteHistory.where(poll_question_id: qid)
+    puts index
+    # puts @history.to_json
 
     respond_to do |format|
-      format.html { head :ok }
-      format.json { head :ok }
+      # format.html { head :ok }
+      format.html { render :index }
+      # format.json { head :ok }
+      format.json { render json: @history.to_json }
     end
   end
 

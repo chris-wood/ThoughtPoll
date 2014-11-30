@@ -17,5 +17,6 @@
 //= require angular
 //= require angular-animate
 //= require angular-resource
+//= require Chart
 //= require_tree .
 

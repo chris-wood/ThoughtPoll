@@ -1,3 +1,18 @@
 // Place all the styles related to the PollQuestions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.sample-show-hide {
+  padding:10px;
+  border:1px solid black;
+  background:white;
+}
+
+.sample-show-hide {
+  -webkit-transition:all linear 2.5s;
+  transition:all linear 2.5s;
+}
+
+.sample-show-hide.ng-hide {
+  opacity:0;
+}

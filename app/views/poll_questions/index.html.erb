@@ -2,9 +2,10 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="text-center">WTF DO YOU THINK?</h1>
+        <h1 class="text-center">{{questionHeader}}</h1>
       </div>
-      <div class="modal-body">
+
+      <div class="modal-body sample-show-hide" ng-show="!answered">
         <h3 style="text-align:center;">{{question.body}}</h3>
 
         <form class="form-horizontal" ng-submit="submitVote(question.id, answer_id)">
@@ -14,7 +15,7 @@
 
             <div class="radio" ng-repeat="answer in question.poll_answers">
               <input type="radio" name="answer" ng-model="$parent.answer_id" id="answer_radio_{{$index}}" ng-value="{{$index}}" />
-              <label for="answer_radio_{{$index}}">{{answer.body}} -- {{$index}} -- {{answer_id}}</label>
+              <label for="answer_radio_{{$index}}">{{answer.body}} -- {{$index}} -- {{$parent.answer_id}}</label>
             </div>
 
            </div>
@@ -25,5 +26,19 @@
         </form>
       </div>
     </div>
+
+    <div class="modal-body sample-show-hide" ng-show="answered">
+        <h3 style="text-align:center;">{{question.body}}</h3>
+        <div ng-repeat="answer in question.poll_answers">
+          {{answer.body}} -- {{$index}} -- {{answer_id}}
+        </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-offset-3 col-md-6" style="margin-top:400px; background-color:white; text-align:center">
+      <canvas id="barChart" width="400" height="400"></canvas>
   </div>
 </div>
