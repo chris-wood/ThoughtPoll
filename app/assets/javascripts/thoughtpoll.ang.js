@@ -38,16 +38,25 @@ tp.controller('TPQuestionController', ['$scope', '$http', function($scope, $http
   		});
   };
 
-  $scope.plotBarChart = function(dd) {
+  $scope.plotBarChart = function(results) {
 
   	// Generate the list of labels
   	var ls = [];
+  	var dd = [];
   	for (var i = 0; i < $scope.question.poll_answers.length; i++) {
   		ls.push($scope.question.poll_answers[i].body);
+  		dd.push(0); // initialize the results array to 0
   	}
 
-  	// var data = [];
-  	console.log(dd);
+  	console.log(results);
+  	for (var i = 0; i < results.length; i++) {
+  		if (results[i].answer_index == null) {
+  			dd[0] = dd[0] + 1;
+  		} else {
+  			var index = results[i].answer_index;
+  			dd[index] = dd[index] + 1;
+  		}
+  	}
 
   	var data = {
 	    labels: ls,
