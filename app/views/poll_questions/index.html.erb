@@ -1,3 +1,9 @@
+<% if user_signed_in? %>
+  <%= link_to('LOG THE FUCK OUT', destroy_user_session_path, :method => :delete) %>        
+<% else %>
+  <%= link_to('LOG THE FUCK IN', new_user_session_path)  %>  
+<% end %>
+
 <div ng-controller="TPQuestionController">
   <div id="questionModal" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog">
@@ -6,6 +12,7 @@
           <h1 class="text-center">{{questionHeader}}</h1>
         </div>
 
+        <% if user_signed_in? %>
         <div class="modal-body sample-show-hide" ng-show="!answered">
           <h3 style="text-align:center;">{{question.body}}</h3>
 
@@ -25,20 +32,25 @@
           </form>
         </div>
       </div>
+      <% else %>
+        <h3 style="text-align:center"><%= link_to('SIGN IN TO FUCKING VOTE', new_user_session_path)  %></h3>
+      <% end %>
 
+      <% if user_signed_in? %>
       <div class="modal-body sample-show-hide" ng-show="answered">
           <h3 style="text-align:center;">{{question.body}}</h3>
           <div ng-repeat="answer in question.poll_answers">
             {{answer.body}} -- {{$index}} -- {{answer_id}}
           </div>
       </div>
+      <% end %>
 
     </div>
   </div>
 
   <div class="container-fluid">
     <div class="row">
-      <div class="col-md-offset-1 col-md-10" ng-show="answered">
+      <div class="col-md-offset-2 col-md-8" ng-show="answered">
         <div class="slider autoplay data-viz-block" style="text-align:center;">
           <div>
             <canvas id="barChart" width="400" height="400"></canvas>
@@ -46,8 +58,6 @@
           <div>
             <canvas id="donutChart" width="400" height="400"></canvas>
           </div>
-          <div><h3>3</h3></div>
-          <div><h3>4</h3></div>
         </div>
       </div>
 
@@ -57,4 +67,14 @@
       <!-- </div> -->
     </div>
   </div>
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-offset-2 col-md-8">
+        <div id="world-map" style="position: relative; background-color:white;"></div> <!-- width: 500px; height: 300px; -->
+      </div>
+    </div>
+  </div>
+
 </div>
+

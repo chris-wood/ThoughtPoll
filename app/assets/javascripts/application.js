@@ -19,5 +19,8 @@
 //= require angular-resource
 //= require Chart
 //= require slick.min
+//= require d3.min
+//= require topojson.v1.min
+//= require datamaps.world.min
 //= require_tree .
 

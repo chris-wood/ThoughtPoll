@@ -3,16 +3,30 @@ class PollQuestionsController < ApplicationController
   # WTF HACK
   skip_before_filter  :verify_authenticity_token
 
+  before_action :authenticate_user!, only: :submitVote
   before_action :set_poll_question, only: [:show, :edit, :update, :destroy]
 
   def qotd
-    # get the last question added and then JSONify it
     @poll_question = PollQuestion.last 
-
-    # JSONify the question (recursively) and return the result
     respond_to do |format|
       format.html { render :index }
       format.json { render json: @poll_question.to_json(:include => :poll_answers) }
+    end
+  end
+
+  # check to see if the user has voted yet today
+  def didCurrentUserVote 
+    @poll_question = PollQuestion.last 
+
+    vote = PollVoteHistory.where(created_at: DateTime.now.at_beginning_of_day.utc..Time.now.utc, poll_question_id: @poll_question.id)
+    @voted = false
+    if vote != nil
+      @voted = true
+    end
+
+    respond_to do |format|
+      format.html { render :index }
+      format.json { render json: @voted.to_json }
     end
   end
 
@@ -38,7 +52,7 @@ class PollQuestionsController < ApplicationController
   # GET /poll_questions
   # GET /poll_questions.json
   def index
-    @poll_questions = PollQuestion.all
+    # do nothing...
   end
 
   # GET /poll_questions/1

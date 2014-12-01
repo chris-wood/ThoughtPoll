@@ -22,7 +22,7 @@ tp.controller('TPQuestionController', ['$scope', '$http', function($scope, $http
 		// didVote
 		$http.get('/didVote.json').
 		success(function(data, status, headers, config) {
-			// alert(data);
+			alert(data);
 			console.log(data);
 
 			$scope.didVote = data;
@@ -51,7 +51,7 @@ tp.controller('TPQuestionController', ['$scope', '$http', function($scope, $http
 				$scope.plotRadarChart(tuple);
 
 				// Generate world results from raw data
-				// $scope.renderWorldMap(data);
+				$scope.renderWorldMap(data);
 
 				// Now turn on data visualization after everything's prepped
 				$scope.prepareVisualization();
@@ -100,6 +100,27 @@ tp.controller('TPQuestionController', ['$scope', '$http', function($scope, $http
 				color: "rgba(220,220,220,0.2)" // "#F7464A" -- we can always use hex color codes, though rgba is easier for gradient computation
 			});
 		}
+
+		// var data = [
+		// 	{
+		// 		value: 300,
+		// 		color:"#F7464A",
+		// 		highlight: "#FF5A5E",
+		// 		label: "Red"
+		// 	},
+		// 	{
+		// 		value: 50,
+		// 		color: "#46BFBD",
+		// 		highlight: "#5AD3D1",
+		// 		label: "Green"
+		// 	},
+		// 	{
+		// 		value: 100,
+		// 		color: "#FDB45C",
+		// 		highlight: "#FFC870",
+		// 		label: "Yellow"
+		// 	}
+		// ];
 
 		var options = {
 			//Boolean - Whether we should show a stroke on each segment
@@ -190,7 +211,7 @@ tp.controller('TPQuestionController', ['$scope', '$http', function($scope, $http
 		// TODO: use the data to fill in the data here
 
 		var worldMap = new Datamap({
-			element: document.getElementById("world-map"),
+			element: document.getElementById("basic_choropleth"),
 			projection: 'mercator',
 			fills: {
 				defaultFill: "#ABDDA4",
@@ -209,7 +230,7 @@ tp.controller('TPQuestionController', ['$scope', '$http', function($scope, $http
 		var colors = d3.scale.category10();
 
 		window.setInterval(function() {
-			worldMap.updateChoropleth({
+			basic_choropleth.updateChoropleth({
 			USA: colors(Math.random() * 10),
 			RUS: colors(Math.random() * 100),
 			AUS: { fillKey: 'authorHasTraveledTo' },
@@ -220,7 +241,7 @@ tp.controller('TPQuestionController', ['$scope', '$http', function($scope, $http
 			});
 		}, 2000);
 
-		$("#world-map").height(500);
+		console.log(worldMap);
 	}
 
 	// Set up the slick carousel and then turn on that part of the page

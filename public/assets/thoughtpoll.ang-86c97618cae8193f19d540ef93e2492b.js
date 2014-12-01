@@ -22,7 +22,7 @@ tp.controller('TPQuestionController', ['$scope', '$http', function($scope, $http
 		// didVote
 		$http.get('/didVote.json').
 		success(function(data, status, headers, config) {
-			// alert(data);
+			alert(data);
 			console.log(data);
 
 			$scope.didVote = data;
@@ -44,14 +44,10 @@ tp.controller('TPQuestionController', ['$scope', '$http', function($scope, $http
 			success(function(data, status, headers, config) {
 				$scope.questionHeader = "HERE'S WHAT THE WORLD THINKS";
 
-				// Generate all of the simple plots
+				// Generate all of the plots
 				var tuple = $scope.generateResults(data);
 				$scope.plotBarChart(tuple);
 				$scope.plotDonutChart(tuple);
-				$scope.plotRadarChart(tuple);
-
-				// Generate world results from raw data
-				// $scope.renderWorldMap(data);
 
 				// Now turn on data visualization after everything's prepped
 				$scope.prepareVisualization();
@@ -100,6 +96,27 @@ tp.controller('TPQuestionController', ['$scope', '$http', function($scope, $http
 				color: "rgba(220,220,220,0.2)" // "#F7464A" -- we can always use hex color codes, though rgba is easier for gradient computation
 			});
 		}
+
+		// var data = [
+		// 	{
+		// 		value: 300,
+		// 		color:"#F7464A",
+		// 		highlight: "#FF5A5E",
+		// 		label: "Red"
+		// 	},
+		// 	{
+		// 		value: 50,
+		// 		color: "#46BFBD",
+		// 		highlight: "#5AD3D1",
+		// 		label: "Green"
+		// 	},
+		// 	{
+		// 		value: 100,
+		// 		color: "#FDB45C",
+		// 		highlight: "#FFC870",
+		// 		label: "Yellow"
+		// 	}
+		// ];
 
 		var options = {
 			//Boolean - Whether we should show a stroke on each segment
@@ -184,44 +201,6 @@ tp.controller('TPQuestionController', ['$scope', '$http', function($scope, $http
 		var ctx = document.getElementById("barChart").getContext("2d");
 		var myBarChart = new Chart(ctx).Bar(data, options);
 	};
-
-	$scope.renderWorldMap = function(data) {
-
-		// TODO: use the data to fill in the data here
-
-		var worldMap = new Datamap({
-			element: document.getElementById("world-map"),
-			projection: 'mercator',
-			fills: {
-				defaultFill: "#ABDDA4",
-				authorHasTraveledTo: "#fa0fa0"
-			},
-			data: {
-				USA: { fillKey: "authorHasTraveledTo" },
-				JPN: { fillKey: "authorHasTraveledTo" },
-				ITA: { fillKey: "authorHasTraveledTo" },
-				CRI: { fillKey: "authorHasTraveledTo" },
-				KOR: { fillKey: "authorHasTraveledTo" },
-				DEU: { fillKey: "authorHasTraveledTo" },
-			}
-		});
-
-		var colors = d3.scale.category10();
-
-		window.setInterval(function() {
-			worldMap.updateChoropleth({
-			USA: colors(Math.random() * 10),
-			RUS: colors(Math.random() * 100),
-			AUS: { fillKey: 'authorHasTraveledTo' },
-			BRA: colors(Math.random() * 50),
-			CAN: colors(Math.random() * 50),
-			ZAF: colors(Math.random() * 50),
-			IND: colors(Math.random() * 50),
-			});
-		}, 2000);
-
-		$("#world-map").height(500);
-	}
 
 	// Set up the slick carousel and then turn on that part of the page
 	$scope.prepareVisualization = function() {
