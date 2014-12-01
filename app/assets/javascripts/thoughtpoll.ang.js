@@ -7,6 +7,10 @@ tp.controller('TPQuestionController', ['$scope', '$http', function($scope, $http
 	$scope.didVote = false;
 	$scope.answer_id = 0;
 	$scope.answered = false;
+	$scope.coords = null;
+
+	$scope.quoteBody = "Prejudice is the child of ignorance.";
+	$scope.quoteAuthor = "William Hazlitt";
 
 	$scope.getQOTD = function() {
 		$http.get('/qotd.json').
@@ -37,7 +41,9 @@ tp.controller('TPQuestionController', ['$scope', '$http', function($scope, $http
 		var vote = {
 			question_id : qid,
 			answer_id : aid,
-			answer_index: aindex
+			answer_index: aindex,
+			lat: $scope.coords.latitude,
+			lon: $scope.coords.longitude,
 		};
 
 		$http.post('/vote.json', vote).
@@ -97,36 +103,36 @@ tp.controller('TPQuestionController', ['$scope', '$http', function($scope, $http
 			data.push({
 				value: tuple["data"][i],
 				label: labels[i],
-				color: "rgba(220,220,220,0.2)" // "#F7464A" -- we can always use hex color codes, though rgba is easier for gradient computation
+				color: "rgba(231,76,60,1)"
 			});
 		}
 
 		var options = {
-			//Boolean - Whether we should show a stroke on each segment
+			// Boolean - Whether we should show a stroke on each segment
 			segmentShowStroke : true,
 
-			//String - The colour of each segment stroke
+			// String - The colour of each segment stroke
 			segmentStrokeColor : "#fff",
 
-			//Number - The width of each segment stroke
+			// Number - The width of each segment stroke
 			segmentStrokeWidth : 2,
 
-			//Number - The percentage of the chart that we cut out of the middle
-			percentageInnerCutout : 50, // This is 0 for Pie charts
+			// Number - The percentage of the chart that we cut out of the middle
+			percentageInnerCutout : 0, // This is 0 for Pie charts
 
-			//Number - Amount of animation steps
+			// Number - Amount of animation steps
 			animationSteps : 100,
 
-			//String - Animation easing effect
+			// String - Animation easing effect
 			animationEasing : "easeOutBounce",
 
-			//Boolean - Whether we animate the rotation of the Doughnut
+			// Boolean - Whether we animate the rotation of the Doughnut
 			animateRotate : true,
 
-			//Boolean - Whether we animate scaling the Doughnut from the centre
+			// Boolean - Whether we animate scaling the Doughnut from the centre
 			animateScale : false,
 
-			//String - A legend template
+			// String - A legend template
 			legendTemplate : "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<segments.length; i++){%><li><span style=\"background-color:<%=segments[i].fillColor%>\"></span><%if(segments[i].label){%><%=segments[i].label%><%}%></li><%}%></ul>"
 		}
 
@@ -143,10 +149,10 @@ tp.controller('TPQuestionController', ['$scope', '$http', function($scope, $http
 			datasets: [
 				{
 					label: "My First dataset",
-					fillColor: "rgba(220,220,220,0.5)",
-					strokeColor: "rgba(220,220,220,0.8)",
-					highlightFill: "rgba(220,220,220,0.75)",
-					highlightStroke: "rgba(220,220,220,1)",
+					fillColor: "rgba(231,76,60,1)",
+					strokeColor: "rgba(231,76,60,1)",
+					highlightFill: "rgba(230,126,34,1)",
+					highlightStroke: "rgba(230,126,34,1)",
 					data: tuple["data"]
 				}
 			]
@@ -223,6 +229,10 @@ tp.controller('TPQuestionController', ['$scope', '$http', function($scope, $http
 		$("#world-map").height(500);
 	}
 
+	$scope.getUserLocation = function(position) {
+		$scope.coords = position.coords;
+	}
+
 	// Set up the slick carousel and then turn on that part of the page
 	$scope.prepareVisualization = function() {
 
@@ -253,6 +263,7 @@ tp.controller('TPQuestionController', ['$scope', '$http', function($scope, $http
 
 		$scope.getVoteStatus();
 		$scope.getQOTD();
+    	navigator.geolocation.getCurrentPosition($scope.getUserLocation);
 	};
 	$scope.main();
 }]);

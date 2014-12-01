@@ -45,12 +45,16 @@
       </div>
       <% end %>
 
+      <div class="well well-sm">
+        {{quoteBody}} -- {{quoteAuthor}}
+      </div>
+
     </div>
   </div>
 
   <div class="container-fluid">
     <div class="row">
-      <div class="col-md-offset-2 col-md-8" ng-show="answered">
+      <div class="col-md-offset-3 col-md-6" ng-show="answered">
         <div class="slider autoplay data-viz-block" style="text-align:center;">
           <div>
             <canvas id="barChart" width="400" height="400"></canvas>
@@ -70,7 +74,7 @@
 
   <div class="container-fluid">
     <div class="row">
-      <div class="col-md-offset-2 col-md-8">
+      <div class="col-md-offset-3 col-md-6">
         <div id="world-map" style="position: relative; background-color:white;"></div> <!-- width: 500px; height: 300px; -->
       </div>
     </div>

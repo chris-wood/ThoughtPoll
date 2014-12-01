@@ -34,9 +34,12 @@ class PollQuestionsController < ApplicationController
     qid = params[:question_id]
     aid = params[:answer_id]
     index = params[:answer_index]
+    lat = params[:lat]
+    lon = params[:lon]
 
-    hist = PollVoteHistory.create(poll_question_id:qid, poll_answer_id:aid, answer_index: index)
+    hist = PollVoteHistory.create(poll_question_id:qid, poll_answer_id:aid, answer_index: index, lat: lat, lon: lon)
 
+    puts hist.to_json
     @history = PollVoteHistory.where(poll_question_id: qid)
     puts index
     # puts @history.to_json
