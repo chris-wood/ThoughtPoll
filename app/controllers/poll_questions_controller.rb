@@ -3,14 +3,17 @@ class PollQuestionsController < ApplicationController
   # WTF HACK
   skip_before_filter  :verify_authenticity_token
 
-  before_action :authenticate_user!, only: :submitVote
+  # before_action :authenticate_user!, only: :submitVote
   before_action :set_poll_question, only: [:show, :edit, :update, :destroy]
 
   def qotd
     @poll_question = PollQuestion.last 
+    jsonHash = JSON.parse(@poll_question.to_json(:include => :poll_answers))
+    jsonHash["signed_in"] = signed_in?
+
     respond_to do |format|
       format.html { render :index }
-      format.json { render json: @poll_question.to_json(:include => :poll_answers) }
+      format.json { render json: jsonHash.to_json }
     end
   end
 
@@ -31,24 +34,32 @@ class PollQuestionsController < ApplicationController
   end
 
   def submitVote 
-    qid = params[:question_id]
-    aid = params[:answer_id]
-    index = params[:answer_index]
-    lat = params[:lat]
-    lon = params[:lon]
+    anonymous = params[:anonymous]
+    if signed_in? or anonymous
+      qid = params[:question_id]
+      aid = params[:answer_id]
+      index = params[:answer_index]
+      lat = params[:lat]
+      lon = params[:lon]
 
-    hist = PollVoteHistory.create(poll_question_id:qid, poll_answer_id:aid, answer_index: index, lat: lat, lon: lon)
+      hist = PollVoteHistory.create(poll_question_id:qid, poll_answer_id:aid, answer_index: index, lat: lat, lon: lon)
 
-    puts hist.to_json
-    @history = PollVoteHistory.where(poll_question_id: qid)
-    puts index
-    # puts @history.to_json
+      puts hist.to_json
+      @history = PollVoteHistory.where(poll_question_id: qid)
+      puts index
+      # puts @history.to_json
 
-    respond_to do |format|
-      # format.html { head :ok }
-      format.html { render :index }
-      # format.json { head :ok }
-      format.json { render json: @history.to_json }
+      respond_to do |format|
+        # format.html { head :ok }
+        format.html { render :index }
+        # format.json { head :ok }
+        format.json { render json: @history.to_json }
+      end
+    else # respond with error... wasn't logged in and wasn't in anonymous mode
+      respond_to do |format|
+        format.html { render :index }
+        format.json { render json: false.to_json }
+      end
     end
   end
 

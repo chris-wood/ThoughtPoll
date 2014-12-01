@@ -7,7 +7,11 @@ tp.controller('TPQuestionController', ['$scope', '$http', function($scope, $http
 	$scope.didVote = false;
 	$scope.answer_id = 0;
 	$scope.answered = false;
-	$scope.coords = null;
+	$scope.latitude = null;
+	$scope.longitude = null;
+	$scope.isSignedIn = false;
+	$scope.isAnonymous = false;
+	$scope.errorMessage = null;
 
 	$scope.quoteBody = "Prejudice is the child of ignorance.";
 	$scope.quoteAuthor = "William Hazlitt";
@@ -16,11 +20,18 @@ tp.controller('TPQuestionController', ['$scope', '$http', function($scope, $http
 		$http.get('/qotd.json').
 		success(function(data, status, headers, config) {
 			$scope.question = data;
+			if (data["signed_in"] == true) {
+				$scope.isSignedIn = true;
+			}
 		}).
 		error(function(data, status, headers, config) {
 			console.log(data);
 		});
 	};
+
+	$scope.flagAnonymous = function() {
+		$scope.isAnonymous = true;
+	}
 
 	$scope.getVoteStatus = function() {
 		// didVote
@@ -34,37 +45,44 @@ tp.controller('TPQuestionController', ['$scope', '$http', function($scope, $http
 		error(function(data, status, headers, config) {
 			console.log(data);
 		});
-	}
+	};
 
 	$scope.submitVote = function(qid, aindex) {
-		var aid = $scope.question.poll_answers[aindex].id;
-		var vote = {
-			question_id : qid,
-			answer_id : aid,
-			answer_index: aindex,
-			lat: $scope.coords.latitude,
-			lon: $scope.coords.longitude,
-		};
 
-		$http.post('/vote.json', vote).
-			success(function(data, status, headers, config) {
-				$scope.questionHeader = "HERE'S WHAT THE WORLD THINKS";
+		if ($scope.latitude == null || $scope.longitude == null) {
+			$scope.errorMessage = "See what the rest of the world thinks... Share your location if you're using being anonymous.";
+			$(".alert").show();
+		} else {
+			var aid = $scope.question.poll_answers[aindex].id;
+			var vote = {
+				question_id : qid,
+				answer_id : aid,
+				answer_index: aindex,
+				lat: $scope.latitude,
+				lon: $scope.longitude,
+				anonymous: $scope.isAnonymous
+			};
 
-				// Generate all of the simple plots
-				var tuple = $scope.generateResults(data);
-				$scope.plotBarChart(tuple);
-				$scope.plotDonutChart(tuple);
-				$scope.plotRadarChart(tuple);
+			$http.post('/vote.json', vote).
+				success(function(data, status, headers, config) {
+					$scope.questionHeader = "HERE'S WHAT THE WORLD THINKS";
 
-				// Generate world results from raw data
-				// $scope.renderWorldMap(data);
+					// Generate all of the simple plots
+					var tuple = $scope.generateResults(data);
+					$scope.plotBarChart(tuple);
+					$scope.plotDonutChart(tuple);
+					$scope.plotRadarChart(tuple);
 
-				// Now turn on data visualization after everything's prepped
-				$scope.prepareVisualization();
-			}).
-			error(function(data, status, headers, config) {
-				alert("failed to submit vote");
-			});
+					// Generate world results from raw data
+					// $scope.renderWorldMap(data);
+
+					// Now turn on data visualization after everything's prepped
+					$scope.prepareVisualization();
+				}).
+				error(function(data, status, headers, config) {
+					alert("failed to submit vote");
+				});
+		}
 	};
 
 	$scope.generateResults = function(results) {
@@ -230,7 +248,8 @@ tp.controller('TPQuestionController', ['$scope', '$http', function($scope, $http
 	}
 
 	$scope.getUserLocation = function(position) {
-		$scope.coords = position.coords;
+		$scope.latitude = position.coords.latitude;
+		$scope.longitude = position.coords.longitude;
 	}
 
 	// Set up the slick carousel and then turn on that part of the page

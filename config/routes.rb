@@ -5,8 +5,9 @@ Rails.application.routes.draw do
   resources :poll_questions
 
   # routes -- KISS
-  get  '/'       => 'poll_questions#index'
-  get  '/qotd'   => 'poll_questions#qotd'
-  get  '/didVote'=> 'poll_questions#didCurrentUserVote'
-  post '/vote'   => 'poll_questions#submitVote'
+  get  '/'              => 'poll_questions#index'
+  get  '/qotd'          => 'poll_questions#qotd'
+  get  '/didVote'       => 'poll_questions#didCurrentUserVote'
+  post '/vote'          => 'poll_questions#submitVote'
+
 end
