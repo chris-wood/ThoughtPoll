@@ -272,10 +272,11 @@ tp.controller('TPQuestionController', ['$scope', '$http', function($scope, $http
 		});
 
 		$('.autoplay').slick({
+			lazyLoad: 'ondemand',
 			slidesToShow: 1,
 			slidesToScroll: 1,
 			autoplay: true,
-			autoplaySpeed: 2000,
+			autoplaySpeed: 4000,
 			slide: 'div',
 			dots: true
 		});
