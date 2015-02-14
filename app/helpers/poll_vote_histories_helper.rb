@@ -1,2 +1,0 @@
-module PollVoteHistoriesHelper
-end
