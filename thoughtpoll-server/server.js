@@ -1,6 +1,20 @@
 // Import required modules.
 var express = require('express');
 var stormpath = require('express-stormpath');
+var mongoose = require("mongoose");
+
+mongoose.connect('mongodb://localhost/questions')
+
+var questionSchema = {
+	questionId:Number,
+    questionText:String,
+    answers: [{
+    	answerId:Number,
+    	answerText:String
+    }]
+};
+
+var Question = mongoose.model('Question', questionSchema, 'questions');
 
 // Initialize our Express app.
 var app = express();
@@ -25,7 +39,11 @@ app.get('/', function(req, res) {
 
 // Generate a simple dashboard page.
 app.get(qotdURI, stormpath.loginRequired, function(req, res) {
-  res.send('Hi: ' + req.user.email + '. Logout <a href="/logout">here</a>');
+  // res.send('Hi: ' + req.user.email + '. Logout <a href="/logout">here</a>');
+  Question.find({}, function (err, questions) {
+  	var qotd = questions[0];
+  	res.json(qotd);
+  });
 });
 
 // Post a new QOTD
