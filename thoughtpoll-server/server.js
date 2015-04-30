@@ -3,18 +3,21 @@ var express = require('express');
 var stormpath = require('express-stormpath');
 var mongoose = require("mongoose");
 
-mongoose.connect('mongodb://localhost/questions')
+mongoose.connect('mongodb://localhost/thoughtpoll')
 
-var questionSchema = {
+var AnswerSchema = {
+	answerId:Number,
+	answerText:String,
+	count:Number
+}
+
+var QuestionSchema = {
 	questionId:Number,
     questionText:String,
-    answers: [{
-    	answerId:Number,
-    	answerText:String
-    }]
+    answers: [AnswerSchema]
 };
 
-var Question = mongoose.model('Question', questionSchema, 'questions');
+var Question = mongoose.model('Question', QuestionSchema, 'questions');
 
 // Initialize our Express app.
 var app = express();
@@ -38,8 +41,8 @@ app.get('/', function(req, res) {
 });
 
 // Generate a simple dashboard page.
-app.get(qotdURI, stormpath.loginRequired, function(req, res) {
-  // res.send('Hi: ' + req.user.email + '. Logout <a href="/logout">here</a>');
+// app.get(qotdURI, stormpath.loginRequired, function(req, res) {
+app.get(qotdURI, function(req, res) {
   Question.find({}, function (err, questions) {
   	var qotd = questions[0];
   	res.json(qotd);
@@ -47,7 +50,26 @@ app.get(qotdURI, stormpath.loginRequired, function(req, res) {
 });
 
 // Post a new QOTD
-// TODO: handle post for new key here
+app.get('/answer', function(req, res) {
+	var qid = req.query.questionId;
+	var aid = req.query.answerId;
+	var query = { questionId : parseInt(qid) };
+	Question.find(query, function (err, questions) {
+  		var qotd = questions[0];
+  		var answerIndex = 0;
+  		if (qotd != null) {
+  			console.log(qotd);
+  			for (var i = 0; i < qotd.answers.length; i++) {
+	  			if (qotd.answers[i].answerId == aid) {
+	  				qotd.answers[i].count++;
+	  				qotd.save();
+	  				res.json(qotd);
+	  				break;
+	  			}
+	  		}
+  		}
+  	});
+});
 
 // Listen for incoming requests and serve them.
 app.listen(process.env.PORT || 3000);
