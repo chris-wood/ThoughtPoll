@@ -35,6 +35,12 @@ var stormpathMiddleware = stormpath.init(app, {
 
 app.use(stormpathMiddleware);
 
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
+
 // Generate a simple home page.
 app.get('/', function(req, res) {
   res.redirect(qotdURI);
@@ -49,21 +55,22 @@ app.get(qotdURI, function(req, res) {
   });
 });
 
-// Post a new QOTD
+// Record a new answer
 app.get('/answer', function(req, res) {
 	var qid = req.query.questionId;
 	var aid = req.query.answerId;
+  console.log(qid + "  " + aid);
 	var query = { questionId : parseInt(qid) };
 	Question.find(query, function (err, questions) {
   		var qotd = questions[0];
   		var answerIndex = 0;
   		if (qotd != null) {
-  			console.log(qotd);
   			for (var i = 0; i < qotd.answers.length; i++) {
 	  			if (qotd.answers[i].answerId == aid) {
 	  				qotd.answers[i].count++;
 	  				qotd.save();
 	  				res.json(qotd);
+            console.log(qotd);
 	  				break;
 	  			}
 	  		}

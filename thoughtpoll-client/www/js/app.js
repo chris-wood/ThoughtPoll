@@ -19,25 +19,65 @@ module.run(function($ionicPlatform) {
 })
 
 module.controller('questionController', ['$scope', '$http', function($scope, $http) {
-  $scope.question = {id:0, text:"Does hot sauce mask flavor?"}
+  $scope.question = {};
+  $scope.answerData = {};
+  $scope.answers = [];
+
+  $scope.answerSubmitted = false;
   $scope.selectedAnswer = {
     aid: 0
   };
-  $scope.answerSubmitted = false;
 
-  $scope.answers = [ 
-    {aid: 1, text: "Yes."}, 
-    {aid: 2, text: "No."} 
-  ];
-
+  var qotdBase = 'http://localhost:3000';
   $scope.submitAnswer = function() {
-    console.log($scope.selectedAnswer.aid);
-    $scope.answerSubmitted = true;
+    var aid = $scope.selectedAnswer.aid;
+    var qid = $scope.question.id;
+
+    var submitUrl = qotdBase + "/answer?questionId=" + qid + "&answerId=" + aid;
+    var resp = {
+      method: 'GET',
+      url: submitUrl,
+      headers: {
+        // 'Access-Control-Allow-Origin': true
+      }
+    };
+    $http(req).success(function(data, status, headers, config) {
+      console.log(submitUrl);
+      $scope.answerSubmitted = true;
+    });
   }
+
+  var qotdUrl = qotdBase + '/qotd';
+  var req = {
+    method: 'GET',
+    url: qotdUrl,
+    headers: {
+      // 'Access-Control-Allow-Origin': true
+    }
+  };
+
+  $http(req).success(function(data, status, headers, config) {
+    $scope.question = {id: parseInt(data["questionId"]), text: data["questionText"]};
+    $scope.answers = [];
+    var answerData = [];
+    var qotdAnswers = data["answers"];
+    for (var i = 0; i < qotdAnswers.length; i++) {
+      var answer = qotdAnswers[i];
+      var answerId = parseInt(answer["answerId"]);
+      var answerText = answer["answerText"];
+      var answerCount = parseInt(answer["count"]);
+      console.log(i + " " + answerCount);
+      $scope.answers.push({aid: answerId, text: answerText});
+      answerData.push({x: answerText + " (" + answerCount + ")", y:[answerCount]})
+    }
+    console.log(answerData);
+    $scope.answerData = {"data": answerData};
+  });
 
   $scope.answerChartConfig = {
     title: '', // chart title. If this is false, no title element will be created.
     tooltips: true,
+
     // exposed events
     mouseover: function() {},
     mouseout: function() {},
@@ -48,6 +88,7 @@ module.controller('questionController', ['$scope', '$http', function($scope, $ht
       display: true, // can be either 'left' or 'right'.
       position: 'left',
     },
+
     // override this array if you're not happy with default colors
     colors: [],
     innerRadius: 0, // Only on pie Charts
@@ -58,20 +99,5 @@ module.controller('questionController', ['$scope', '$http', function($scope, $ht
     yAxisTickFormat: 's', // refer tickFormats in d3 to edit this value
     waitForHeightAndWidth: false // if true, it will not throw an error when the height or width are not defined (e.g. while creating a modal form), and it will be keep watching for valid height and width values
   };
-
-  $scope.answerData = {
-    data: [
-      {
-        x: "Yes.",
-        y: [2],
-        tooltip: "This is a tooltip"
-      },
-      {
-        x: "No.",
-        y: [4],
-        tooltip: "This is a tooltip"
-      }
-    ]
-  }
 
 }]);
